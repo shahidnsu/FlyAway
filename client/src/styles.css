@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+  }
+  
+body {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    font-family: sans-serif;
+}
+  
+  
+.main-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:  450px;
+    height: 100vh;
+    background: #222;
+    color: black;
+    background-color: #E0F6F7;
+    margin: 0 0;
+}
+
+
