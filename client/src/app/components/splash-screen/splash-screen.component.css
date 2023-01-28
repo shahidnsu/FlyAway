@@ -1,11 +1,15 @@
+.main-container {
+    background-color: #E0F6F7;
+}
 
 .bg {
     position: absolute;
-    top: 15rem;
+    top: 12rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .tagline {
     position: absolute;
     width: 20rem;
