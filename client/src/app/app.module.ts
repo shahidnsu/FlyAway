@@ -16,7 +16,7 @@ import { SelectDateAndPlacesComponent } from './components/select-date-and-place
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PopupComponent } from './components/popup/popup.component';
@@ -25,27 +25,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { SelectFlightsComponent } from './components/select-flights/select-flights.component';
-<<<<<<< HEAD
+
 import { MatDividerModule } from '@angular/material/divider';
 import { ProfileInputComponent } from './components/profile-input/profile-input.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
-=======
-import {MatDividerModule} from '@angular/material/divider';
 
+
+
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ProfileInputComponent } from './components/profile-input/profile-input.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
 import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
-import {MatSelectModule} from '@angular/material/select';
-import {MatMenuModule} from '@angular/material/menu';
 
->>>>>>> 19e1f668d276b93a0705a4f3af75b27538ad7feb
 
 
 
@@ -64,20 +59,14 @@ export function playerFactory(): any {
 
     NavbarComponent,
     PopupComponent,
-
     SelectFlightsComponent,
-<<<<<<< HEAD
-    ProfileInputComponent,
-    ProfileComponent,
-    FlightSummaryComponent,
-=======
      InputFieldComponent,
      SignupComponent,
       ProfileInputComponent,
       ProfileComponent,
       FlightSummaryComponent,
       SelectSummaryComponent,
->>>>>>> 19e1f668d276b93a0705a4f3af75b27538ad7feb
+
   ],
   imports: [
     BrowserModule,
