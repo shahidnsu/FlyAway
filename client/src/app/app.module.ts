@@ -20,6 +20,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -35,7 +36,8 @@ export function playerFactory(): any {
     AppComponent,
     SplashScreenComponent,
     LoginComponent,
-    SelectDateAndPlacesComponent
+    SelectDateAndPlacesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
