@@ -8,6 +8,24 @@ body {
     justify-content: center;
     font-family: sans-serif;
 }
+
+button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 104px;
+    gap: 8px;
+    background: #31305A;
+    border: 5px solid #31305A;;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+}
   
   
 .main-container {
@@ -20,6 +38,7 @@ body {
     background: #222;
     color: black;
     margin: 0 0;
+    background-color: white;
 }
 
 

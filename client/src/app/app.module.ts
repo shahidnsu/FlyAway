@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LottieModule } from 'ngx-lottie';
-import player from 'lottie-web';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 import { LoginComponent } from './components/login/login.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 export function playerFactory(): any {  
   return import('lottie-web');
@@ -27,6 +28,8 @@ export function playerFactory(): any {
     AppRoutingModule,
     BrowserAnimationsModule,
     LottieModule.forRoot({ player: playerFactory }),  
+    MatCardModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,21 @@
+.bg {
+    position: absolute;
+    bottom: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login-box {
+    position: absolute;
+    width: 319px;
+    height: 318px;
+    left: 20px;
+    top: 132px;
+}
+button {
+    position: absolute;
+    width: 23rem;
+    height: 48px;
+    left: 2.5rem;
+    top: 5rem;
+}

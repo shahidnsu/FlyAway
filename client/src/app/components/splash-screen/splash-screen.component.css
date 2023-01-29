@@ -24,26 +24,11 @@
 }
 
 button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 104px;
-    gap: 8px;
     position: absolute;
     width: 23rem;
     height: 48px;
     left: 2.5rem;
     bottom: 5rem;
-    background: #31305A;
-    border: 5px solid #31305A;;
-    border-radius: 8px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    text-align: center;
-    color: #FFFFFF;
 }
 
 button:hover {
