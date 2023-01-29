@@ -26,8 +26,17 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import { SelectFlightsComponent } from './components/select-flights/select-flights.component';
 import {MatDividerModule} from '@angular/material/divider';
+
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { ProfileInputComponent } from './components/profile-input/profile-input.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 
@@ -50,9 +59,14 @@ export function playerFactory(): any {
     SelectFlightsComponent,
      InputFieldComponent,
      SignupComponent,
+      ProfileInputComponent,
+      ProfileComponent,
+      FlightSummaryComponent,
+      SelectSummaryComponent,
   ],
   imports: [
     BrowserModule,
+    MatToolbarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -66,7 +80,9 @@ export function playerFactory(): any {
     MatGridListModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule,
+    MatMenuModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

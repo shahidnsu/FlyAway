@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
 import { LoginComponent } from './components/login/login.component';
 import { SelectDateAndPlacesComponent } from './components/select-date-and-places/select-date-and-places.component';
 import { SelectFlightsComponent } from './components/select-flights/select-flights.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'select', component: SelectDateAndPlacesComponent},
-  {path: 'select-flights', component: SelectFlightsComponent}
+  {path: 'select-flights', component: SelectFlightsComponent},
+  {path: 'flight-summary', component: FlightSummaryComponent}
 ];
 
 @NgModule({
