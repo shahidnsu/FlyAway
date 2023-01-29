@@ -1,0 +1,58 @@
+<div class="main-container">
+    <div class="login-box">
+        <mat-card class="example-card">
+            <mat-card-title>Create an account</mat-card-title>
+            <!-- <mat-card-title>Sketch your flights with us</mat-card-title> -->
+        <mat-card-content>
+            <form [formGroup]="signupForm" class="form">
+                <app-input-field type="text" label="First name" holder="Enter your first name" [formControl]="firstNameFormControl"></app-input-field> 
+                <!-- <mat-error *ngIf="firstNameFormControl.hasError('required')">
+                    First name is <strong>required</strong>
+                </mat-error>    -->
+                <app-input-field type="text" label="Enter your last name" holder="Enter your last name" [formControl]="lastNameFormControl"></app-input-field>
+                <!-- <mat-error *ngIf="lastNameFormControl.hasError('required')">
+                    Last name is <strong>required</strong>
+                </mat-error>                       -->
+                <app-input-field type="email" label="Enter your email" holder="pat@example.com" [formControl]="emailFormControl"></app-input-field>  
+                <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>  -->
+            <app-input-field type="password" label="Enter your password" holder="Enter your password" [formControl]="passwordFormControl"></app-input-field> 
+                 <!-- <mat-error *ngIf="passportFormControl.hasError('required')"> 
+                    Password is <strong>required</strong>
+                </mat-error>    -->
+                <app-input-field type="password" label="Confirm your password" holder="Confirm your password" [formControl]="confirmPasswordFormControl"></app-input-field>  
+                <!-- <mat-error *ngIf="confirmPasswordFormControl.hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>   -->
+                <!-- <app-input-field type="date" label="Date of Birth" holder="Date of Birth" [formControl]="dobFormControl"></app-input-field> -->
+                <!-- <mat-error *ngIf="dobFormControl.hasError('required')">
+                    Date of Birth is <strong>required</strong>
+                </mat-error>   -->
+                <!-- <app-input-field type="text" label="Country" holder="Country" [formControl]="countryFormControl"></app-input-field> -->
+                <!-- <mat-error *ngIf="countryFormControl.hasError('required')">
+                    Date of Birth is <strong>required</strong>
+                </mat-error>     -->
+                <!-- <app-input-field type="text" label="Passport No." holder="Passport No." [formControl]="passportFormControl"></app-input-field>    -->
+
+
+                    <!-- <p *ngIf="error" class="error">
+                        {{ error }}
+                    </p> -->
+            <button class="button-class" (click)="signup()">Sign Up</button>
+            <p>Already have an account?  <span style="font-weight: bolder;text-decoration: underline;" routerLink="/login">Log In</span></p>
+
+
+            </form>
+        </mat-card-content>
+    </mat-card>
+    </div>
+    <ng-lottie
+        class="bg"
+        [options]="options" 
+        (animationCreated)="onAnimate($event)">
+    </ng-lottie>
+</div>
