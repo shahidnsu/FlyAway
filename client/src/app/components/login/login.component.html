@@ -13,15 +13,27 @@
                     </mat-error>
                 </app-input-field>  
 
-                <app-input-field [type]="hide ? 'password' : 'text'" label="Enter your password" holder="Enter your password">
-                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-                </app-input-field> 
+                <mat-form-field appearance="outline" class="field-full-width">
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput [formControl]="emailFormControl" placeholder="pat@example.com">
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                </mat-form-field>
 
+                <mat-form-field  appearance="outline" class="field-full-width">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </mat-form-field>
                 <!-- <p *ngIf="error" class="error">
                     {{ error }}
                 </p> -->
-          <button class="button-class" (click)="login()">Log In</button>
-          <p>Don’t have an account?  <span style="font-weight: bolder;text-decoration: underline;"routerLink="/signup" >Sign Up</span></p>
+          <button class="button-class" type="submit" (click)="login()">Log In</button>
+          <p>Don’t have an account?  <span style="font-weight: bolder;text-decoration: underline;">Sign Up</span></p>
 
 
         </form>

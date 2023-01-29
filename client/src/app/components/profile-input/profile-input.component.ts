@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile-input.component.css']
 })
 export class ProfileInputComponent {
+  
 
 }
