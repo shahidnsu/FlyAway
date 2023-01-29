@@ -1,0 +1,9 @@
+
+.logo {
+    display: inline-block;
+    position: absolute;
+    top: 0.5rem;
+    left: 1px;
+    z-index: 1;
+}
+

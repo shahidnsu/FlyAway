@@ -1,15 +1,16 @@
 .bg {
     position: absolute;
-    bottom: 0;
+    bottom: 3rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    width:auto;
+    height: auto;
 }
 .login-box {
     position: absolute;
-    width: 319px;
-    height: 318px;
-    left: 20px;
+    margin-left: auto;
+    margin-right: auto;
     top: 132px;
     z-index: 1;
 }
@@ -44,9 +45,6 @@
     margin-left: 8px;
   }
 
- 
-  
-
   .error {
     padding: 16px;
     width: 300px;
@@ -65,4 +63,6 @@
     left: 2.5rem;
     top: 5rem;
     background-color: #31305A;
+    margin-top: 1rem;
+
 }

@@ -17,6 +17,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PopupComponent } from './components/popup/popup.component';
+
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
@@ -37,7 +41,11 @@ export function playerFactory(): any {
     SplashScreenComponent,
     LoginComponent,
     SelectDateAndPlacesComponent,
-    SelectFlightsComponent
+
+    NavbarComponent,
+    PopupComponent,
+
+    SelectFlightsComponent,
   ],
   imports: [
     BrowserModule,

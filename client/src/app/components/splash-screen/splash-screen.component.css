@@ -8,6 +8,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    width:auto;
+    height: auto;
 }
 
 .tagline {
@@ -24,11 +26,12 @@
 }
 
 button {
-    position: absolute;
+    position: absolute; 
+    bottom: 5rem; 
+    margin-right: auto;
+    margin-left: auto;
     width: 23rem;
     height: 48px;
-    left: 2.5rem;
-    bottom: 5rem;
 }
 
 button:hover {
