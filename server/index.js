@@ -16,9 +16,10 @@ dotenv.config();
 app.use(cors(corsConfig));
 app.use(express.json());
 app.use(router);
-//for testing branch
-//
-console.log("testing");
+
+//development branch
+
+console.log("development");
 // handling if routes not found
 app.get("*", (req, res) => {
     res.status(404);
