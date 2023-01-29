@@ -30,6 +30,6 @@ export class LoginComponent {
   }
 
   login() {
-    throw new Error('Method not implemented.');
+    console.log(this.loginForm.value);
   }
 }
