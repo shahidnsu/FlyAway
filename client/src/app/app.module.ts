@@ -15,6 +15,7 @@ import { SelectDateAndPlacesComponent } from './components/select-date-and-place
 import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -41,9 +42,10 @@ export function playerFactory(): any {
     MatInputModule,
     MatIconModule,
     MatGridListModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
