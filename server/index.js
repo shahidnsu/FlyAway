@@ -19,7 +19,7 @@ app.use(router);
 
 //development branch
 
-console.log("development");
+console.log("development branch is created ");
 // handling if routes not found
 app.get("*", (req, res) => {
     res.status(404);
