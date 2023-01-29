@@ -17,13 +17,8 @@ app.use(cors(corsConfig));
 app.use(express.json());
 app.use(router);
 
-
-
 console.log("testing");
-
-
-
-
+console.log("server");
 
 // handling if routes not found
 app.get("*", (req, res) => {
