@@ -2,14 +2,14 @@
     margin: 0;
   }
   
-body {
+/* body {
     display: flex;
     background-color: white;
     justify-content: center;
     font-family: sans-serif;
-}
+} */
  
-.main-container {
+/* .main-container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@ body {
     margin: 0 0;
     background-color: white;
 
-}
+} */
 
 .button-class {
     display: flex;
