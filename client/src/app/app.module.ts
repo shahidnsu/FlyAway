@@ -30,6 +30,9 @@ import { ProfileInputComponent } from './components/profile-input/profile-input.
 import { ProfileComponent } from './pages/profile/profile.component';
 import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -53,6 +56,7 @@ export function playerFactory(): any {
       ProfileInputComponent,
       ProfileComponent,
       FlightSummaryComponent,
+      SelectSummaryComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,9 @@ export function playerFactory(): any {
     MatGridListModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule,
+    MatMenuModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
