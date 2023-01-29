@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +9,11 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  
+
   hide = true;
   error : string = '';
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+
   loginForm = this.fb.group({
     email:'',
     password:''

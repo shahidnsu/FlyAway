@@ -21,6 +21,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PopupComponent } from './components/popup/popup.component';
 
 
 
@@ -37,7 +38,8 @@ export function playerFactory(): any {
     SplashScreenComponent,
     LoginComponent,
     SelectDateAndPlacesComponent,
-    NavbarComponent
+    NavbarComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
