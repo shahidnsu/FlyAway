@@ -9,7 +9,7 @@ body {
     font-family: sans-serif;
 }
 
-button {
+.button-class {
     display: flex;
     flex-direction: row;
     justify-content: center;
