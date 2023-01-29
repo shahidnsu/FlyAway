@@ -10,9 +10,6 @@ import { LottieModule } from 'ngx-lottie';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 import { LoginComponent } from './components/login/login.component';
 
-
-
-import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { SelectDateAndPlacesComponent } from './components/select-date-and-places/select-date-and-places.component';
@@ -21,6 +18,14 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
 
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PopupComponent } from './components/popup/popup.component';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import { SelectFlightsComponent } from './components/select-flights/select-flights.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -35,7 +40,12 @@ export function playerFactory(): any {
     AppComponent,
     SplashScreenComponent,
     LoginComponent,
-    SelectDateAndPlacesComponent
+    SelectDateAndPlacesComponent,
+
+    NavbarComponent,
+    PopupComponent,
+
+    SelectFlightsComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,12 +57,12 @@ export function playerFactory(): any {
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-
-
+    MatListModule,
+    MatDividerModule,
     MatGridListModule,
     MatDatepickerModule,
-    MatNativeDateModule
-
+    MatNativeDateModule,
+    MatButtonModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
