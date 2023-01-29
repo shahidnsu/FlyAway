@@ -19,6 +19,7 @@ app.use(router);
 //for testing branch
 //
 console.log("testing");
+console.lo("server");
 // handling if routes not found
 app.get("*", (req, res) => {
     res.status(404);
