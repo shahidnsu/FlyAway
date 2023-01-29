@@ -1,0 +1,8 @@
+.selectItem{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column ;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: white !important;
+}
