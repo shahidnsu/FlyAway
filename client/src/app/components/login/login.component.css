@@ -11,11 +11,58 @@
     height: 318px;
     left: 20px;
     top: 132px;
+    z-index: 1;
 }
-button {
-    position: absolute;
+
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .field-full-width {
+    width: 100%;
+  }
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+  mat-card-title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #31305A;
+  }
+
+  p {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #31305A;
+    text-align: center;
+  }
+  .example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+
+ 
+  
+
+  .error {
+    padding: 16px;
+    width: 300px;
+    color: white;
+    background-color: red;
+  }
+  .example-card {
+    width: 25rem;
+    margin-bottom: 8px;
+  }
+  
+ button {
+    /* position: absolute; */
     width: 23rem;
     height: 48px;
     left: 2.5rem;
     top: 5rem;
+    background-color: #31305A;
 }
