@@ -26,6 +26,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import { SelectFlightsComponent } from './components/select-flights/select-flights.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { ProfileInputComponent } from './components/profile-input/profile-input.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -46,6 +48,8 @@ export function playerFactory(): any {
     PopupComponent,
 
     SelectFlightsComponent,
+      ProfileInputComponent,
+      ProfileComponent,
   ],
   imports: [
     BrowserModule,
