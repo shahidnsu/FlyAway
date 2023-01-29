@@ -17,9 +17,6 @@ app.use(cors(corsConfig));
 app.use(express.json());
 app.use(router);
 
-//development branch
-// branch testing
-
 
 // handling if routes not found
 app.get("*", (req, res) => {
