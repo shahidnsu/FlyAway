@@ -24,8 +24,8 @@ export class LoginComponent {
   isError: boolean = false;
 
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required)
+    email: new FormControl('', [Validators.email]),
+    password: new FormControl('')
   })
 
   options: AnimationOptions = {

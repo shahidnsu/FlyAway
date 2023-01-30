@@ -19,8 +19,8 @@
                      placeHolder="enter your password">
                     </app-input-field>
 
-                    <div  *ngIf="isError">{{userError}}</div>
-                    <div  *ngIf="isSubmitted">Login Successfull</div>
+                    <div class="error" *ngIf="isError">{{userError}}</div>
+                    <div *ngIf="isSubmitted">Login Successfull</div>
         
                     <button class="button-class" type='submit' (click)="login()">Sign In</button>
                     <p>Don’t have an account?  <a routerLink="/signup" style="font-weight: bolder;text-decoration: underline;">Sign Up</a></p>
