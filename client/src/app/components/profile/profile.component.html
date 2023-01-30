@@ -31,7 +31,7 @@
                     <mat-form-field appearance="outline" class="field-full-width" formControlName="dob">
                         <mat-label>Date of Birth</mat-label>
                         <input matInput [matDatepicker]="picker">
-                        <mat-datepicker-toggle matIconPrefix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker-toggle matIconPrefix [for]="picker" [ngStyle]="{'color':'black'}"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
 
