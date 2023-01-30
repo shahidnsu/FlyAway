@@ -96,3 +96,32 @@ export function playerFactory(): any {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+@NgModule({
+    declarations: [
+       
+    ],
+    providers: [MatDatepickerModule],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        MatToolbarModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        LottieModule.forRoot({ player: playerFactory }),
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatListModule,
+        MatDividerModule,
+        MatGridListModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatMenuModule,
+    ]
+})
+export class AppModule { }
