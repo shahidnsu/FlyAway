@@ -23,14 +23,14 @@
                     <mat-datepicker-toggle matIconPrefix [for]="picker"
                         [ngStyle]="{'color':'black'}"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
-                    </>
+                </mat-form-field>
 
-                    <app-input-field [control]="profileForm.controls.country" icon="add_location" label="Country"
-                        type="text" placeHolder="Country">
-                    </app-input-field>
+                <app-input-field [control]="profileForm.controls.country" icon="add_location" label="Country"
+                    type="text" placeHolder="Country">
+                </app-input-field>
 
-                    <button class="button-class" type='submit' (click)="confirm()">Confirm</button>
-                    <button class="button-class opposite" type='submit' (click)="skip()">Skip</button>
+                <button class="button-class" type='submit' (click)="confirm()">Confirm</button>
+                <button class="button-class opposite" type='submit' (click)="skip()">Skip</button>
 
             </form>
         </mat-card-content>
