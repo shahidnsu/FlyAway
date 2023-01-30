@@ -3,9 +3,19 @@
     <input type="{{type}}" matInput  placeholder="{{holder}}" [formControl]="formControl">
 </mat-form-field> -->
 
-<form class="form">
+<!-- <form class="form">
     <mat-form-field appearance="outline" class="field-full-width">
         <mat-label>{{label}}</mat-label>
         <input type="{{type}}" matInput  placeholder="{{holder}}" [formControl]="formControl">
     </mat-form-field>
-</form>
+</form> -->
+
+<div>
+    <mat-form-field appearance="outline">
+        <mat-label>{{label}}</mat-label>
+        <input matInput
+         [type]="type" 
+         [formControl]="control" 
+         [placeholder]="placeHolder">
+    </mat-form-field>
+</div>
