@@ -20,10 +20,10 @@
     max-width: 500px;
     width: 100%;
   }
-
   .field-full-width {
     width: 100%;
-  }
+}
+ 
   mat-card-title,
   mat-card-content {
     display: flex;
@@ -64,7 +64,9 @@
     top: 5rem;
     background-color: #31305A;
     margin-top: 1rem;
+
 }
+
  
 .main-container {
   position: relative;

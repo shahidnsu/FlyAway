@@ -1,4 +1,33 @@
-    <ul >
-        <li class= "logo" routerLink=" "><img src="../../../assets/FlyAwayLogo.svg"> </li>
-        <!-- <li class= "logo" style="float:right;"> <mat-icon>horizontal_split</mat-icon></li> -->
-    </ul>
+   
+
+
+    <mat-toolbar style="background-color:transparent">
+        <mat-toolbar-row style="display: flex; justify-content: space-between;">
+          <img src="../../../assets/FlyAwayLogo.svg"/>
+
+          <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon>menu</mat-icon>
+          </button>
+
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              
+              <span>Profile</span>
+            </button>
+            <button mat-menu-item>
+              <span>Previous Flights</span>
+            </button>
+            <button mat-menu-item>
+              <span>Upcoming Flight</span>
+            </button>
+            <button mat-menu-item>
+                <span>Logout</span>
+              </button>
+          </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+
+
+    
+      
