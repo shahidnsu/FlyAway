@@ -17,6 +17,7 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    //type of  angular date is  object so to avoid complexity we are using string 
     dob:{
         type: Date,
         required:true
