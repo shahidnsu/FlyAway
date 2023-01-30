@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 
@@ -10,7 +10,7 @@ import { AnimationOptions } from 'ngx-lottie';
 })
 export class SignupComponent {
 
-  error : string = '';
+  error: string = '';
 
   firstNameFormControl = new FormControl('', [Validators.required]);
   lastNameFormControl = new FormControl('', [Validators.required]);
@@ -23,29 +23,30 @@ export class SignupComponent {
   // passportFormControl = new FormControl('', [Validators.required]);
 
 
-  signupForm = this.fb.group({
-    firstName:'',
-    lastName:'',
-    email:'',
-    password:'',
-    confirmPassword:'',
+  signupForm = new FormGroup({
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', Validators.required),
     // dob:'',
-    // phoneNumber:'',
+    phoneNumber: new FormControl('',Validators.required)
     // country:'',
     // passport:''
   });
 
-options: AnimationOptions = {    
-  path: './assets/46541-nature-visite-travel.json'  
-};  
+  options: AnimationOptions = {
+    path: './assets/46541-nature-visite-travel.json'
+  };
 
-constructor(private fb: FormBuilder) { }  
+  constructor(private fb: FormBuilder) { }
 
-onAnimate(animationItem: AnimationItem): void {    
-  //console.log(animationItem);  
-}
-signup() {
-  throw new Error('Method not implemented.');
-  
+  onAnimate(animationItem: AnimationItem): void {
+    //console.log(animationItem);  
+  }
+
+  signup() {
+    console.log(this.signupForm.value);
+
   }
 }
