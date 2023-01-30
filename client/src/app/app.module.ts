@@ -40,56 +40,59 @@ import { MatMenuModule } from '@angular/material/menu';
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
+import { TestLoginComponent } from './components/test-login/test-login.component';
+import { TestInputComponent } from "./components/test-input/test-input.component";
+
 
 
 
 
 export function playerFactory(): any {
-  return import('lottie-web');
+    return import('lottie-web');
 }
 
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SplashScreenComponent,
-    LoginComponent,
-    SelectDateAndPlacesComponent,
-
-    NavbarComponent,
-    PopupComponent,
-    SelectFlightsComponent,
-     InputFieldComponent,
-     SignupComponent,
-      ProfileInputComponent,
-      ProfileComponent,
-      FlightSummaryComponent,
-      SelectSummaryComponent,
-
-  ],
-  imports: [
-    BrowserModule,
-    MatToolbarModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    LottieModule.forRoot({ player: playerFactory }),
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatListModule,
-    MatDividerModule,
-    MatGridListModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatMenuModule
-  ],
-  providers: [MatDatepickerModule],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        SplashScreenComponent,
+        LoginComponent,
+        SelectDateAndPlacesComponent,
+        NavbarComponent,
+        PopupComponent,
+        SelectFlightsComponent,
+        InputFieldComponent,
+        SignupComponent,
+        ProfileInputComponent,
+        ProfileComponent,
+        FlightSummaryComponent,
+        SelectSummaryComponent,
+        TestLoginComponent,
+        TestInputComponent
+    ],
+    providers: [MatDatepickerModule],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        MatToolbarModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        LottieModule.forRoot({ player: playerFactory }),
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatListModule,
+        MatDividerModule,
+        MatGridListModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatMenuModule,
+    ]
 })
 export class AppModule { }
