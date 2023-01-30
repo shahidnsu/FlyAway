@@ -13,11 +13,11 @@
                     
                     
                     <app-input-field 
-                    [control]="profileForm.controls.address" 
+                    [control]="profileForm.controls.email" 
                      icon = "gps_fixed"
-                     label="Address" 
-                     type="text"
-                     placeHolder="Address">
+                     label="Email" 
+                     type="email"
+                     placeHolder="Your Email">
                     </app-input-field>
 
                     <app-input-field 
@@ -28,9 +28,9 @@
                      placeHolder="Passport">
                     </app-input-field>
 
-                    <mat-form-field appearance="outline" class="field-full-width" formControlName="dob">
+                    <mat-form-field appearance="outline" class="field-full-width" >
                         <mat-label>Date of Birth</mat-label>
-                        <input matInput [matDatepicker]="picker">
+                        <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
                         <mat-datepicker-toggle matIconPrefix [for]="picker" [ngStyle]="{'color':'black'}"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>

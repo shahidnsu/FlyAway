@@ -19,6 +19,12 @@ export class AuthService {
   login(email: string , password: string ) {
     return this.httpClient.post <Login>(`${this.authUrl}/signin`, { email, password },{observe: 'response'});
   }
+
+  getToken(){
+    return localStorage.getItem('token');
+  }
+
+
 }
 
 
