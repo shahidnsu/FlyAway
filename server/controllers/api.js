@@ -1,12 +1,14 @@
 const Amadeus = require("amadeus") 
-const dotenv = require("dotenv");
+//const dotenv = require("dotenv");
 const amadeus = new Amadeus({
-    clientId : process.env.clientId || '',
-    clientSecret: process.env.clientSecret || ''
+    clientId : "Xk3oqx7VCr344IidedqmU3UK9Nr7yVRa",
+    clientSecret: "zBh2azNRJADQVa3W",
 })
-const searchAirport = async (res,req) => {
-    const parameter = req.params.parameter
-    await amadeus.reference.locations.get({
+const searchAirport = async (req,res) => {
+    
+    const parameter = req.params['search']
+    
+    await amadeus.referenceData.locations.get({
         keyword: parameter,
         subType: Amadeus.location.airport
     })
@@ -19,7 +21,7 @@ const searchAirport = async (res,req) => {
   
 }
 
-const flightSearch = async (res,req) => {
+const flightSearch = async (reg,res) => {
    const originCode = req.query.originCode;
    const destinationCode = req.query.destinationCode;
    const dateOfDeparture = req.query.dateOfDeparture;
