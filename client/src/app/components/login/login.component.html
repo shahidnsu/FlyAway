@@ -4,21 +4,21 @@
             <mat-card-title>Hi, Welcome Back! 👋</mat-card-title>
             <mat-card-content>
                 <form [formGroup]="loginForm" >
-                    <app-test-input 
+                    <app-input-field 
                     [control]="loginForm.controls.email" 
                     inputId="email" 
                     label="email" 
                     type="email"
                     placeHolder="example@gmail.com">
-                    </app-test-input>
+                    </app-input-field>
                     
-                    <app-test-input 
+                    <app-input-field 
                     [control]="loginForm.controls.password" 
                     inputId="password"
                      label="password" 
                      type="password"
                      placeHolder="enter your password">
-                    </app-test-input>
+                    </app-input-field>
         
                     <button class="button-class" type='submit' (click)="login()">Sign In</button>
                     <p>Don’t have an account?  <a routerLink="/signup" style="font-weight: bolder;text-decoration: underline;">Sign Up</a></p>
