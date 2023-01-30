@@ -11,6 +11,7 @@ export class InputFieldComponent {
   @Input() label = '';
   @Input() placeHolder = '';
   @Input() control = new FormControl();
+  @Input() icon!: string;
 
  ngOnInit(){
  

@@ -1,0 +1,31 @@
+<mat-stepper orientation="vertical">
+
+    <mat-step>
+      <ng-template matStepLabel>
+        <app-select-summary></app-select-summary>
+      </ng-template>
+      <ng-template matStepContent>
+        <app-select-flights></app-select-flights>
+        <button mat-button matStepperNext>Next</button>
+      </ng-template>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>
+        <app-select-summary></app-select-summary>
+      </ng-template>
+      <ng-template matStepContent>
+        <app-select-flights></app-select-flights>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </ng-template>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>
+        <app-select-summary></app-select-summary>
+      </ng-template>
+      <app-select-flights></app-select-flights>
+      <button mat-button matStepperPrevious>Back</button>
+    </mat-step>
+  </mat-stepper>
