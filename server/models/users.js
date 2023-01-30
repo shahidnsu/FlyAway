@@ -17,22 +17,22 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    dob:{
-        type: Date,
-        required:true
-    },
+    // dob:{
+    //     type: Date,
+    //     required:true
+    // },
     phoneNumber: {
         type: String,
         required: true
     },
-    country: {
-        type: String,
-        required: true
-    },
-    passport:{
-        type: String,
-        required: true
-    }
+    // country: {
+    //     type: String,
+    //     required: true
+    // },
+    // passport:{
+    //     type: String,
+    //     required: true
+    // }
 })
 
 const User = mongoose.model('User', userSchema);
