@@ -34,13 +34,20 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
-import { MatSelectModule } from '@angular/material/select';
-import { MatMenuModule } from '@angular/material/menu';
+
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
 import { TestLoginComponent } from './components/test-login/test-login.component';
 import { TestInputComponent } from "./components/test-input/test-input.component";
+
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatStepperModule} from '@angular/material/stepper';
+import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
+import { SearchFlightsPageComponent } from './pages/search-flights-page/search-flights-page.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 
 
@@ -67,10 +74,10 @@ export function playerFactory(): any {
         FlightSummaryComponent,
         SelectSummaryComponent,
         TestLoginComponent,
-        TestInputComponent
+        TestInputComponent,
+        SelectFlightsPageComponent,
+        SearchFlightsPageComponent,
     ],
-    providers: [MatDatepickerModule],
-    bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         MatToolbarModule,
@@ -91,6 +98,10 @@ export function playerFactory(): any {
         MatButtonModule,
         MatSelectModule,
         MatMenuModule,
-    ]
+        MatStepperModule,
+        MatAutocompleteModule
+    ],
+  providers: [MatDatepickerModule],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
