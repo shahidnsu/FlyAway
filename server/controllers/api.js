@@ -76,10 +76,10 @@ const name = req.body.name;
           travelers: [
             {
               id: "1",
-              dateOfBirth: "1982-01-16",
+              dateOfBirth: "1996-12-12",
               name: {
-                firstName: name.first,
-                lastName: name.last,
+                firstName: name.firstName,
+                lastName: name.lastName
               },
               gender: "MALE",
               contact: {
@@ -87,8 +87,8 @@ const name = req.body.name;
                 phones: [
                   {
                     deviceType: "MOBILE",
-                    countryCallingCode: "+880",
-                    number: "1797587727",
+                    countryCallingCode: "+88",
+                    number: "01797587727",
                   },
                 ],
               },
@@ -120,4 +120,4 @@ const name = req.body.name;
     });
 
 }
-module.exports={searchAirport, flightSearch,flightConfirmation}
+module.exports={searchAirport, flightSearch,flightConfirmation,flightBooking}
