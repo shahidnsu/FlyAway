@@ -79,6 +79,7 @@ export function playerFactory(): any {
         SearchFlightsPageComponent,
     ],
     imports: [
+        ReactiveFormsModule,
         BrowserModule,
         MatToolbarModule,
         AppRoutingModule,
