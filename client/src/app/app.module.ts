@@ -27,7 +27,6 @@ import { MatCardModule } from '@angular/material/card';
 import { SelectFlightsComponent } from './components/select-flights/select-flights.component';
 
 import { MatDividerModule } from '@angular/material/divider';
-import { ProfileInputComponent } from './components/profile-input/profile-input.component';
 import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
@@ -47,10 +46,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
 import { SearchFlightsPageComponent } from './pages/search-flights-page/search-flights-page.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-
-
-
-
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 export function playerFactory(): any {
@@ -70,13 +66,13 @@ export function playerFactory(): any {
         SelectFlightsComponent,
         InputFieldComponent,
         SignupComponent,
-        ProfileInputComponent,
         FlightSummaryComponent,
         SelectSummaryComponent,
         TestLoginComponent,
         TestInputComponent,
         SelectFlightsPageComponent,
         SearchFlightsPageComponent,
+        ProfileComponent,
     ],
     imports: [
         BrowserModule,

@@ -98,3 +98,8 @@
   text-align: center;
   color: #FFFFFF;
 }
+
+button:hover {
+  cursor: pointer;
+  box-shadow: #31305A;
+}
