@@ -12,7 +12,9 @@ export class LoginComponent {
 
   hide = true;
   error : string = '';
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  emailFormControl = new FormControl('');
+
+ // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   
   loginForm = this.fb.group({
     email:'',
