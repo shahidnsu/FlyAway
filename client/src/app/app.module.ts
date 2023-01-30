@@ -36,6 +36,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatStepperModule} from '@angular/material/stepper';
+import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
+import { SearchFlightsPageComponent } from './pages/search-flights-page/search-flights-page.component';
 
 
 
@@ -63,6 +66,8 @@ export function playerFactory(): any {
       ProfileComponent,
       FlightSummaryComponent,
       SelectSummaryComponent,
+      SelectFlightsPageComponent,
+      SearchFlightsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +87,8 @@ export function playerFactory(): any {
     MatNativeDateModule,
     MatButtonModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatStepperModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

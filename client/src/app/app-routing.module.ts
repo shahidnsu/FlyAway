@@ -6,13 +6,14 @@ import { SelectDateAndPlacesComponent } from './components/select-date-and-place
 import { SelectFlightsComponent } from './components/select-flights/select-flights.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
+import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
 
 const routes: Routes = [
   {path: '', component: SplashScreenComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'select', component: SelectDateAndPlacesComponent},
-  {path: 'select-flights', component: SelectFlightsComponent},
+  {path: 'search-flights', component: SelectDateAndPlacesComponent},
+  {path: 'select-flights', component: SelectFlightsPageComponent},
   {path: 'flight-summary', component: FlightSummaryComponent}
 ];
 
