@@ -28,7 +28,6 @@ import { SelectFlightsComponent } from './components/select-flights/select-fligh
 
 import { MatDividerModule } from '@angular/material/divider';
 import { ProfileInputComponent } from './components/profile-input/profile-input.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
@@ -65,7 +64,6 @@ export function playerFactory(): any {
         InputFieldComponent,
         SignupComponent,
         ProfileInputComponent,
-        ProfileComponent,
         FlightSummaryComponent,
         SelectSummaryComponent,
         TestLoginComponent,
