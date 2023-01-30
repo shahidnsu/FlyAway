@@ -39,6 +39,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatStepperModule} from '@angular/material/stepper';
 import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
 import { SearchFlightsPageComponent } from './pages/search-flights-page/search-flights-page.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 
@@ -88,7 +89,8 @@ export function playerFactory(): any {
     MatButtonModule,
     MatSelectModule,
     MatMenuModule,
-    MatStepperModule
+    MatStepperModule,
+    MatAutocompleteModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
