@@ -2,25 +2,45 @@
     <div class="login-box">
         <mat-card class="example-card">
             <mat-card-title>Hi, Welcome Back! 👋</mat-card-title>
-      <mat-card-content>
+            <mat-card-content>
+                <form [formGroup]="loginForm" >
+                    <app-test-input 
+                    [control]="loginForm.controls.email" 
+                    inputId="email" 
+                    label="email" 
+                    type="email"
+                    placeHolder="example@gmail.com">
+                    </app-test-input>
+                    
+                    <app-test-input 
+                    [control]="loginForm.controls.password" 
+                    inputId="password"
+                     label="password" 
+                     type="password"
+                     placeHolder="enter your password">
+                    </app-test-input>
+        
+                    <button class="button-class" type='submit' (click)="login()">Sign In</button>
+                    <p>Don’t have an account?  <a routerLink="/signup" style="font-weight: bolder;text-decoration: underline;">Sign Up</a></p>
+                </form>
+            </mat-card-content>
+      <!-- <mat-card-content>
         <form [formGroup]="loginForm" class="form"> 
             <app-input-field type="email" label="Enter your email" holder="pat@example.com" [formControl]="emailFormControl">
                 <input matInput name="email" formControlName="email" />
             </app-input-field>  
             <app-input-field type="password" label="Enter your password" holder="Enter your password">
                 <input matInput  name="password" formControlName="password" />
-            </app-input-field> 
+            </app-input-field>  -->
  
             <!-- <p *ngIf="error" class="error">
                 {{ error }}
             </p> -->
 
-          <button class="button-class" type="submit" (click)="login()">Log In</button>
-          <p>Don’t have an account?  <span style="font-weight: bolder;text-decoration: underline;">Sign Up</span></p>
-
-
-        </form>
-      </mat-card-content>
+          <!-- <button class="button-class" type="submit" (click)="login()">Log In</button>
+          <p>Don’t have an account?  <span style="font-weight: bolder;text-decoration: underline;">Sign Up</span></p> -->
+        <!-- </form> -->
+      <!-- </mat-card-content> -->
     </mat-card>
     </div>
     <ng-lottie

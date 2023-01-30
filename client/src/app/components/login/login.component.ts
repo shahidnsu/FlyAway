@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,24 +11,22 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 export class LoginComponent {
 
   hide = true;
-  error : string = '';
+  error: string = '';
   emailFormControl = new FormControl('');
 
- // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  
-  loginForm = this.fb.group({
-    email:'',
-    password:''
-  });
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required)
+  })
 
-  options: AnimationOptions = {    
-    path: './assets/46541-nature-visite-travel.json'  
-  };  
+  options: AnimationOptions = {
+    path: './assets/46541-nature-visite-travel.json'
+  };
 
-  constructor(private fb: FormBuilder) { }  
+  constructor(private fb: FormBuilder) { }
 
-  onAnimate(animationItem: AnimationItem): void {    
-    console.log(animationItem);  
+  onAnimate(animationItem: AnimationItem): void {
+    console.log(animationItem);
   }
 
   login() {

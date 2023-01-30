@@ -9,7 +9,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class TestLoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { 
-    // this.loginForm.valueChanges.subscribe(res=> console.log(res));
   }
   ngOnInit(): void {
   }
