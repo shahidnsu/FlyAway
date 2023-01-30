@@ -19,8 +19,7 @@ app.use(express.json());
 app.use(router);
 app.use(bodyParser.json())
 
-console.log("testing");
-console.log("server");
+
 
 // handling if routes not found
 app.get("*", (req, res) => {
