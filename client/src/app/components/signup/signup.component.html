@@ -1,5 +1,4 @@
 <div class="main-container">
-    <div class="login-box">
         <mat-card class="example-card">
             <mat-card-title>Create an account</mat-card-title>
             <!-- <mat-card-title>Sketch your flights with us</mat-card-title> -->
@@ -96,8 +95,8 @@
                     <!-- <p *ngIf="error" class="error">
                         {{ error }}
                     </p> -->
-                    <div *ngIf="isError">{{userError}}</div>
-                    <div *ngIf="isPassError">{{userError}}</div>
+                    <div class="error" *ngIf="isError">{{userError}}</div>
+                    <div class="error" *ngIf="isPassError">{{userError}}</div>
                     <div *ngIf="isSubmitted">signup Successful</div>
 
                     <button class="button-class" (click)="signup()">Sign Up</button>
@@ -111,4 +110,3 @@
     </div>
     <ng-lottie class="bg" [options]="options" (animationCreated)="onAnimate($event)">
     </ng-lottie>
-</div>
