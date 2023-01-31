@@ -1,7 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/service/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,26 +13,57 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent {
 
-  hide = true;
-  error : string = '';
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  // hide = true;
+  // error: string = '';
+  // errorMsg: string = '';
+  // emailFormControl = new FormControl('');
 
-  loginForm = this.fb.group({
-    email:'',
-    password:''
-  });
 
-  options: AnimationOptions = {    
-    path: './assets/46541-nature-visite-travel.json'  
-  };  
+  isSubmitted: boolean = false;
+  userError: string = '';
+  isError: boolean = false;
 
-  constructor(private fb: FormBuilder) { }  
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.email]),
+    password: new FormControl('')
+  })
 
-  onAnimate(animationItem: AnimationItem): void {    
-    console.log(animationItem);  
+  options: AnimationOptions = {
+    path: './assets/46541-nature-visite-travel.json'
+  };
+
+  constructor(private fb: FormBuilder,
+    private auth: AuthService,
+    private router:Router) { }
+
+  onAnimate(animationItem: AnimationItem): void {
+    console.log(animationItem);
   }
 
   login() {
-    throw new Error('Method not implemented.');
+    if (this.loginForm.valid) {
+
+      this.auth.login(this.loginForm.value.email!, this.loginForm.value.password!).subscribe({
+        next: (response: any) => {
+
+          console.log(response);
+          localStorage.setItem('token', response.headers.get('authorization'));
+          localStorage.setItem('user', response.body.email);
+
+          this.isError = false;
+          this.isSubmitted = true;
+          this.loginForm.reset();
+
+          setTimeout(() => {
+            this.router.navigate(['select-flights']);
+          }, 1000)
+          
+        },
+        error: error => {
+          this.userError = error.error.message;
+          this.isError = true;
+        }
+      });
+    }
   }
 }

@@ -7,12 +7,13 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./input-field.component.css']
 })
 export class InputFieldComponent {
- @Input() label: string = "";
- @Input() type: string = "";
- @Input() holder!: string;
- @Input() formControl!: FormControl;
- //@Input() formC: string="";
+  @Input() type = '';
+  @Input() label = '';
+  @Input() placeHolder = '';
+  @Input() control = new FormControl();
+  @Input() icon!: string;
+
  ngOnInit(){
-  console.log(this.holder);
+ 
  }
 }

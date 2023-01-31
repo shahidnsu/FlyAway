@@ -1,53 +1,49 @@
-
-
-.bg {
-    position: absolute;
-    top: 12rem;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width:auto;
-    height: auto;
-}
-
-.tagline {
-    position: absolute;
-    width: 20rem;
-    top: 9rem;
-    left: 3rem;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-    color: #31305A;
-    z-index: 1;
-}
-
-button {
-    position: absolute; 
-    bottom: 5rem; 
-    margin-right: auto;
-    margin-left: auto;
-    width: 23rem;
-    height: 48px;
-}
-
-button:hover {
-    cursor: pointer;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-}
  
 .main-container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width:  414px;
-    height: 896px;
+    width:  100%;
+    height: 92vh;
     background: #222;
     color: black;
     margin: 0 0;
     background-color: #E0F6F7;
+}
+
+.bg {
+    /* position: absolute;
+    top: 10%; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.tagline {
+    position: absolute;
+    width: 70%;
+    top: 13%;
+    left: 10%;
+    font-weight: 600;
+    font-size: 8vw;
+    line-height: 90%;
+    color: #31305A;
+    z-index: 1;
+}
+
+button {
+    position: absolute; 
+    bottom: 8%; 
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 80%;
+    height: 5%;
 }
 
 .button-class {
@@ -55,15 +51,21 @@ button:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 12px 104px;
+    padding: 1rem 20% 1rem 20%;
+
     gap: 8px;
     background: #31305A;
     border: 5px solid #31305A;
     border-radius: 8px;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 100%;
+    line-height: 5%;
     text-align: center;
     color: #FFFFFF;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
