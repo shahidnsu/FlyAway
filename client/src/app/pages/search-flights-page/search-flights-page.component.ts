@@ -41,20 +41,20 @@ export class SearchFlightsPageComponent implements OnInit {
     'date': Date
   }]
   travelFormSubmit(){
-    console.log("travel form submitted")
+    console.log(this.travelFormArray)
   }
   
   addNewLocation(){
     this.travelFormArray.push({...this.newLeg})
     if(this.travelFormArray.length>1){
       let latestTo = this.travelFormArray[this.travelFormArray.length-1]
-      console.log('latestTo', latestTo)
+      // console.log('latestTo', latestTo)
     }
     
     // console.log(this.travelFormArray)
     console.log('Parent Submit',this.newLeg)
     // this.travelFormArray.shift()
-    console.log(this.travelFormArray)
+    // console.log(this.travelFormArray)
   }
 }
 
