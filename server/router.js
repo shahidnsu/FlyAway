@@ -8,7 +8,7 @@ router.post('/signin', userController.login);
 router.post('/signup', userController.createUser);
 
 router.get('/profile', authMiddleware, userController.profile);
-router.get('/airport/:search', apiController.searchAirport );
+router.get('/airports/:city', apiController.searchAirport );
 router.get('/flight-search', apiController.flightSearch)
 router.post('/flight-confirmation', apiController.flightConfirmation),
 router.post('/flight-booking',apiController.flightBooking)

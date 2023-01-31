@@ -1,28 +1,29 @@
 const Amadeus = require("amadeus");
-
+const fs = require('fs')
+const filePath = __dirname+'/trimmed_airports.json';
+const db = {airports :[]}
+fs.readFile(filePath, 'utf8', function(err,data)  {
+    
+    try{
+        data = JSON.parse(data)
+        
+        db.airports= data
+        
+    }
+    catch (e){
+        console.log(e)
+    }
+})
+//console.log(db)
 const amadeus = new Amadeus({
     clientId: "Xk3oqx7VCr344IidedqmU3UK9Nr7yVRa",
     clientSecret: "zBh2azNRJADQVa3W",
 });
-const searchAirport = async (req, res) => {
-    const parameter = req.params["search"];
 
-    await amadeus.referenceData.locations
-        .get({
-            keyword: parameter,
-            subType: Amadeus.location.any,
-        })
-        .then(function(response) {
-            res.send(response.result);
-        })
-        .catch(function(response) {
-            res.status(404);
-            res.send({
-                error: "404",
-                message: "no airport and city is not founded",
-                success: false,
-            });
-        });
+const searchAirport = async (req, res) => {
+    const city = req.params["city"];
+    let desiredAirports = db.airports.filter((record)=>record.city.toLowerCase().includes(city.toLowerCase()));
+    res.send(desiredAirports);
 };
 
 const flightSearch = async (req, res) => {
