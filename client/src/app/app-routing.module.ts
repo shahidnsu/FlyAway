@@ -9,8 +9,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 import { SearchFlightsPageComponent } from './pages/search-flights-page/search-flights-page.component';
 import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
+import { TestLoginComponent } from './components/test-login/test-login.component';
 
 const routes: Routes = [
+  {path:'test',component:TestLoginComponent},
   {path: '', component: SplashScreenComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
