@@ -47,6 +47,8 @@ import { SelectFlightsPageComponent } from './pages/select-flights-page/select-f
 import { SearchFlightsPageComponent } from './pages/search-flights-page/search-flights-page.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
+import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
 
 
 export function playerFactory(): any {
@@ -73,6 +75,8 @@ export function playerFactory(): any {
         SelectFlightsPageComponent,
         SearchFlightsPageComponent,
         ProfileComponent,
+        ConfirmFlightsComponent,
+        ConfirmFlightsPageComponent,
     ],
     imports: [
         BrowserModule,

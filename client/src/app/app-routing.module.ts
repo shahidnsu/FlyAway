@@ -9,17 +9,20 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 import { SearchFlightsPageComponent } from './pages/search-flights-page/search-flights-page.component';
 import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
-import { TestLoginComponent } from './components/test-login/test-login.component';
+import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
+import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
 
 const routes: Routes = [
-  {path:'test',component:TestLoginComponent},
+  
   {path: '', component: SplashScreenComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'search-flights', component: SearchFlightsPageComponent},
   {path: 'select-flights', component: SelectFlightsPageComponent},
-  {path: 'flight-summary', component: FlightSummaryComponent}
+  {path: 'flight-summary', component: FlightSummaryComponent},
+  {path: 'confirm-flights', component: ConfirmFlightsPageComponent},
+
 ];
 
 @NgModule({
