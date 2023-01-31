@@ -1,3 +1,5 @@
 mat-stepper-vertical {
     margin-top: 8px;
+    visibility: visible !important;
 }
+

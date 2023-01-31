@@ -24,7 +24,7 @@
 }
 @keyframes icon-move {
   0%{left: 0%;}
-  100%{left: 100%;}
+  95%{left: 95%;}
 }
 span {
   display: inline-block;
