@@ -17,5 +17,5 @@ export class ConfirmFlightsPageComponent {
   //     iataCode: "CCU",
   //     airportName:"Subhash Chandra Bose International Airport",
   //   }
-  ];
+  // ];
 }
