@@ -16,11 +16,13 @@ import { AmadeusService } from 'src/app/service/amadeus.service';
 })
 export class ProfileComponent implements OnInit {
   profileForm = new FormGroup({
-    fullname: new FormControl('', Validators.required),
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     passport: new FormControl('', Validators.required),
     dateOfBirth: new FormControl('', Validators.required),
     country: new FormControl('', Validators.required),
+    phoneNumber: new FormControl('', Validators.required)
   });
 
   constructor(
@@ -40,16 +42,17 @@ export class ProfileComponent implements OnInit {
   }
   getProfile() {
     this.apiClient.getProfile().subscribe((response) => {
-      let { firstName, lastName, email, dob, passport, country } = response;
+      let { firstName, lastName, email, dob, passport, country, phoneNumber } = response;
 
-      const fullname = firstName + ' ' + lastName;
       let dateOfBirth = dob.toString();
       this.profileForm.patchValue({
-        fullname,
+        firstName,
+        lastName,
         email,
         passport,
         dateOfBirth,
         country,
+        phoneNumber
       });
     });
   }
