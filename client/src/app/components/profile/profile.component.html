@@ -1,16 +1,13 @@
 <div class="main-container">
     <mat-card class="example-card">
         <mat-card-title>Hello Traveller!</mat-card-title>
+        <mat-card-subtitle style="text-align: center;margin-bottom: 1rem; color: green;">{{msg}}</mat-card-subtitle>
         <mat-card-content>
             <form [formGroup]="profileForm">
-                <!-- <app-input-field [control]="profileForm.controls.fullname" icon="portrait" label="Fullname" type="text"
-                    placeHolder="Fullname">
-                </app-input-field> -->
-
                 <div class="container">
                     <div class="left">
                         <app-input-field [control]="profileForm.controls.firstName" label="First Name" type="text"
-                            placeHolder="example: Kazi">
+                            placeHolder="example: Kazi" icon="contacts">
                         </app-input-field>
                     </div>
                     <div class="right">
@@ -21,7 +18,7 @@
                 </div>
 
 
-                <app-input-field [control]="profileForm.controls.email" icon="gps_fixed" label="Email" type="email"
+                <app-input-field [control]="profileForm.controls.email" icon="email" label="Email" type="email"
                     placeHolder="Your Email">
                 </app-input-field>
 
@@ -46,7 +43,7 @@
                     type="text" placeHolder="Phone Number">
                 </app-input-field>
 
-                <button class="button-class" type='submit' (click)="confirm()">Confirm</button>
+                <button class="button-class" type='submit' (click)="updateProfile()">Confirm</button>
                 <button class="button-class opposite" type='submit' (click)="skip()">Skip</button>
 
             </form>

@@ -24,4 +24,14 @@ export class ApiClientService {
     };
     return this.httpClient.get<User>(`${this.rootUrl}/profile`,httpOptions)
   } 
+
+  updateProfile(firstName: string, lastName: string, email: string, passport: string, dob:string,country:string,phoneNumber:string) : Observable<User> {
+    const httpOptions = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${this.token}`
+      }
+    };
+    return this.httpClient.put<User>(`${this.rootUrl}/profile`, {firstName,lastName,email,passport,dob,country,phoneNumber} ,httpOptions)
+  } 
 }
