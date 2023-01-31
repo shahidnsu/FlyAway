@@ -105,7 +105,7 @@ export function playerFactory(): any {
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
 @NgModule({
     declarations: [
        
