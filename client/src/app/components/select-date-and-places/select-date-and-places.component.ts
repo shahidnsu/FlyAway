@@ -60,9 +60,9 @@ export class SelectDateAndPlacesComponent implements OnInit {
     }
 
     this.travelForm.valueChanges.subscribe((value)=>{
-      console.log('child',value)
+      // console.log('child',value)
       Object.assign(this.newLeg, value)
-      console.log('parent from child', this.newLeg);
+      // console.log('parent from child', this.newLeg);
     })
 
     this.filteredOption = this.travelForm.valueChanges.pipe(
@@ -73,8 +73,8 @@ export class SelectDateAndPlacesComponent implements OnInit {
       map(value => this._tofilter(value))
     );
 
-    this.filteredOption.subscribe(value => console.log(value));
-    this.filteredOptionTo.subscribe(value => console.log(value));
+    this.filteredOption.subscribe();
+    this.filteredOptionTo.subscribe();
   }
 
   private _filter(value: any): any {
