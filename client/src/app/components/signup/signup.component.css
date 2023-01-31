@@ -1,19 +1,34 @@
+
+.main-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:  100%;
+  height: 90vh;
+  margin: 0 0;
+  background-color: white;
+
+}
+
+
 .bg {
-    position: absolute;
-    bottom: 3rem;
+     position: absolute;
+    bottom: 1rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width:auto;
-    height: auto;
+    width:100%;
 }
-.login-box {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    top: 132px;
-    z-index: 1;
-}
+
+ .example-card {
+     width: 25rem;
+      position: absolute;
+      top: 3rem;
+      margin: auto;
+      z-index: 1;
+  }
+  
 
 .form {
     min-width: 150px;
@@ -51,11 +66,7 @@
     color: white;
     background-color: red;
   }
-  .example-card {
-    width: 25rem;
-    margin-bottom: 8px;
-  }
-  
+ 
  button {
     /* position: absolute; */
     width: 23rem;
@@ -64,21 +75,6 @@
     top: 5rem;
     background-color: #31305A;
     margin-top: 1rem;
-
-}
-
- 
-.main-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width:  414px;
-  height: 896px;
-  background: #222;
-  color: black;
-  margin: 0 0;
-  background-color: white;
 
 }
 
@@ -98,4 +94,21 @@
   line-height: 24px;
   text-align: center;
   color: #FFFFFF;
+}
+
+
+.container{
+  display: flex;
+  justify-content: space-between;
+}
+.left{
+  width:48%;
+}
+.right{
+  width:48%;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: #31305A;
 }

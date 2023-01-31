@@ -10,19 +10,25 @@ export class AuthService {
 
   authUrl = "http://localhost:3000"
 
-  constructor(private httpClient :HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  signUp(user: User) {
-    this.httpClient.post<User>(`${this.authUrl}/signup`, user).subscribe(response=>{
-      console.log(response);
-    })
+  signUp(user: User): Observable<User> {
+    return this.httpClient.post<User>(`${this.authUrl}/signup`, user)
   }
 
-  login(credential: Login) {
-    this.httpClient.post<Login>(`${this.authUrl}/signin`,credential).subscribe(response=>{
-      console.log(response);
-    })
+  login(email: string , password: string ) {
+    return this.httpClient.post <Login>(`${this.authUrl}/signin`, { email, password },{observe: 'response'});
+  }
+
+  getToken(){
+    return localStorage.getItem('token');
   }
 
 
 }
+
+
+
+
+
+

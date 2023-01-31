@@ -6,7 +6,7 @@
                 <form [formGroup]="loginForm" >
                     <app-input-field 
                     [control]="loginForm.controls.email" 
-                    label="email" 
+                    label="Email" 
                     type="email"
                     placeHolder="example@gmail.com">
                     </app-input-field>
@@ -14,14 +14,19 @@
                     
                     <app-input-field 
                     [control]="loginForm.controls.password" 
-                     label="password" 
+                     label="Password" 
                      type="password"
                      placeHolder="enter your password">
                     </app-input-field>
+
+                    <div class="error" *ngIf="isError">{{userError}}</div>
+                    <div *ngIf="isSubmitted">Login Successfull</div>
         
                     <button class="button-class" type='submit' (click)="login()">Sign In</button>
                     <p>Don’t have an account?  <a routerLink="/signup" style="font-weight: bolder;text-decoration: underline;">Sign Up</a></p>
+                    
                 </form>
+                
             </mat-card-content>
       <!-- <mat-card-content>
         <form [formGroup]="loginForm" class="form"> 
