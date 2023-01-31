@@ -24,7 +24,7 @@
 }
 @keyframes icon-move {
   0%{left: 0%;}
-  95%{left: 95%;}
+  100%{left: 80%;}
 }
 span {
   display: inline-block;
@@ -39,11 +39,12 @@ span {
     margin-top: 1rem;
   }
   .left{
-    width:48%;
+    width:50%;
     justify-content: start;
   }
   .right{
-    width:48%;
+    margin-left: 0.5rem;
+    width:50%;
     margin-left: auto;
     justify-content: end;
   }
