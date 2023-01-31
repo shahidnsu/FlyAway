@@ -39,12 +39,12 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
 
 
-import {MatSelectModule} from '@angular/material/select';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatStepperModule } from '@angular/material/stepper';
 import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
 import { SearchFlightsPageComponent } from './pages/search-flights-page/search-flights-page.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
 import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
@@ -69,7 +69,7 @@ export function playerFactory(): any {
         SignupComponent,
         FlightSummaryComponent,
         SelectSummaryComponent,
-       
+
         SelectFlightsPageComponent,
         SearchFlightsPageComponent,
         ProfileComponent,
@@ -100,36 +100,11 @@ export function playerFactory(): any {
         MatStepperModule,
         MatAutocompleteModule
     ],
-  providers: [MatDatepickerModule],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
-@NgModule({
-    declarations: [
-       
-    ],
     providers: [MatDatepickerModule],
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        MatToolbarModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        LottieModule.forRoot({ player: playerFactory }),
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatIconModule,
-        MatListModule,
-        MatDividerModule,
-        MatGridListModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatMenuModule,
-    ]
+    bootstrap: [AppComponent]
 })
+
+
+
+
 export class AppModule { }
