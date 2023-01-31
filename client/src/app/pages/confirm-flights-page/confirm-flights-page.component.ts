@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm-flights-page',
@@ -6,9 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./confirm-flights-page.component.css']
 })
 export class ConfirmFlightsPageComponent {
-confirm() {
-throw new Error('Method not implemented.');
-}
+
   confirmFlights = [
     {
       from: {
@@ -59,4 +58,10 @@ throw new Error('Method not implemented.');
   ];
 
   completed=true;
+
+  constructor(private route: Router) {}
+
+  confirm() {
+    this.route.navigate(['payment']);
+  }
 }

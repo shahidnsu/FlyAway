@@ -11,6 +11,7 @@ import { SearchFlightsPageComponent } from './pages/search-flights-page/search-f
 import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
 import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
 import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'select-flights', component: SelectFlightsPageComponent},
   {path: 'flight-summary', component: FlightSummaryComponent},
   {path: 'confirm-flights', component: ConfirmFlightsPageComponent},
+  {path: 'payment', component: PaymentComponent}
 
 ];
 

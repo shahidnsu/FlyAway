@@ -48,6 +48,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
 import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 export function playerFactory(): any {
@@ -75,6 +76,7 @@ export function playerFactory(): any {
         ProfileComponent,
         ConfirmFlightsComponent,
         ConfirmFlightsPageComponent,
+        PaymentComponent,
     ],
     imports: [
         ReactiveFormsModule,
