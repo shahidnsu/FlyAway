@@ -1,23 +1,25 @@
-<form class="selectItem" [formGroup]="travelForm" ngSubmit="">
+  <form class="selectItem" [formGroup]="travelForm" (submit)="addNewLocation();">
     <mat-form-field appearance="outline">
         <mat-label>From</mat-label>
-        <input matInput placeholder="Enter a city" value="">
+        <input  formControlName="from" matInput placeholder="Enter a city">
         <mat-icon matPrefix>flight_takeoff</mat-icon>
         <p style="font-size: 10px; margin-top:-2px; margin-bottom: -7px">Shahjalal International Airport</p>
+        
     </mat-form-field> 
        
     <mat-form-field appearance="outline">
         <mat-label>To</mat-label>
-        <input matInput placeholder="Enter a city" value="">
+        <input formControlName="to" matInput placeholder="Enter a city" >
         <mat-icon matPrefix>flight_land</mat-icon>
         <p style="font-size: 10px; margin-top:-2px; margin-bottom: -7px">Abu Dhabi Int. </p>
+        
     </mat-form-field>
 
 
 
     <mat-form-field appearance="fill" class="example-form-field">
         <mat-label>DD/MM/YYYY</mat-label>
-        <input matInput [matDatepicker]="datepicker">
+        <input formControlName="date" matInput [matDatepicker]="datepicker">
         <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
         <mat-datepicker #datepicker>
           <mat-datepicker-actions>
@@ -27,6 +29,8 @@
         </mat-datepicker>
     </mat-form-field>
   </form>
+
+
         
     
 
