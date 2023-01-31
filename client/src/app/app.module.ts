@@ -37,8 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
-import { TestLoginComponent } from './components/test-login/test-login.component';
-import { TestInputComponent } from "./components/test-input/test-input.component";
+
 
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
@@ -70,8 +69,7 @@ export function playerFactory(): any {
         SignupComponent,
         FlightSummaryComponent,
         SelectSummaryComponent,
-        TestLoginComponent,
-        TestInputComponent,
+       
         SelectFlightsPageComponent,
         SearchFlightsPageComponent,
         ProfileComponent,
