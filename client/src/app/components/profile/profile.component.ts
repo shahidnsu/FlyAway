@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.getProfile();
-    this.getAirports();
+    //this.getAirports();
   }
 
   // just for testing purpose
@@ -57,10 +57,14 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  updateProfile(){
+    const {firstName,lastName,email,passport,dateOfBirth,country,phoneNumber} = this.profileForm.value;
+    this.apiClient.updateProfile(firstName!,lastName!,email!,passport!,dateOfBirth!,country!,phoneNumber!)
+      .subscribe(user => console.log(user));
+  }
+
   skip() {
     throw new Error('Method not implemented.');
   }
-  confirm() {
-    console.log(this.profileForm.value);
-  }
+  
 }

@@ -89,9 +89,9 @@ const profile = async (req, res) => {
 const profileUpdate = async (req, res) => {
     try {
         const user = req.user;
-        const { _id } = user._id;
-        const { firstName, lastName,email, passport, dob, country,  phoneNumber } = req.body;
-        const result = await User.findByIdAndUpdate(_id, { firstName, lastName,email, passport, dob, country,  phoneNumber } , {new: true});
+        const { _id } = user;
+        const { firstName, lastName, email, passport, dob, country,  phoneNumber } = req.body;
+        const result = await User.findByIdAndUpdate(_id, {$set: {firstName, lastName,email, passport, dob, country,  phoneNumber}}, {new: true});
         res.status(200).send(result);
     } catch {
         res.status(404).send({ error, message: 'User not found' });
