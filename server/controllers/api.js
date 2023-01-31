@@ -64,7 +64,7 @@ const flightSearch = async (req, res) => {
             destinationLocationCode: destinationCode,
             departureDate: dateOfDeparture,
             adults: "1",
-            max: "5",
+            max: "1",
         })
         .then(function(response) {
             res.send(response.result);
