@@ -26,6 +26,33 @@ const searchAirport = async (req, res) => {
     res.send(desiredAirports);
 };
 
+ const searchAirPortRoutes = async (req,res) => {
+    const iataCode = req.params["iataCode"]
+    
+    await amadeus.airport.directDestinations
+        .get({
+            departureAirportCode: iataCode,
+        })
+        .then(function(response) {
+            let routes =[]
+            routes = response.result.data.map((data) => {
+                return {
+                    name : "",
+                    city : data.name,
+                    iata : data.iataCode
+                }
+            })
+            res.send(routes);
+        })
+        .catch(function(response) {
+            res.send({
+                error: "404",
+                message: "no flights are found.please try another destination",
+                success: false,
+            });
+        });
+ }
+
 const flightSearch = async (req, res) => {
     const originCode = req.query.originCode;
     const destinationCode = req.query.destinationCode;
@@ -141,4 +168,5 @@ module.exports = {
     flightSearch,
     flightConfirmation,
     flightBooking,
+    searchAirPortRoutes
 };

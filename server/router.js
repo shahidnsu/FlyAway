@@ -12,6 +12,6 @@ router.get('/airports/:city', apiController.searchAirport );
 router.get('/flight-search', apiController.flightSearch)
 router.post('/flight-confirmation', apiController.flightConfirmation),
 router.post('/flight-booking',apiController.flightBooking)
-
+router.get("/search-airports-routes/:iataCode", apiController.searchAirPortRoutes)
 
 module.exports = router;
