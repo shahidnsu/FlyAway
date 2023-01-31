@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./confirm-flights-page.component.css']
 })
 export class ConfirmFlightsPageComponent {
+confirm() {
+throw new Error('Method not implemented.');
+}
   confirmFlights = [
     {
       from: {
@@ -54,4 +57,6 @@ export class ConfirmFlightsPageComponent {
       price: "$230"
     }
   ];
+
+  completed=true;
 }
