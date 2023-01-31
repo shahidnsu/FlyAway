@@ -37,15 +37,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
-import { TestLoginComponent } from './components/test-login/test-login.component';
-import { TestInputComponent } from "./components/test-input/test-input.component";
 
-import {MatSelectModule} from '@angular/material/select';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatStepperModule} from '@angular/material/stepper';
+
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatStepperModule } from '@angular/material/stepper';
 import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
 import { SearchFlightsPageComponent } from './pages/search-flights-page/search-flights-page.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
 import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
@@ -70,8 +69,7 @@ export function playerFactory(): any {
         SignupComponent,
         FlightSummaryComponent,
         SelectSummaryComponent,
-        TestLoginComponent,
-        TestInputComponent,
+
         SelectFlightsPageComponent,
         SearchFlightsPageComponent,
         ProfileComponent,
@@ -79,6 +77,7 @@ export function playerFactory(): any {
         ConfirmFlightsPageComponent,
     ],
     imports: [
+        ReactiveFormsModule,
         BrowserModule,
         MatToolbarModule,
         AppRoutingModule,
@@ -101,7 +100,11 @@ export function playerFactory(): any {
         MatStepperModule,
         MatAutocompleteModule
     ],
-  providers: [MatDatepickerModule],
-  bootstrap: [AppComponent]
+    providers: [MatDatepickerModule],
+    bootstrap: [AppComponent]
 })
+
+
+
+
 export class AppModule { }

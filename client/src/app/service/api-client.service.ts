@@ -15,7 +15,7 @@ export class ApiClientService {
   constructor(private httpClient : HttpClient,private auth:AuthService) { }
 
   getProfile() : Observable<User> {
-    console.log(this.token)
+    // console.log(this.token)
     const httpOptions = {
       headers: {
         'Content-Type': 'application/json',

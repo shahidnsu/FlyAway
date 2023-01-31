@@ -13,6 +13,7 @@ import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confir
 import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
 
 const routes: Routes = [
+  
   {path: '', component: SplashScreenComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
