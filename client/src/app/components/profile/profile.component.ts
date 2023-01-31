@@ -12,11 +12,15 @@ import { AuthService } from 'src/app/service/auth.service';
 export class ProfileComponent implements OnInit {
 
   profileForm = new FormGroup({
-    fullname: new FormControl('', Validators.required),
+    // fullname: new FormControl('', Validators.required),
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     passport: new FormControl('', Validators.required),
     dateOfBirth: new FormControl('', Validators.required),
-    country: new FormControl('', Validators.required)
+    country: new FormControl('', Validators.required),
+    phoneNumber: new FormControl('', Validators.required),
+
   })
 
   constructor(private apiClient: ApiClientService) { }
@@ -27,11 +31,10 @@ export class ProfileComponent implements OnInit {
 
   getProfile() {
     this.apiClient.getProfile().subscribe(response => {
-      let { firstName, lastName, email, dob, passport, country } = response;
-
-      const fullname = firstName + ' ' + lastName;
+      let { firstName, lastName, email, dob, passport, country, phoneNumber } = response;
+      // const fullname = firstName + ' ' + lastName;
       let dateOfBirth = dob.toString();
-      this.profileForm.patchValue({ fullname,email, passport, dateOfBirth, country })
+      this.profileForm.patchValue({ firstName, lastName, email, passport, dateOfBirth, country, phoneNumber})
     });
   }
 
