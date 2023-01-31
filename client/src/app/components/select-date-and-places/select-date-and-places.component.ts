@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl,FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { Airport } from 'src/app/interfaces/airport';
+import { AmadeusService } from 'src/app/service/amadeus.service';
 
 @Component({
   selector: 'app-select-date-and-places',
@@ -10,40 +12,25 @@ import { map, startWith } from 'rxjs/operators';
 })
 
 export class SelectDateAndPlacesComponent implements OnInit {
+addLocationIntheArray() {
+throw new Error('Method not implemented.');
+}
 
+  constructor(private amadeusClient: AmadeusService){}
 
   @Input()
   addNewLocation!: () => void;
   @Input() 
   travelFormArray: any
   travelForm!: FormGroup;
+  // locationList!: any
 
   
   @Input() newLeg!: Object;
   
-  locationArray = [{
-    "name":"Kampong Chhnang Airport",
-    "city":"sanghai",
-    "iata":"KZC"
-  },
-  {
-    "name": "London Airport",
-    "city": "london",
-    "iata": "YXU"
-  }
-]
+  locationArray: Airport[]=[];
 
-  toLocationArray = [{
-    "name":"Shahjalal Int Airport",
-    "city":"dhaka",
-    "iata":"DAC"
-  },
-  {
-    "name": "London Airport",
-    "city": "london",
-    "iata": "YXU"
-  }
-]
+  toLocationArray: Airport[]=[];
 
   filteredOption!: Observable<any>;
   filteredOptionTo!: Observable<any>;
@@ -60,10 +47,13 @@ export class SelectDateAndPlacesComponent implements OnInit {
     }
 
     this.travelForm.valueChanges.subscribe((value)=>{
-      // console.log('child',value)
+      console.log('child',value)
+      this.getAirports(value.from)
+
       Object.assign(this.newLeg, value)
       // console.log('parent from child', this.newLeg);
     })
+
 
     this.filteredOption = this.travelForm.valueChanges.pipe(
       map(value => this._filter(value))
@@ -78,7 +68,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
   }
 
   private _filter(value: any): any {
-    return this.locationArray.filter(location => location.city.includes(value.from));
+    return this.locationArray.filter((location: { city: string | any[]; }) => location.city.includes(value.from));
   }
 
 
@@ -95,6 +85,21 @@ export class SelectDateAndPlacesComponent implements OnInit {
   // submitFlight(){
   //   console.log('Flight details submitted')
   // }
+  getAirports(cityName:string) {
+    this.amadeusClient.airportSearch(cityName).subscribe((response) => {
+      this.locationArray = response;
+      console.log(response);
+    });
+  }
+
+  getAirportRoutes(airportRoutes:any){
+    const {iata} = airportRoutes;
+    this.amadeusClient.airportRoute(iata).subscribe((res)=>{
+      this.toLocationArray = res.slice(0,20)
+      console.log('data is coming from iata',res)
+    })
+    // console.log('airportRoutes',airportRoutes)
+  }
   
   }
   
