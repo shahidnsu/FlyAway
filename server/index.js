@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const bodyParser = require('body-parser')
 const router = require("./router");
 const dotenv = require("dotenv");
 const { mongoose, uri } = require("./db");
@@ -16,6 +17,8 @@ dotenv.config();
 app.use(cors(corsConfig));
 app.use(express.json());
 app.use(router);
+app.use(bodyParser.json())
+
 
 
 // handling if routes not found

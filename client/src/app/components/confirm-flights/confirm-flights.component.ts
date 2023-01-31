@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-confirm-flights',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./confirm-flights.component.css']
 })
 export class ConfirmFlightsComponent {
-
+ @Input() confirmFlightDetails: any;
 }

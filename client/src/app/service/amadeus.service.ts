@@ -2,15 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AmadeusService {
+  constructor(private apiClient: HttpClient) { }
 
-  constructor(private apiClient:HttpClient) { }
+  apiUrl = 'http://localhost:3000';
 
-  apiUrl = "http://localhost:3000";
-
-  flightSearch(){
-     this.apiClient.get(`${this.apiUrl}/flight-search`).subscribe(res=>console.log(res));
+  airportSearch(city: string) {
+    this.apiClient
+      .get(`${this.apiUrl}/airports/${city}`)
+      .subscribe((res) => console.log(res));
   }
 }
