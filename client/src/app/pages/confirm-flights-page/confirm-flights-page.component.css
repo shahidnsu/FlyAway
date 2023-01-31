@@ -21,9 +21,8 @@ mat-stepper-vertical {
     align-items: center;
     padding: 12px 104px;
     gap: 8px;
-    background: #31305A;
-    border: 5px solid #31305A;
-    border-radius: 8px;
+    border: none;
+    background: rgb(49, 48, 90, 0.0);
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -41,15 +40,16 @@ mat-stepper-vertical {
   }
 
   .sticky-bottom {
-    height: 15vh;
     width: 100%;
     background-color: #31305A;
+    background: rgb(49, 48, 90, 0.8);
+
     position: fixed;
     bottom: 0;
+    left:0;
     /* margin-left: auto;
     margin-right: auto;
     text-align: center; */
     display: flex;
-  align-items: center;
-  justify-content: center;
+   
   }
