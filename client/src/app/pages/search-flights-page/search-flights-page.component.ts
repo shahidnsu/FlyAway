@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './search-flights-page.component.html',
   styleUrls: ['./search-flights-page.component.css']
 })
+
 export class SearchFlightsPageComponent implements OnInit {
 
   obj = {
@@ -18,30 +19,29 @@ export class SearchFlightsPageComponent implements OnInit {
   newLeg:Object = {
     'from': '',
     'to': '',
-    'date': Date
+    'date': ''
   }
 
-  constructor(){}
-  ngOnInit(): void {
-    console.log('parent',this.newLeg)
-    // const objObservable = Observable.create()
-    // this.newLeg.valueChanges.subscribe((value)=>{
-    //   console.log(value)
-    // })
-  }
-  // ngOnChanges(changes:any){
-  //   // console.log(changes)
-  //   const changeNewLeg = changes['newLeg']
-  //   console.log(changes['newLeg'])
-  // }
   
+
+  constructor(){}
+
+  ngOnInit(): void {
+    
+    console.log('parent',this.newLeg)
+    
+  }
+  
+  newArray: any=[]
   travelFormArray:any = [{
     'from': '',
     'to': '',
     'date': Date
   }]
   travelFormSubmit(){
-    console.log(this.travelFormArray)
+    this.newArray = [...this.travelFormArray]
+    this.newArray.push({...this.newLeg})
+    console.log(this.newArray)
   }
   
   addNewLocation(){

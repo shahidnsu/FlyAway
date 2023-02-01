@@ -3,7 +3,7 @@
       <mat-label>From</mat-label>
       <input formControlName="from" [matAutocomplete]="auto1" matInput placeholder="Enter a city">
       <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete">
-        <mat-option *ngFor="let option of locationArray" (onSelectionChange)="getAirportRoutes(option)" [value]="option.city + '( '+ option.iata + ' )'" >
+        <mat-option *ngFor="let option of locationArray" (onSelectionChange)="getAirportRoutes(option)" [value]="option.city + ' - '+ option.iata" >
           {{option.city}} - {{option.iata}}
         </mat-option>
       </mat-autocomplete>
@@ -14,7 +14,7 @@
       <mat-label>To</mat-label>
       <input formControlName="to" [matAutocomplete]="auto2" matInput placeholder="Enter a city">
       <mat-autocomplete autoActiveFirstOption #auto2="matAutocomplete">
-        <mat-option *ngFor="let option of toLocationArray" (onSelectionChange)="getAirportRoutes(option)" [value]="option.city + '( '+ option.iata + ' )'" >
+        <mat-option *ngFor="let option of toLocationArray" (onSelectionChange)="getAirportRoutes(option)" [value]="option.city + ' - '+ option.iata" >
           {{option.city}} - {{option.iata}}
         </mat-option>
       </mat-autocomplete>
