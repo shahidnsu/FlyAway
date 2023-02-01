@@ -67,44 +67,9 @@ const flightSearch = async (req, res) => {
             max: "5",
         })
         .then(function(response) {
-            
-            // flightKeys.forEach((data) => {
-            //     {
-            //         flightsDeatils.push({
-            //             count: response.result[data].count,
-            //         });
-            //         flightsDeatils.push({
-            //             duration: response.result[data].itineraries,
-            //         });
-            //         //count: data.meta.count,
-            //         //ticketDate: data.data.lastTicketingDate,
-            //         // duration: data.data.itineraries.duration,
-            //         //deptaureTime: data.data.segments[0].departure.at,
-            //         //arrivalTime: data.data.segments[-1].arrival.at,
-            //         //price: data.price.total,
-            //     }
-            // });
 
             //demo object for frontend
            let flights = response.result.data
-            // let flights =[{
-            //     segments : [{
-            //         departure : {
-            //             iataCode: "",
-            //             at : ""
-
-
-            //         },
-            //         arrival : {
-            //             iataCode: "",
-            //             at : ""
-
-            //         }
-
-            //     }],
-            //     price :"",
-            //     departureDate: ""
-            // }]
          flights = flights.map((flight) => {
             return {
                 segments : flight.itineraries[0].segments.map(segment=>{
@@ -120,21 +85,13 @@ const flightSearch = async (req, res) => {
                     }
                 }),
                 
-                price :  flight.price.total
+                price :  flight.price.total,
+                
 
             }
          })
-         console.log(flights)
-        // let  value = response.result.data.map((data) => {
-        // let segments = data.itineraries[0].segments
-        // let price = data.price.total
-        //     segments.map((segment) => {
-                
-                
-        //     })
-        //     console.log(price)
             
-        //    })
+        
             res.send(flights);
         })
         .catch(function(response) {
