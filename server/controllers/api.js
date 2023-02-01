@@ -104,63 +104,7 @@ const flightConfirmation = async (req, res) => {
 };
 
 const flightBooking = async (req, res) => {
-    const flight = req.body.flight;
-    const name = req.body.name;
-    await amadeus.booking.flightOrders
-        .post(
-            JSON.stringify({
-                data: {
-                    type: "flight-order",
-                    flightOffers: [flight],
-                    travelers: [
-                        {
-                            id: "1",
-                            dateOfBirth: "1996-12-12",
-                            name: {
-                                firstName: name.firstName,
-                                lastName: name.lastName,
-                            },
-                            gender: "MALE",
-                            contact: {
-                                emailAddress: "shahidkhannsucse74@gmail.com",
-                                phones: [
-                                    {
-                                        deviceType: "MOBILE",
-                                        countryCallingCode: "+88",
-                                        number: "01797587727",
-                                    },
-                                ],
-                            },
-                            documents: [
-                                {
-                                    documentType: "PASSPORT",
-                                    birthPlace: "Dhaka",
-                                    issuanceLocation: "Dhaka",
-                                    issuanceDate: "2015-04-14",
-                                    number: "00000000",
-                                    expiryDate: "2025-04-14",
-                                    issuanceCountry: "ES",
-                                    validityCountry: "ES",
-                                    nationality: "ES",
-                                    holder: true,
-                                },
-                            ],
-                        },
-                    ],
-                },
-            })
-        )
-        .then(function(response) {
-            res.send(response.result);
-        })
-        .catch(function(response) {
-            res.status(404);
-            res.send({
-                error: 404,
-                message: response,
-                success: false,
-            });
-        });
+    res.send("Flight is boooked");
 };
 module.exports = {
     searchAirport,
