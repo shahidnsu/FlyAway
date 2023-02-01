@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-select-summary',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./select-summary.component.css']
 })
 export class SelectSummaryComponent {
-
+ @Input() selectedFlights: any;
 }
