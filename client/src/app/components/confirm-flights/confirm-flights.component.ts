@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Flight } from 'src/app/interfaces/flight';
 
 @Component({
   selector: 'app-confirm-flights',
@@ -6,5 +7,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./confirm-flights.component.css']
 })
 export class ConfirmFlightsComponent {
- @Input() confirmFlightDetails: any;
+
+  @Input() flights: any;
+
+  @Input() selected!: boolean;
+  @Output() selectFlightEvent = new EventEmitter();
+
+
+  handleClick () {
+    this.selectFlightEvent.emit(this.flights);
+  }
 }

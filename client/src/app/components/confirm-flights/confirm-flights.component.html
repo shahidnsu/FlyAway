@@ -1,4 +1,77 @@
-<mat-card style="margin-bottom: 10px;">
+
+<mat-card style="margin-bottom: 10px;" (click)="handleClick()" [class.selected]="selected">
+
+    <mat-card-header class="airport" *ngFor="let eachSegment of flights.segments">
+        <div style="justify-content: start; text-align: left;width:100%; ">
+            <mat-card-title>{{eachSegment.departure.iataCode | uppercase }}</mat-card-title>
+            <mat-card-subtitle>{{eachSegment.departure.at | date: "h:mm a"}}</mat-card-subtitle>
+        </div>
+
+        <div class="hr-line">
+            <hr>   
+            <span class="hr-icon"><mat-icon>airplane_ticket</mat-icon></span>
+        </div>
+
+        <div style=" text-align: right; width:100%;">
+            <mat-card-title>{{eachSegment.arrival.iataCode | uppercase }}</mat-card-title>
+            <mat-card-subtitle>{{eachSegment.arrival.at | date: "h:mm a"}}</mat-card-subtitle>  
+        </div> 
+
+    </mat-card-header>
+    
+    <mat-divider></mat-divider>
+            <mat-card-content style="display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">
+                <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>date_range</mat-icon> MM/DD/YYYY</h3>
+                <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>timer</mat-icon> TIME</h3> 
+            </mat-card-content>
+        <mat-divider></mat-divider>
+
+    <mat-card-content style="display:flex;flex-direction:row;justify-content: space-evenly;">
+            <h3 style="color: gray;">From  ${{flights.price}}</h3>
+    </mat-card-content>
+
+</mat-card> 
+
+
+
+<!-- <mat-card style="margin-bottom: 10px;" (click)="handleClick()" [class.selected]="selected">
+    <div *ngFor="let eachSegment of flights.segments">
+        <mat-card-header class="airport" >
+            <div style="justify-content: start; text-align: left;width:100%; ">
+                <mat-card-title>{{eachSegment.departure.iataCode | uppercase }}</mat-card-title>
+                <mat-card-subtitle>{{eachSegment.departure.at | date: "h:mm a"}}</mat-card-subtitle>
+            </div>
+    
+            <div class="hr-line">
+                <hr>   
+                <span class="hr-icon"><mat-icon>airplane_ticket</mat-icon></span>
+            </div>
+    
+            <div style=" text-align: right; width:100%;">
+                <mat-card-title>{{eachSegment.arrival.iataCode | uppercase }}</mat-card-title>
+                <mat-card-subtitle>{{eachSegment.arrival.at | date: "h:mm a"}}</mat-card-subtitle>            </div>   
+        </mat-card-header>
+       
+    
+        <mat-divider></mat-divider>
+            <mat-card-content style="display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">
+                <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>date_range</mat-icon> {{ eachSegment.departure.at | date: "mediumDate"}}</h3>
+                <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>timer</mat-icon> {{ eachSegment.departure.at | date: "h:mm a"}}</h3>
+            </mat-card-content>
+        <mat-divider></mat-divider>
+            <mat-card-content style="display:flex;flex-direction:row;justify-content: space-evenly;margin-top: 0.5rem;">
+                    <h1 style="font-weight: lighter;">Price</h1>
+                    <h1> {{eachSegment.price}}</h1>
+            </mat-card-content>
+    </div>
+    
+
+</mat-card>  -->
+
+
+
+
+<!-- <mat-card style="margin-bottom: 10px;">
     <mat-card-header class="logo">
         <img src="../../../assets//indigo logo.png"/>
     </mat-card-header>
@@ -40,54 +113,6 @@
         <mat-card-content style="display:flex;flex-direction:row;justify-content: space-evenly;margin-top: 0.5rem;">
                 <h1 style="font-weight: lighter;">Price</h1>
                 <h1> {{confirmFlightDetails.price}}</h1>
-        </mat-card-content>
-
-</mat-card> 
-
-
-
-<!-- <mat-card style="margin-bottom: 10px;">
-    <mat-card-header class="logo">
-        <img src="../../../assets//indigo logo.png"/>
-    </mat-card-header>
-    
-    <mat-card-header class="airport">
-        <div style="justify-content: start; text-align: left;width:100%; ">
-            <mat-card-title>5.00PM</mat-card-title>
-            <mat-card-subtitle>DEL</mat-card-subtitle>
-        </div>
-
-        <span class="hr-line">
-            <hr>   
-            <span class="hr-icon"><mat-icon>airplane_ticket</mat-icon></span>
-        </span>
-
-        <div style=" text-align: right; width:100%;">
-            <mat-card-title>7.30PM</mat-card-title>
-            <mat-card-subtitle>CCU</mat-card-subtitle>
-        </div>   
-    </mat-card-header>
-    <mat-card-header style="display:flex; flex-direction:row">
-            <div style="justify-content: end; text-align: left; width: 40%;">
-                <p>Indira Gandhi International Airport</p>
-            </div>
-            <div style="justify-content: center; text-align: left; width: 20%;">
-              
-            </div>
-            <div style="justify-content: end; text-align: right;width: 40%;">
-                <p>Subhash Chandra Bose International Airport</p>
-            </div>        
-    </mat-card-header>
-
-    <mat-divider></mat-divider>
-        <mat-card-content style="display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">
-            <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>date_range</mat-icon>MM/DD/YYYY</h3>
-            <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>timer</mat-icon>09:30</h3>
-        </mat-card-content>
-    <mat-divider></mat-divider>
-        <mat-card-content style="display:flex;flex-direction:row;justify-content: space-evenly;margin-top: 0.5rem;">
-                <h1 style="font-weight: lighter;">Price</h1>
-                <h1> $230</h1>
         </mat-card-content>
 
 </mat-card>  -->

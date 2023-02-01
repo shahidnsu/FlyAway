@@ -11,7 +11,7 @@ export class SelectFlightsPageComponent {
 
   flights!: Flight[];
 
-  @Output() selectedFlight: Flight[] = [];
+  selectedFlight: Flight[] = [];
   
   constructor(private route: Router) {}
 

@@ -1,4 +1,25 @@
 <mat-stepper orientation="vertical" #stepper>
+    <mat-step *ngFor="let flightOption of selectedFlights" [completed]="completed">
+        <ng-template matStepLabel style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around; align-items: center;"> <mat-icon>flight_takeoff</mat-icon>{{flightOption[0].segments[0].departure.iataCode | uppercase}}  <span> to </span>   <mat-icon>flight_land</mat-icon>{{flightOption[0].segments[flightOption[0].segments.length-1].arrival.iataCode | uppercase}}
+        </ng-template> 
+
+        <ng-template matStepContent>
+            <app-confirm-flights *ngFor="let flights of flightOption" 
+              [flights]="flights"
+              (selectFlightEvent)="handleSelect($event)"
+              [selected]="confirmedFlight.includes(flights)" 
+              ></app-confirm-flights>
+          </ng-template>
+        
+    </mat-step>
+</mat-stepper>
+<div class="sticky-bottom">
+    <button class="button-class" type='submit' (click)="confirm()"> Book Your Flight <mat-icon>arrow_right_alt</mat-icon></button>
+</div>
+
+
+<!-- 
+<mat-stepper orientation="vertical" #stepper>
     <mat-step *ngFor="let eachFlight of confirmFlights" [completed]="completed">
         <ng-template matStepLabel>{{eachFlight.from.iataCode | uppercase}} to {{eachFlight.to.iataCode | uppercase}}</ng-template>
         <app-confirm-flights [confirmFlightDetails]="eachFlight"></app-confirm-flights>
@@ -6,5 +27,4 @@
 </mat-stepper>
 <div class="sticky-bottom">
     <button class="button-class" type='submit' (click)="confirm()"> Book Your Flight <mat-icon>arrow_right_alt</mat-icon></button>
-</div>
-
+</div> -->
