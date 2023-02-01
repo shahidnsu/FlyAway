@@ -104,29 +104,7 @@ const flightSearch = async (req, res) => {
 };
 
 const flightConfirmation = async (req, res) => {
-    const flight = req.body.flight;
-
-    amadeus.shopping.flightOffers.pricing
-        .post(
-            JSON.stringify({
-                data: {
-                    type: "flight-offers-pricing",
-                    flightOffers: [flight],
-                },
-            })
-        )
-        .then(function(response) {
-            res.status(201);
-            res.send(response.result);
-        })
-        .catch(function(response) {
-            res.status(404);
-            res.send({
-                error: "404",
-                message: response,
-                success: false,
-            });
-        });
+    res.send("flight is confirmed")
 };
 
 const flightBooking = async (req, res) => {
