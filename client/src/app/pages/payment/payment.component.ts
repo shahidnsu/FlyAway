@@ -23,8 +23,8 @@ export class PaymentComponent {
       },
     });
     paymentHandler.open({
-      name: 'Positronx',
-      description: '3 widgets',
+      name: 'FlyAway',
+      description: 'Book your flight!',
       amount: amount * 100,
     });
   }

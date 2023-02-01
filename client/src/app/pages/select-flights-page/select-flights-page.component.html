@@ -1,4 +1,32 @@
 <mat-stepper orientation="vertical">
+    <mat-step  *ngFor="let flightOption of searchResults">
+      <ng-template matStepLabel style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around; align-items: center;"> <mat-icon>flight_takeoff</mat-icon>{{flightOption[0].segments[0].departure.iataCode | uppercase}}  <span> to </span>   <mat-icon>flight_land</mat-icon>{{flightOption[0].segments[flightOption[0].segments.length-1].arrival.iataCode | uppercase}}
+      </ng-template>
+        
+        <ng-template matStepContent>
+          <app-select-flights *ngFor="let flights of flightOption" 
+            [flights]="flights" 
+            (selectFlightEvent)="handleSelect($event)"
+            [selected]="selectedFlight.includes(flights)"
+            ></app-select-flights>
+        </ng-template>
+
+      <!-- <button *ngIf="flights !== selectedFlights[0]" mat-button matStepperPrevious>Back</button>
+      <button *ngIf="flights !== selectedFlights[selectedFlights.length - 1]" mat-button matStepperNext>Next</button> -->
+    </mat-step>
+
+  </mat-stepper>
+
+
+
+
+
+
+
+
+
+<!-- 
+  <mat-stepper orientation="vertical">
 
     <mat-step  *ngFor="let eachFlight of selectedFlights">
       <ng-template matStepLabel style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around; align-items: center;"> <mat-icon>flight_takeoff</mat-icon>  {{eachFlight.from.iataCode | uppercase}} to <mat-icon>flight_land</mat-icon>  {{eachFlight.to.iataCode | uppercase}}
@@ -10,4 +38,4 @@
       </ng-template>
     </mat-step>
 
-  </mat-stepper>
+  </mat-stepper> -->
