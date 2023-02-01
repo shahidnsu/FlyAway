@@ -67,74 +67,27 @@ const flightSearch = async (req, res) => {
             max: "5",
         })
         .then(function(response) {
-            
-            // flightKeys.forEach((data) => {
-            //     {
-            //         flightsDeatils.push({
-            //             count: response.result[data].count,
-            //         });
-            //         flightsDeatils.push({
-            //             duration: response.result[data].itineraries,
-            //         });
-            //         //count: data.meta.count,
-            //         //ticketDate: data.data.lastTicketingDate,
-            //         // duration: data.data.itineraries.duration,
-            //         //deptaureTime: data.data.segments[0].departure.at,
-            //         //arrivalTime: data.data.segments[-1].arrival.at,
-            //         //price: data.price.total,
-            //     }
-            // });
-
             //demo object for frontend
-           let flights = response.result.data
-            // let flights =[{
-            //     segments : [{
-            //         departure : {
-            //             iataCode: "",
-            //             at : ""
+            let flights = response.result.data;
+            flights = flights.map((flight) => {
+                return {
+                    segments: flight.itineraries[0].segments.map((segment) => {
+                        return {
+                            departure: {
+                                iataCode: segment.departure.iataCode,
+                                at: segment.departure.at,
+                            },
+                            arrival: {
+                                iataCode: segment.arrival.iataCode,
+                                at: segment.arrival.at,
+                            },
+                        };
+                    }),
 
+                    price: flight.price.total,
+                };
+            });
 
-            //         },
-            //         arrival : {
-            //             iataCode: "",
-            //             at : ""
-
-            //         }
-
-            //     }],
-            //     price :"",
-            //     departureDate: ""
-            // }]
-         flights = flights.map((flight) => {
-            return {
-                segments : flight.itineraries[0].segments.map(segment=>{
-                    return {
-                        departure :{
-                            iataCode : segment.departure.iataCode,
-                            at : segment.departure.at
-                        },
-                        arrival : {
-                            iataCode : segment.arrival.iataCode,
-                            at : segment.arrival.at
-                        } 
-                    }
-                }),
-                
-                price :  flight.price.total
-
-            }
-         })
-         console.log(flights)
-        // let  value = response.result.data.map((data) => {
-        // let segments = data.itineraries[0].segments
-        // let price = data.price.total
-        //     segments.map((segment) => {
-                
-                
-        //     })
-        //     console.log(price)
-            
-        //    })
             res.send(flights);
         })
         .catch(function(response) {
@@ -147,29 +100,7 @@ const flightSearch = async (req, res) => {
 };
 
 const flightConfirmation = async (req, res) => {
-    const flight = req.body.flight;
-
-    amadeus.shopping.flightOffers.pricing
-        .post(
-            JSON.stringify({
-                data: {
-                    type: "flight-offers-pricing",
-                    flightOffers: [flight],
-                },
-            })
-        )
-        .then(function(response) {
-            res.status(201);
-            res.send(response.result);
-        })
-        .catch(function(response) {
-            res.status(404);
-            res.send({
-                error: "404",
-                message: response,
-                success: false,
-            });
-        });
+    res.send("flight is confirmed");
 };
 
 const flightBooking = async (req, res) => {
