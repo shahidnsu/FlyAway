@@ -1,6 +1,9 @@
 <div class="main-container">
         <mat-card class="example-card">
             <mat-card-title>Create an account</mat-card-title>
+            <div class="error" *ngIf="isError">{{userError}}</div>
+            <div class="error" *ngIf="isPassError">{{userError}}</div>
+            <div class="error" *ngIf="isSubmitted">signup Successful</div>
             <!-- <mat-card-title>Sketch your flights with us</mat-card-title> -->
             <mat-card-content>
                 <form [formGroup]="signupForm" class="form">
@@ -95,9 +98,6 @@
                     <!-- <p *ngIf="error" class="error">
                         {{ error }}
                     </p> -->
-                    <div class="error" *ngIf="isError">{{userError}}</div>
-                    <div class="error" *ngIf="isPassError">{{userError}}</div>
-                    <div *ngIf="isSubmitted">signup Successful</div>
 
                     <button class="button-class" (click)="signup()">Sign Up</button>
                     <p>Already have an account? <span style="font-weight: bolder;text-decoration: underline;"

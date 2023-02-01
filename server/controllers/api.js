@@ -1,19 +1,16 @@
 const Amadeus = require("amadeus");
-const fs = require('fs')
-const filePath = __dirname+'/trimmed_airports.json';
-const db = {airports :[]}
-fs.readFile(filePath, 'utf8', function(err,data)  {
-    
-    try{
-        data = JSON.parse(data)
-        
-        db.airports= data
-        
+const fs = require("fs");
+const filePath = __dirname + "/trimmed_airports.json";
+const db = { airports: [] };
+fs.readFile(filePath, "utf8", function(err, data) {
+    try {
+        data = JSON.parse(data);
+
+        db.airports = data;
+    } catch (e) {
+        console.log(e);
     }
-    catch (e){
-        console.log(e)
-    }
-})
+});
 //console.log(db)
 const amadeus = new Amadeus({
     clientId: "Xk3oqx7VCr344IidedqmU3UK9Nr7yVRa",
@@ -22,26 +19,28 @@ const amadeus = new Amadeus({
 
 const searchAirport = async (req, res) => {
     const city = req.params["city"];
-    let desiredAirports = db.airports.filter((record)=>record.city.toLowerCase().includes(city.toLowerCase()));
+    let desiredAirports = db.airports.filter((record) =>
+        record.city.toLowerCase().includes(city.toLowerCase())
+    );
     res.send(desiredAirports);
 };
 
- const searchAirPortRoutes = async (req,res) => {
-    const iataCode = req.params["iataCode"]
-    
+const searchAirPortRoutes = async (req, res) => {
+    const iataCode = req.params["iataCode"];
+
     await amadeus.airport.directDestinations
         .get({
             departureAirportCode: iataCode,
         })
         .then(function(response) {
-            let routes =[]
+            let routes = [];
             routes = response.result.data.map((data) => {
                 return {
-                    name : "",
-                    city : data.name,
-                    iata : data.iataCode
-                }
-            })
+                    name: "",
+                    city: data.name,
+                    iata: data.iataCode,
+                };
+            });
             res.send(routes);
         })
         .catch(function(response) {
@@ -51,7 +50,7 @@ const searchAirport = async (req, res) => {
                 success: false,
             });
         });
- }
+};
 
 const flightSearch = async (req, res) => {
     const originCode = req.query.originCode;
@@ -63,11 +62,80 @@ const flightSearch = async (req, res) => {
             originLocationCode: originCode,
             destinationLocationCode: destinationCode,
             departureDate: dateOfDeparture,
+            nonStop: false,
             adults: "1",
-            max: "1",
+            max: "5",
         })
         .then(function(response) {
-            res.send(response.result);
+            
+            // flightKeys.forEach((data) => {
+            //     {
+            //         flightsDeatils.push({
+            //             count: response.result[data].count,
+            //         });
+            //         flightsDeatils.push({
+            //             duration: response.result[data].itineraries,
+            //         });
+            //         //count: data.meta.count,
+            //         //ticketDate: data.data.lastTicketingDate,
+            //         // duration: data.data.itineraries.duration,
+            //         //deptaureTime: data.data.segments[0].departure.at,
+            //         //arrivalTime: data.data.segments[-1].arrival.at,
+            //         //price: data.price.total,
+            //     }
+            // });
+
+            //demo object for frontend
+           let flights = response.result.data
+            // let flights =[{
+            //     segments : [{
+            //         departure : {
+            //             iataCode: "",
+            //             at : ""
+
+
+            //         },
+            //         arrival : {
+            //             iataCode: "",
+            //             at : ""
+
+            //         }
+
+            //     }],
+            //     price :"",
+            //     departureDate: ""
+            // }]
+         flights = flights.map((flight) => {
+            return {
+                segments : flight.itineraries[0].segments.map(segment=>{
+                    return {
+                        departure :{
+                            iataCode : segment.departure.iataCode,
+                            at : segment.departure.at
+                        },
+                        arrival : {
+                            iataCode : segment.arrival.iataCode,
+                            at : segment.arrival.at
+                        } 
+                    }
+                }),
+                
+                price :  flight.price.total
+
+            }
+         })
+         console.log(flights)
+        // let  value = response.result.data.map((data) => {
+        // let segments = data.itineraries[0].segments
+        // let price = data.price.total
+        //     segments.map((segment) => {
+                
+                
+        //     })
+        //     console.log(price)
+            
+        //    })
+            res.send(flights);
         })
         .catch(function(response) {
             res.send({
@@ -168,5 +236,5 @@ module.exports = {
     flightSearch,
     flightConfirmation,
     flightBooking,
-    searchAirPortRoutes
+    searchAirPortRoutes,
 };
