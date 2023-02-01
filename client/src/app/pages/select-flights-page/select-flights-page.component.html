@@ -1,31 +1,13 @@
 <mat-stepper orientation="vertical">
 
-    <mat-step>
-      <ng-template matStepLabel>
-        <app-select-summary></app-select-summary>
+    <mat-step  *ngFor="let eachFlight of selectedFlights">
+      <ng-template matStepLabel style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around; align-items: center;"> <mat-icon>flight_takeoff</mat-icon>  {{eachFlight.from.iataCode | uppercase}} to <mat-icon>flight_land</mat-icon>  {{eachFlight.to.iataCode | uppercase}}
       </ng-template>
       <ng-template matStepContent>
-        <app-select-flights></app-select-flights>
-        <button mat-button matStepperNext>Next</button>
+        <app-select-flights [selectedFlights]="eachFlight"></app-select-flights>
+        <button *ngIf="eachFlight !== selectedFlights[0]" mat-button matStepperPrevious>Back</button>
+        <button *ngIf="eachFlight !== selectedFlights[selectedFlights.length - 1]" mat-button matStepperNext>Next</button>
       </ng-template>
     </mat-step>
 
-    <mat-step>
-      <ng-template matStepLabel>
-        <app-select-summary></app-select-summary>
-      </ng-template>
-      <ng-template matStepContent>
-        <app-select-flights></app-select-flights>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </ng-template>
-    </mat-step>
-
-    <mat-step>
-      <ng-template matStepLabel>
-        <app-select-summary></app-select-summary>
-      </ng-template>
-      <app-select-flights></app-select-flights>
-      <button mat-button matStepperPrevious>Back</button>
-    </mat-step>
   </mat-stepper>

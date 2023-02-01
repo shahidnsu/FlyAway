@@ -1,0 +1,53 @@
+
+.logo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #31305A;
+    font-weight: bolder;
+    font-size: large;
+}
+.airport {
+  display: flex;
+  justify-content: center;
+  justify-items: space-around;
+  text-align: center;
+}
+
+.hr-line{
+  width: 100%;
+  align-items: center;
+  margin-top: 5%;
+  position: relative;
+}
+.hr-icon {
+  position: absolute;
+  top: -0.7rem;
+  animation: icon-move 5s infinite;
+}
+@keyframes icon-move {
+  0%{left: 0%;}
+  100%{left: 80%;}
+}
+span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+.container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+  }
+  .left{
+    width:50%;
+    justify-content: start;
+  }
+  .right{
+    margin-left: 0.5rem;
+    width:50%;
+    margin-left: auto;
+    justify-content: end;
+  }
