@@ -51,3 +51,8 @@ span {
     margin-left: auto;
     justify-content: end;
   }
+
+
+.selected {
+  border: black solid 1px;
+}
