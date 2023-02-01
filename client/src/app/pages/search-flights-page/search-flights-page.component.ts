@@ -30,7 +30,8 @@ export class SearchFlightsPageComponent implements OnInit {
   newLeg:any = {
     from: '',
     to: '',
-    date: ''
+    date: Date,
+    availableFlights : []
   }
 
   i: number = 0
@@ -58,19 +59,16 @@ export class SearchFlightsPageComponent implements OnInit {
     const destinationCode = this.newLeg.to.replace(/\s/g, '').split('-')[1]
     const date = this.newLeg.date;
 
-    for( ;this.i<this.travelFormArray.length;this.i++){
-      this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
-        console.log('call the I',res);
-        console.log('call the I',this.i);
-        
-        this.travelFormArray[this.i-1].availableFlights.push(res)
-        console.log('updated array',this.travelFormArray)
-      },
-      error:error=>{
-  
+    this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
+      this.newLeg.availableFlights.push(res)
+      // this.travelFormArray[this.i-1].availableFlights.push(res)
+      console.log('updated array',this.travelFormArray)
+    },
+    error:error=>{
+
       }
-      })
-    }
+    })
+    
     
   }
   travelFormSubmit(){
