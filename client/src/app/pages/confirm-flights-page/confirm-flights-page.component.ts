@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Flight } from 'src/app/interfaces/flight';
 
 @Component({
   selector: 'app-confirm-flights-page',
@@ -7,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./confirm-flights-page.component.css']
 })
 export class ConfirmFlightsPageComponent {
+  
+  @Input() selectedFlight: Flight[] = [];
 
   confirmFlights = [
     {
