@@ -16,6 +16,7 @@ import { AmadeusService } from 'src/app/service/amadeus.service';
 })
 export class ProfileComponent implements OnInit {
   msg: string ="";
+  isError: boolean= true;
 
   profileForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
@@ -62,8 +63,13 @@ export class ProfileComponent implements OnInit {
   updateProfile(){
     const {firstName,lastName,email,passport,dateOfBirth,country,phoneNumber} = this.profileForm.value;
     this.apiClient.updateProfile(firstName!,lastName!,email!,passport!,dateOfBirth!,country!,phoneNumber!)
-      .subscribe(() => {});
-    this.msg = "Successfully updated the profile!"
+      .subscribe({
+        next: (res: any) => {
+          this.msg = "Successfully updated the profile!";
+          this.isError = false;
+        },
+        error: error => this.msg = error.error
+      });
   }
 
   skip() {

@@ -48,12 +48,18 @@
       margin-left: 8px;
     }
   
-    .error {
+    /* .error {
       padding: 16px;
       width: 300px;
       color: white;
       background-color: red;
     }
+    .success {
+      padding: 16px;
+      width: 300px;
+      color: white;
+      background-color: green;
+    } */
     
     
    button {
