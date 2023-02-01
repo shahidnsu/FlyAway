@@ -67,8 +67,7 @@ const flightSearch = async (req, res) => {
             max: "5",
         })
         .then(function(response) {
-            let flightsDeatils = {};
-            let flightKeys = Object.keys(response.result);
+            
             // flightKeys.forEach((data) => {
             //     {
             //         flightsDeatils.push({
@@ -86,7 +85,57 @@ const flightSearch = async (req, res) => {
             //     }
             // });
 
-            res.send(response);
+            //demo object for frontend
+           let flights = response.result.data
+            // let flights =[{
+            //     segments : [{
+            //         departure : {
+            //             iataCode: "",
+            //             at : ""
+
+
+            //         },
+            //         arrival : {
+            //             iataCode: "",
+            //             at : ""
+
+            //         }
+
+            //     }],
+            //     price :"",
+            //     departureDate: ""
+            // }]
+         flights = flights.map((flight) => {
+            return {
+                segments : flight.itineraries[0].segments.map(segment=>{
+                    return {
+                        departure :{
+                            iataCode : segment.departure.iataCode,
+                            at : segment.departure.at
+                        },
+                        arrival : {
+                            iataCode : segment.arrival.iataCode,
+                            at : segment.arrival.at
+                        } 
+                    }
+                }),
+                
+                price :  flight.price.total
+
+            }
+         })
+         console.log(flights)
+        // let  value = response.result.data.map((data) => {
+        // let segments = data.itineraries[0].segments
+        // let price = data.price.total
+        //     segments.map((segment) => {
+                
+                
+        //     })
+        //     console.log(price)
+            
+        //    })
+            res.send(flights);
         })
         .catch(function(response) {
             res.send({
