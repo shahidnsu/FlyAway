@@ -67,31 +67,27 @@ const flightSearch = async (req, res) => {
             max: "5",
         })
         .then(function(response) {
-
             //demo object for frontend
-           let flights = response.result.data
-         flights = flights.map((flight) => {
-            return {
-                segments : flight.itineraries[0].segments.map(segment=>{
-                    return {
-                        departure :{
-                            iataCode : segment.departure.iataCode,
-                            at : segment.departure.at
-                        },
-                        arrival : {
-                            iataCode : segment.arrival.iataCode,
-                            at : segment.arrival.at
-                        } 
-                    }
-                }),
-                
-                price :  flight.price.total,
-                
+            let flights = response.result.data;
+            flights = flights.map((flight) => {
+                return {
+                    segments: flight.itineraries[0].segments.map((segment) => {
+                        return {
+                            departure: {
+                                iataCode: segment.departure.iataCode,
+                                at: segment.departure.at,
+                            },
+                            arrival: {
+                                iataCode: segment.arrival.iataCode,
+                                at: segment.arrival.at,
+                            },
+                        };
+                    }),
 
-            }
-         })
-            
-        
+                    price: flight.price.total,
+                };
+            });
+
             res.send(flights);
         })
         .catch(function(response) {
@@ -104,7 +100,7 @@ const flightSearch = async (req, res) => {
 };
 
 const flightConfirmation = async (req, res) => {
-    res.send("flight is confirmed")
+    res.send("flight is confirmed");
 };
 
 const flightBooking = async (req, res) => {
