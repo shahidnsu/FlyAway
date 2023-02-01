@@ -37,7 +37,8 @@ export class SearchFlightsPageComponent implements OnInit {
   travelFormArray:any = [{
     from: '',
     to: '',
-    date: Date
+    date: Date,
+    availableFlights : []
   }]
   travelFormSubmit(){
     this.newArray = [...this.travelFormArray]
@@ -54,7 +55,15 @@ export class SearchFlightsPageComponent implements OnInit {
 
     // console.log('new leg',this.newLeg);
 
-    this.amadeus.searchFlight({originCode,destinationCode,date})
+    this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
+      console.log(res);
+      // this.travelFormArray.availableFlights.push(...res)
+      // console.log('updated array',this.travelFormArray.availableFlights)
+    },
+    error:error=>{
+
+    }
+  })
 
     // console.log()
     this.travelFormArray.push({...this.newLeg})
