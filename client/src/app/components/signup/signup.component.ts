@@ -13,19 +13,6 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
 
-
-
-  firstNameFormControl = new FormControl('', [Validators.required]);
-  lastNameFormControl = new FormControl('', [Validators.required]);
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordFormControl = new FormControl('', [Validators.required]);
-  confirmPasswordFormControl = new FormControl('', [Validators.required]);
-  // dobFormControl = new FormControl('', [Validators.required]);
-  // phoneNumberFormControl = new FormControl('', [Validators.required]);
-  // countryFormControl = new FormControl('', [Validators.required]);
-  // passportFormControl = new FormControl('', [Validators.required]);
-
-
   isSubmitted: boolean = false;
   userError: string = '';
   isError: boolean = false;
@@ -33,16 +20,15 @@ export class SignupComponent {
 
 
   signupForm = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required),
-
-    dateOfBirth: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('', Validators.required),
-    country: new FormControl('', Validators.required),
-    passport: new FormControl('', Validators.required)
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl('', [Validators.email]),
+    password: new FormControl(''),
+    confirmPassword: new FormControl(''),
+    dateOfBirth: new FormControl(''),
+    phoneNumber: new FormControl(''),
+    country: new FormControl(''),
+    passport: new FormControl('')
   });
 
   options: AnimationOptions = {
