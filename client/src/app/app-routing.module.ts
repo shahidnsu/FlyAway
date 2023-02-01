@@ -11,7 +11,7 @@ import { SearchFlightsPageComponent } from './pages/search-flights-page/search-f
 import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
 import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
 import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
-import { PaymentComponent } from './payment/payment.component';
+import { PaymentComponent } from './pages/payment/payment.component';
 
 const routes: Routes = [
   
