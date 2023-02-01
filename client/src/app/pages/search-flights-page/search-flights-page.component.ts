@@ -60,7 +60,8 @@ export class SearchFlightsPageComponent implements OnInit {
     const date = this.newLeg.date;
 
     this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
-      this.newLeg.availableFlights.push(res)
+      Object.assign(this.newLeg.availableFlights)
+      // this.newLeg.availableFlights.push([...res])
       // this.travelFormArray[this.i-1].availableFlights.push(res)
       console.log('updated array',this.travelFormArray)
     },
@@ -75,13 +76,14 @@ export class SearchFlightsPageComponent implements OnInit {
     this.resFeedFunc()
     this.newArray = [...this.travelFormArray]
     this.newArray.push({...this.newLeg})
-    console.log(this.newArray)
+    console.log(this.travelFormArray)
   }
   
   addNewLocation(){
     this.resFeedFunc()
     this.travelFormArray.push({...this.newLeg})
-    console.log(this.travelFormArray)
+    // this.newLeg.availableFlights=[]
+    console.log('travelFormArray',this.travelFormArray)
   }
 }
 
