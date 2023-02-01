@@ -51,7 +51,7 @@ throw new Error('Method not implemented.');
     if(this.travelFormArray.length>1){
       let toValue = this.travelFormArray[this.travelFormArray.length-1].to
       this.travelForm.controls['from'].setValue(toValue);
-      console.log('testing new from',this.travelForm)
+      // console.log('testing new from',this.travelForm)
     
       let selectedValue = toValue.replace(/\s/g, '').split('-');
       
@@ -64,7 +64,7 @@ throw new Error('Method not implemented.');
     }
 
     this.travelForm.valueChanges.subscribe((value)=>{
-      console.log('child',value)
+      // console.log('child',value)
       this.getAirports(value.from)
 
       Object.assign(this.newLeg, value);
@@ -108,7 +108,7 @@ throw new Error('Method not implemented.');
   getAirports(cityName:string) {
     this.amadeusClient.airportSearch(cityName).subscribe((response) => {
       this.locationArray = response;
-      console.log(response);
+      // console.log(response);
     });
   }
 
