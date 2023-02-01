@@ -53,10 +53,13 @@
   }
 
   .error {
-    padding: 16px;
-    width: 300px;
-    color: white;
-    background-color: red;
+    /* padding: 16px;
+    width: 300px; */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    color: red;
   }
   
   

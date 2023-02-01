@@ -61,7 +61,11 @@
   }
 
   .error {
-       color: red;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    color: red;  
   }
  
  button {

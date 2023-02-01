@@ -3,7 +3,7 @@
             <mat-card-title>Create an account</mat-card-title>
             <div class="error" *ngIf="isError">{{userError}}</div>
             <div class="error" *ngIf="isPassError">{{userError}}</div>
-            <div *ngIf="isSubmitted">signup Successful</div>
+            <div class="error" *ngIf="isSubmitted">signup Successful</div>
             <!-- <mat-card-title>Sketch your flights with us</mat-card-title> -->
             <mat-card-content>
                 <form [formGroup]="signupForm" class="form">
