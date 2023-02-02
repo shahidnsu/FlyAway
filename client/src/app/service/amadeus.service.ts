@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Airport } from '../interfaces/airport';
+import { Flight } from '../interfaces/flight';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,7 @@ export class AmadeusService {
   airportRoute(iataCode: string): Observable<Airport[]> {
     return this.apiClient.get<Airport[]>(`${this.apiUrl}/search-airports-routes/${iataCode}`)
   }
-  searchFlight(newLeg: any) {
+  searchFlight(newLeg: any) : Observable<Flight[]> {
 
     this.day = new Date(newLeg.date).getDate();
     this.month = new Date().getMonth() + 1;
@@ -35,7 +36,7 @@ export class AmadeusService {
 
     console.log(newLeg);
    
-   return this.apiClient.get(`${this.apiUrl}/flight-search?originCode=${newLeg.originCode}&destinationCode=${newLeg.destinationCode}&dateOfDeparture=${date}`)
+   return this.apiClient.get<Flight[]>(`${this.apiUrl}/flight-search?originCode=${newLeg.originCode}&destinationCode=${newLeg.destinationCode}&dateOfDeparture=${date}`)
   }
 }
 

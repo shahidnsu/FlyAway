@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Flight } from 'src/app/interfaces/flight';
 
 @Component({
@@ -10,10 +11,12 @@ export class SelectFlightsPageComponent {
 
   flights!: Flight[];
 
-  selectedFlight: Flight[] = [];
+  @Output() selectedFlight: Flight[] = [];
+  
+  constructor(private route: Router) {}
 
-
-  searchResults = [[
+  searchResults = [
+    [
       {
         segments: [
             {
@@ -178,7 +181,7 @@ export class SelectFlightsPageComponent {
   // ];
 
   handleSelect (flight: Flight) {
-    
+
     const newFlightList = this.selectedFlight.filter(fl => {
         if(flight.segments[0].departure.iataCode === fl.segments[0].departure.iataCode
             && flight.segments[flight.segments.length - 1].arrival.iataCode === fl.segments[flight.segments.length - 1].arrival.iataCode) {
@@ -187,6 +190,10 @@ export class SelectFlightsPageComponent {
     })
 
     this.selectedFlight = [...newFlightList, flight];
+  }
+
+  confirm() {
+    this.route.navigate(['confirm-flights']);
   }
 
 
