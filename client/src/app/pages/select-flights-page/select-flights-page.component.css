@@ -1,4 +1,7 @@
 
+.selectFlight{
+  margin-top: 5%;
+}
 
 .button-class {
     display: flex;
@@ -45,4 +48,8 @@
 
 .stepper {
   margin-bottom: 10%;
+}
+
+.backButton{
+  background-color: #41406d;
 }
