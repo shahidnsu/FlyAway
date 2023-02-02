@@ -8,11 +8,9 @@ import { Flight } from 'src/app/interfaces/flight';
   styleUrls: ['./confirm-flights-page.component.css']
 })
 export class ConfirmFlightsPageComponent {
-  
   confirmedFlight: Flight[] = [];
 
   selectedFlights = [
-    [
       {
         segments: [
             {
@@ -38,8 +36,8 @@ export class ConfirmFlightsPageComponent {
         ],
         price: 136.67
       }    
-  ],
-    [
+  ,
+    
           {
             segments: [
                 {
@@ -65,7 +63,7 @@ export class ConfirmFlightsPageComponent {
             ],
             price: 136.67
           } 
-    ]];
+    ];
 
   // confirmFlights = [
   //   {
@@ -116,22 +114,16 @@ export class ConfirmFlightsPageComponent {
   //   }
   // ];
 
-  completed=true;
+  isCompleted=true;
+  isLinear = true;
 
   constructor(private route: Router) {}
 
 
-  handleSelect (flight: Flight) {
-
-    // const newFlightList = this.confirmedFlight.filter(fl => {
-    //     if(flight.segments[0].departure.iataCode === fl.segments[0].departure.iataCode
-    //         && flight.segments[flight.segments.length - 1].arrival.iataCode === fl.segments[flight.segments.length - 1].arrival.iataCode) {
-    //             return false;
-    //         } else return true
-    // })
-
-    this.confirmedFlight.push(flight);
-  }
+  // handleConfirm (flight: Flight) {
+  //   this.confirmedFlight.push(flight);
+  //   console.log(this.confirmedFlight);
+  // }
 
 
   confirm() {

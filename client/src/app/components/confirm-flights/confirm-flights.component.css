@@ -48,3 +48,8 @@ span {
     margin-left: auto;
     justify-content: end;
   }
+
+
+.confirmed {
+  border:  #31305A solid 2px;
+}

@@ -8,7 +8,7 @@ import { Flight } from 'src/app/interfaces/flight';
   styleUrls: ['./select-flights-page.component.css']
 })
 export class SelectFlightsPageComponent {
-
+  msg: string = "";
   flights!: Flight[];
 
   selectedFlight: Flight[] = [];
@@ -190,10 +190,15 @@ export class SelectFlightsPageComponent {
     })
 
     this.selectedFlight = [...newFlightList, flight];
+    console.log(this.selectedFlight);
   }
 
   confirm() {
-    this.route.navigate(['confirm-flights']);
+    if(this.selectedFlight.length > 0) {
+        this.route.navigate(['confirm-flights']);
+    } else {
+        this.msg = "Confirm at least one flight for booking!"
+    }
   }
 
 

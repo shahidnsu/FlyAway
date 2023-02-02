@@ -1,13 +1,12 @@
-<mat-stepper orientation="vertical" #stepper>
-    <mat-step *ngFor="let flightOption of selectedFlights" [completed]="completed">
-        <ng-template matStepLabel style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around; align-items: center;"> <mat-icon>flight_takeoff</mat-icon>{{flightOption[0].segments[0].departure.iataCode | uppercase}}  <span> to </span>   <mat-icon>flight_land</mat-icon>{{flightOption[0].segments[flightOption[0].segments.length-1].arrival.iataCode | uppercase}}
+
+<mat-stepper orientation="vertical" #stepper [linear]="isLinear">
+    <mat-step *ngFor="let flightOption of selectedFlights" [completed]="isCompleted">
+        <ng-template matStepLabel style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around; align-items: center;"> {{flightOption.segments[0].departure.iataCode | uppercase}}  <span> to </span> {{flightOption.segments[flightOption.segments.length-1].arrival.iataCode | uppercase}}
         </ng-template> 
 
         <ng-template matStepContent>
-            <app-confirm-flights *ngFor="let flights of flightOption" 
-              [flights]="flights"
-              (selectFlightEvent)="handleSelect($event)"
-              [selected]="confirmedFlight.includes(flights)" 
+            <app-confirm-flights 
+              [flights]="flightOption"
               ></app-confirm-flights>
           </ng-template>
         

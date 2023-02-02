@@ -1,3 +1,5 @@
+<h3 class="error">{{msg}}</h3>
+
 <mat-stepper orientation="vertical">
     <mat-step  *ngFor="let flightOption of searchResults">
       <ng-template matStepLabel style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around; align-items: center;"> <mat-icon>flight_takeoff</mat-icon>{{flightOption[0].segments[0].departure.iataCode | uppercase}}  <span> to </span>   <mat-icon>flight_land</mat-icon>{{flightOption[0].segments[flightOption[0].segments.length-1].arrival.iataCode | uppercase}}

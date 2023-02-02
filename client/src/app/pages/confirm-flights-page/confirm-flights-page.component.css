@@ -1,13 +1,11 @@
-mat-stepper-vertical {
-    margin-top: 8px;
-    visibility: visible !important;
-}
+
 
 ::ng-deep .mat-vertical-stepper-content 
 {
     visibility: visible !important;
     height: 100% !important;
 }
+
 ::ng-deep .mat-step-icon-content { 
     display: none !important; 
     color: #31305A;
@@ -48,3 +46,4 @@ mat-stepper-vertical {
     left:0;
     display: flex;
   }
+

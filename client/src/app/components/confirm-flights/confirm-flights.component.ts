@@ -10,11 +10,11 @@ export class ConfirmFlightsComponent {
 
   @Input() flights: any;
 
-  @Input() selected!: boolean;
-  @Output() selectFlightEvent = new EventEmitter();
+  @Input() confirmed!: boolean;
+  @Output() confirmFlightEvent = new EventEmitter();
 
 
   handleClick () {
-    this.selectFlightEvent.emit(this.flights);
+    this.confirmFlightEvent.emit(this.flights);
   }
 }
