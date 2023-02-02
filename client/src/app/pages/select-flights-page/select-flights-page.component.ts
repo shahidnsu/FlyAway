@@ -12,6 +12,8 @@ export class SelectFlightsPageComponent {
   msg: string = "";
   flights!: Flight[];
 
+  totalPrice: number = 0;
+
   selectedFlight: Flight[] = [];
   
   constructor(private route: Router, private flightService: ApiClientService) {}
@@ -41,7 +43,7 @@ export class SelectFlightsPageComponent {
             },
           },
         ],
-        price: 436.67,
+        price: "436.67",
       },
       {
         segments: [
@@ -66,7 +68,7 @@ export class SelectFlightsPageComponent {
             },
           },
         ],
-        price: 136.67,
+        price: "136.67",
       },
     ],
     [
@@ -93,7 +95,7 @@ export class SelectFlightsPageComponent {
             },
           },
         ],
-        price: 436.67,
+        price: "436.67",
       },
       {
         segments: [
@@ -118,7 +120,7 @@ export class SelectFlightsPageComponent {
             },
           },
         ],
-        price: 136.67,
+        price: "136.67",
       },
     ],
   ];
@@ -186,7 +188,8 @@ export class SelectFlightsPageComponent {
 
     this.selectedFlight = [...newFlightList, flight];
     console.log(this.selectedFlight);
-    this.flightService.setSelectedFlights(this.selectedFlight);
+    this.totalPrice += parseFloat(flight.price);
+    this.flightService.setSelectedFlights(this.selectedFlight,this.totalPrice);
   }
 
   confirm() {
