@@ -1,6 +1,7 @@
 import { Component, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Flight } from 'src/app/interfaces/flight';
+import { FlightService } from 'src/app/service/flight.service';
 
 @Component({
   selector: 'app-select-flights-page',
@@ -13,7 +14,7 @@ export class SelectFlightsPageComponent {
 
   selectedFlight: Flight[] = [];
   
-  constructor(private route: Router) {}
+  constructor(private route: Router, public _FlightService: FlightService) {}
 
   searchResults = [
     [
@@ -185,6 +186,7 @@ export class SelectFlightsPageComponent {
 
     this.selectedFlight = [...newFlightList, flight];
     console.log(this.selectedFlight);
+    console.log('data from services: ',this._FlightService.flightsData)
   }
 
   confirm() {

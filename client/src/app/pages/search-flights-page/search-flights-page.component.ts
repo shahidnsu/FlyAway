@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Flight } from 'src/app/interfaces/flight';
 import { AmadeusService } from 'src/app/service/amadeus.service';
+import { FlightService } from 'src/app/service/flight.service';
 
 interface formValue {
   from: string,
@@ -34,10 +36,9 @@ export class SearchFlightsPageComponent implements OnInit {
     availableFlights : []
   }
 
-  i: number = 0
   
 
-  constructor(private amadeus:AmadeusService){}
+  constructor(private amadeus:AmadeusService, private router:Router, private _FlightService: FlightService){}
 
   ngOnInit(): void {
     
@@ -93,6 +94,9 @@ export class SearchFlightsPageComponent implements OnInit {
       this.newArray = [...this.travelFormArray]
       this.newArray.push({...this.newLeg})
       console.log('updated array',this.newArray)
+      this._FlightService.flightsData = this.newArray
+      console.log('service data', this._FlightService.flightsData)
+      this.router.navigate(['/select-flights'],this.newArray)
     },
     error:error=>{
 
