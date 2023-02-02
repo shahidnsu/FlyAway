@@ -4,6 +4,13 @@
         <mat-icon>keyboard_arrow_left</mat-icon>
         Back
     </button>
+
+    <ng-lottie *ngIf="isLoading"
+        class="loading"
+        [options]="options" 
+        (animationCreated)="onAnimate($event)"
+    >
+    </ng-lottie>
     
     <h3 class="error">{{msg}}</h3>
     

@@ -55,7 +55,7 @@ ngOnInit(){
     });
 
     this.selectedFlight = [...newFlightList, flight];
-    this.totalPrice += parseFloat(flight.price);
+    this.totalPrice = this.selectedFlight.reduce((acc: number, curr: Flight) => acc + parseFloat(curr.price), 0);
     this.flightService.setSelectedFlights(this.selectedFlight,this.totalPrice);
     console.log(this._FlightService.getSearchedFlights())
   }
