@@ -1,41 +1,44 @@
-<h3 class="error">{{msg}}</h3>
-<!-- <div >
-    <mat-spinner></mat-spinner>
-</div> -->
-<ng-lottie
-*ngIf="isLoading"
-class="loading"
-    [options]="options" 
-    (animationCreated)="onAnimate($event)">
-</ng-lottie>
+<div class="selectFlight">
 
-<mat-stepper orientation="vertical" class="stepper">
-    <mat-step *ngFor="let flightOption of searchResults.slice(1)">
-        <ng-template matStepLabel style="
-        font-weight: lighter;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-      ">
-            <mat-icon>flight_takeoff</mat-icon>{{ flightOption.availableFlights[0].segments[0].departure.iataCode | uppercase }}
-            <span> to </span> <mat-icon>flight_land</mat-icon>{{
-            flightOption.availableFlights[0].segments[flightOption.availableFlights[0].segments.length - 1].arrival
-            .iataCode | uppercase
-            }}
-        </ng-template>
-
-        <ng-template matStepContent>
-            <app-select-flights *ngFor="let flights of flightOption.availableFlights" [flights]="flights"
-                (selectFlightEvent)="handleSelect($event)"
-                [selected]="selectedFlight.includes(flights)"></app-select-flights>
-        </ng-template>
-    </mat-step>
-</mat-stepper>
-
-<div class="sticky-bottom">
-    <button class="button-class" type="submit" (click)="confirm()">
-        Confirm <mat-icon>arrow_right_alt</mat-icon>
+    <button mat-fab extended class="backButton" (click)="backButton()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+        Back
     </button>
+    
+    <h3 class="error">{{msg}}</h3>
+    
+    <mat-stepper orientation="vertical" class="stepper">
+        <mat-step *ngFor="let flightOption of searchResults.slice(1)">
+            <ng-template matStepLabel style="
+            font-weight: lighter;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+          ">
+                <mat-icon>flight_takeoff</mat-icon>{{ flightOption.availableFlights[0].segments[0].departure.iataCode | uppercase }}
+                <span> to </span> <mat-icon>flight_land</mat-icon>{{
+                flightOption.availableFlights[0].segments[flightOption.availableFlights[0].segments.length - 1].arrival
+                .iataCode | uppercase
+                }}
+            </ng-template>
+    
+            <ng-template matStepContent>
+                <app-select-flights *ngFor="let flights of flightOption.availableFlights" [flights]="flights"
+                    (selectFlightEvent)="handleSelect($event)"
+                    [selected]="selectedFlight.includes(flights)"></app-select-flights>
+            </ng-template>
+        </mat-step>
+    </mat-stepper>
+    
+    <div class="sticky-bottom">
+        <button class="button-class" type="submit" (click)="confirm()">
+            Confirm <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+    </div>
+
 </div>
+
+
+
 

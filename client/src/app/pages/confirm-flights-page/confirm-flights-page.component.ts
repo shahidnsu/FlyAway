@@ -60,6 +60,9 @@ export class ConfirmFlightsPageComponent {
       window.document.body.appendChild(script);
     }
   }
+  backButton(){
+    this.route.navigate(['/select-flights']);
+  }
 }
 
 

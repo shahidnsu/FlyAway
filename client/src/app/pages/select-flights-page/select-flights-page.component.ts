@@ -40,6 +40,8 @@ ngOnInit(){
 
   constructor(private route: Router, public _FlightService: FlightService, private flightService: ApiClientService) {}
 
+
+
   handleSelect(flight: Flight) {
     const newFlightList = this.selectedFlight.filter((fl) => {
       if (
@@ -55,6 +57,7 @@ ngOnInit(){
     this.selectedFlight = [...newFlightList, flight];
     this.totalPrice += parseFloat(flight.price);
     this.flightService.setSelectedFlights(this.selectedFlight,this.totalPrice);
+    console.log(this._FlightService.getSearchedFlights())
   }
 
   confirm() {

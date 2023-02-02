@@ -58,7 +58,7 @@ export class SearchFlightsPageComponent implements OnInit {
     date: Date,
     isFailed: false,
     isSuccess: false,
-    // availableFlights : []
+    
   }]
 
   resFeedFunc(){
@@ -81,8 +81,7 @@ export class SearchFlightsPageComponent implements OnInit {
       console.log('newObj',newObj)
       Object.assign(this.newLeg,newObj)
       console.log('newLeg',this.newLeg)
-      // this.newLeg.availableFlights.push([...res])
-      // this.travelFormArray[this.i-1].availableFlights.push(res)
+      
       this.travelFormArray.push({...this.newLeg})
       
       console.log('updated array',this.travelFormArray)
@@ -109,25 +108,19 @@ export class SearchFlightsPageComponent implements OnInit {
         console.log('newObj',newObj)
         Object.assign(this.newLeg,newObj)
         console.log('newLeg',this.newLeg)
-        // this.newLeg.availableFlights.push([...res])
-        // this.travelFormArray[this.i-1].availableFlights.push(res)
-        // this.travelFormArray.push({...this.newLeg})
+        
         this.newArray = [...this.travelFormArray]
         this.newArray.push({...this.newLeg})
-        // this.newArray = this.newArray.map((item:any) => {
-        //   return {from: item.from, to: item.to, date: item.date, availableFlights: item.availableFlights}
-        // })
+        
         console.log('updated array',this.newArray)
         this._FlightService.flightsData = this.newArray
         console.log('AAAAAAAAAAA', this._FlightService.getSearchedFlights());
         this.newArray = this.newArray.map((item:any) => {
           return {from: item.from, to: item.to, date: item.date, availableFlights: item.availableFlights}
         })
-        // console.log('service data', this._FlightService.flightsData)
+        
         this.nav = true;
-        // while(this._FlightService.getSearchedFlights()){
-          
-        // }
+        
         
         this.navigate();
         

@@ -1,4 +1,10 @@
+.margin-div{
+  margin-top: 5%;
+}
 
+.backButton{
+  background-color: #41406d;
+}
 
 ::ng-deep .mat-vertical-stepper-content 
 {
