@@ -1,4 +1,13 @@
 <h3 class="error">{{msg}}</h3>
+<!-- <div >
+    <mat-spinner></mat-spinner>
+</div> -->
+<ng-lottie
+*ngIf="isLoading"
+class="loading"
+    [options]="options" 
+    (animationCreated)="onAnimate($event)">
+</ng-lottie>
 
 <mat-stepper orientation="vertical" class="stepper">
     <mat-step *ngFor="let flightOption of searchResults.slice(1)">
@@ -29,6 +38,4 @@
         Confirm <mat-icon>arrow_right_alt</mat-icon>
     </button>
 </div>
-
-<!-- { state: { hello: 'world' } } -->
 

@@ -4,6 +4,8 @@ import { Flight } from 'src/app/interfaces/flight';
 import { FlightService } from 'src/app/service/flight.service';
 import { ApiClientService } from 'src/app/service/api-client.service';
 import { FlightOption } from 'src/app/interfaces/flightOption';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-select-flights-page',
@@ -16,192 +18,43 @@ export class SelectFlightsPageComponent {
 
   totalPrice: number = 0;
 
+  isLoading: boolean = true;
   selectedFlight: Flight[] = [];
   searchResults: FlightOption[] = [];
+
+  options: AnimationOptions = {
+    path: './assets/9932-flight-ticket.json'
+  };
+
+  onAnimate(animationItem: AnimationItem): void {
+    console.log(animationItem);
+  }
   
 ngOnInit(){
   setTimeout(() => {
     this.searchResults = this._FlightService.getSearchedFlights();
+    this.isLoading = false;
     console.log("Selected Flights: ", this.searchResults);
   }, 5000)
 }
 
   constructor(private route: Router, public _FlightService: FlightService, private flightService: ApiClientService) {}
 
-  
-  // searchResults = [
-  //   [
-  //     {
-  //       segments: [
-  //         {
-  //           departure: {
-  //             iataCode: 'DAC',
-  //             at: '2023-03-04T13:00:00',
-  //           },
-  //           arrival: {
-  //             iataCode: 'CMB',
-  //             at: '2023-03-04T15:55:00',
-  //           },
-  //         },
-  //         {
-  //           departure: {
-  //             iataCode: 'CMB',
-  //             at: '2023-03-04T18:15:00',
-  //           },
-  //           arrival: {
-  //             iataCode: 'RUH',
-  //             at: '2023-03-04T21:30:00',
-  //           },
-  //         },
-  //       ],
-  //       price: "436.67",
-  //     },
-  //     {
-  //       segments: [
-  //         {
-  //           departure: {
-  //             iataCode: 'DAC',
-  //             at: '2023-03-04T13:00:00',
-  //           },
-  //           arrival: {
-  //             iataCode: 'KWI',
-  //             at: '2023-03-04T15:55:00',
-  //           },
-  //         },
-  //         {
-  //           departure: {
-  //             iataCode: 'KEI',
-  //             at: '2023-03-04T18:15:00',
-  //           },
-  //           arrival: {
-  //             iataCode: 'RUH',
-  //             at: '2023-03-04T21:30:00',
-  //           },
-  //         },
-  //       ],
-  //       price: "136.67",
-  //     },
-  //   ],
-  //   [
-  //     {
-  //       segments: [
-  //         {
-  //           departure: {
-  //             iataCode: 'RUH',
-  //             at: '2023-03-04T13:00:00',
-  //           },
-  //           arrival: {
-  //             iataCode: 'IND',
-  //             at: '2023-03-04T15:55:00',
-  //           },
-  //         },
-  //         {
-  //           departure: {
-  //             iataCode: 'IND',
-  //             at: '2023-03-04T18:15:00',
-  //           },
-  //           arrival: {
-  //             iataCode: 'USA',
-  //             at: '2023-03-04T21:30:00',
-  //           },
-  //         },
-  //       ],
-  //       price: "436.67",
-  //     },
-  //     {
-  //       segments: [
-  //         {
-  //           departure: {
-  //             iataCode: 'RUH',
-  //             at: '2023-03-04T13:00:00',
-  //           },
-  //           arrival: {
-  //             iataCode: 'KEI',
-  //             at: '2023-03-04T15:55:00',
-  //           },
-  //         },
-  //         {
-  //           departure: {
-  //             iataCode: 'KEI',
-  //             at: '2023-03-04T18:15:00',
-  //           },
-  //           arrival: {
-  //             iataCode: 'USA',
-  //             at: '2023-03-04T21:30:00',
-  //           },
-  //         },
-  //       ],
-  //       price: "136.67",
-  //     },
-  //   ],
-  // ];
-
-  // selectedFlights = [
-  //   {
-  //     from: {
-  //       time: "5.00PM",
-  //       iataCode: "DEL",
-  //       airportName:"Indira Gandhi International Airport",
-  //     },
-  //     to: {
-  //       time: "7.30PM",
-  //       iataCode: "CCU",
-  //       airportName:"Subhash Chandra Bose International Airport",
-  //     },
-  //     travelDate: "01/31/2023",
-  //     carrierCode: "6E",
-  //     price: "$230"
-  //   },
-
-  //   {
-  //     from: {
-  //       time: "4.00PM",
-  //       iataCode: "DEL",
-  //       airportName:"Indira Gandhi International Airport",
-  //     },
-  //     to: {
-  //       time: "6.30PM",
-  //       iataCode: "CCU",
-  //       airportName:"Subhash Chandra Bose International Airport",
-  //     },
-  //     travelDate: "MM/DD/YYYY",
-  //     carrierCode: "BG",
-  //     price: "$230"
-  //   },
-  //   {
-  //     from: {
-  //       time: "3.00PM",
-  //       iataCode: "DEL",
-  //       airportName:"Indira Gandhi International Airport",
-  //     },
-  //     to: {
-  //       time: "5.30PM",
-  //       iataCode: "CCU",
-  //       airportName:"Subhash Chandra Bose International Airport",
-  //     },
-  //     travelDate: "MM/DD/YYYY",
-  //     carrierCode: "BS",
-  //     price: "$230"
-  //   }
-  // ];
-
   handleSelect(flight: Flight) {
     const newFlightList = this.selectedFlight.filter((fl) => {
       if (
-        flight.segments[0].departure.iataCode ===
+        flight.segments[0].departure.iataCode ==
         fl.segments[0].departure.iataCode &&
-        flight.segments[flight.segments.length - 1].arrival.iataCode ===
-        fl.segments[flight.segments.length - 1].arrival.iataCode
+        flight.segments[flight.segments.length - 1].arrival.iataCode ==
+        fl.segments[fl.segments.length - 1].arrival.iataCode
       ) {
         return false;
       } else return true;
     });
 
     this.selectedFlight = [...newFlightList, flight];
-    console.log(this.selectedFlight);
     this.totalPrice += parseFloat(flight.price);
     this.flightService.setSelectedFlights(this.selectedFlight,this.totalPrice);
-    console.log(this._FlightService.getSearchedFlights())
   }
 
   confirm() {

@@ -18,6 +18,8 @@ export class ConfirmFlightsPageComponent {
   
   ngOnInit() {
     this.invokeStripe();
+    this.selectedFlights = this.flightService.getSelectedFlights();
+    console.log('Selected flights service: ', this.selectedFlights);
   }
 
   paymentHandler: any = null;
@@ -36,6 +38,7 @@ export class ConfirmFlightsPageComponent {
       name: 'FlyAway',
       description: 'Book your flight!',
       amount: amount * 100,
+      // email: 'samiya.kazi09@gmail.com'
     });
   }
   invokeStripe() {
