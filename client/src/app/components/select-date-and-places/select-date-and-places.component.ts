@@ -22,7 +22,6 @@ export class SelectDateAndPlacesComponent implements OnInit {
   @Input()
   travelFormArray: any;
   travelForm!: FormGroup;
-  // locationList!: any
 
   @Input() newLeg!: Object;
   @Input() buttonDisabled!: boolean;
@@ -35,7 +34,6 @@ export class SelectDateAndPlacesComponent implements OnInit {
   filteredOptionTo!: Observable<any>;
 
   //user cannot select the preivous date for the flight ticket
-  //
   minDate = new Date();
 
   ngOnInit() {
@@ -44,16 +42,10 @@ export class SelectDateAndPlacesComponent implements OnInit {
       to: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required),
     });
-    console.log('form valid?', this.travelForm.valid);
-
-    // if(this.travelForm.valid){
-    //   this.buttonDisabled = true
-    // }
 
     if (this.travelFormArray.length > 1) {
       let toValue = this.travelFormArray[this.travelFormArray.length - 1].to;
       this.travelForm.controls['from'].setValue(toValue);
-      // console.log('testing new from',this.travelForm)
 
       let selectedValue = toValue.replace(/\s/g, '').split('-');
 
@@ -66,24 +58,10 @@ export class SelectDateAndPlacesComponent implements OnInit {
     }
 
     this.travelForm.valueChanges.subscribe((value) => {
-      // console.log('child',value)
       this.getAirports(value.from);
 
       Object.assign(this.newLeg, value);
-
-      // console.log('parent from child', this.newLeg);
     });
-
-    // this.filteredOption = this.travelForm.valueChanges.pipe(
-    //   map(value => this._filter(value))
-    // );
-
-    // this.filteredOptionTo = this.travelForm.valueChanges.pipe(
-    //   map(value => this._tofilter(value))
-    // );
-
-    // this.filteredOption.subscribe();
-    // this.filteredOptionTo.subscribe();
   }
 
   private _filter(value: any): any {
@@ -98,18 +76,9 @@ export class SelectDateAndPlacesComponent implements OnInit {
     );
   }
 
-  // parentFunc(){
-  //   this.sendData.emit(this.travelForm.value)
-  //   console.log(this.travelForm.value)
-  // }
-
-  // submitFlight(){
-  //   console.log('Flight details submitted')
-  // }
   getAirports(cityName: string) {
     this.amadeusClient.airportSearch(cityName).subscribe((response) => {
       this.locationArray = response;
-      // console.log(response);
     });
   }
 
@@ -119,6 +88,5 @@ export class SelectDateAndPlacesComponent implements OnInit {
       this.toLocationArray = res;
       console.log('data is coming from iata', res);
     });
-    // console.log('airportRoutes',airportRoutes)
   }
 }
