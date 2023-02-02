@@ -1,6 +1,7 @@
 import { Component, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Flight } from 'src/app/interfaces/flight';
+import { ApiClientService } from 'src/app/service/api-client.service';
 
 @Component({
   selector: 'app-select-flights-page',
@@ -13,7 +14,7 @@ export class SelectFlightsPageComponent {
 
   selectedFlight: Flight[] = [];
   
-  constructor(private route: Router) {}
+  constructor(private route: Router, private flightService: ApiClientService) {}
 
   searchResults = [
     [
@@ -185,6 +186,7 @@ export class SelectFlightsPageComponent {
 
     this.selectedFlight = [...newFlightList, flight];
     console.log(this.selectedFlight);
+    this.flightService.setSelectedFlights(this.selectedFlight);
   }
 
   confirm() {
