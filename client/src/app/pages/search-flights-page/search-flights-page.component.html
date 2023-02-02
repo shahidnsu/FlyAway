@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-content *ngFor="let item of travelFormArray" style="margin-bottom: 5%">
-        <app-select-date-and-places [travelFormArray]="travelFormArray" [addNewLocation]="addNewLocation"
-            [newLeg]="newLeg"></app-select-date-and-places>
+        <app-select-date-and-places [travelFormArray]="travelFormArray"  [addNewLocation]="addNewLocation"
+            [newLeg]="newLeg" [isSuccess]="item.isSuccess" [isFailed]="item.isFailed"></app-select-date-and-places>
     </mat-card-content>
 
     <button (click)="addNewLocation()" mat-stroked-button style="

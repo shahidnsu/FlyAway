@@ -17,6 +17,8 @@ export class SelectDateAndPlacesComponent implements OnInit {
 
   constructor(private amadeusClient: AmadeusService) { }
 
+  @Input() isSuccess!: Boolean
+  @Input() isFailed!: Boolean
   @Input()
   addNewLocation!: () => void;
   @Input()
@@ -41,6 +43,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
       from: new FormControl('', Validators.required),
       to: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required),
+      
     });
 
     if (this.travelFormArray.length > 1) {
