@@ -51,7 +51,7 @@ export class SearchFlightsPageComponent implements OnInit {
     from: '',
     to: '',
     date: Date,
-    availableFlights : []
+    // availableFlights : []
   }]
 
   resFeedFunc(){
@@ -60,9 +60,13 @@ export class SearchFlightsPageComponent implements OnInit {
     const date = this.newLeg.date;
 
     this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
-      Object.assign(this.newLeg.availableFlights)
+      let newObj = {availableFlights:res}
+      console.log('newObj',newObj)
+      Object.assign(this.newLeg,newObj)
+      console.log('newLeg',this.newLeg)
       // this.newLeg.availableFlights.push([...res])
       // this.travelFormArray[this.i-1].availableFlights.push(res)
+      this.travelFormArray.push({...this.newLeg})
       console.log('updated array',this.travelFormArray)
     },
     error:error=>{
@@ -72,18 +76,42 @@ export class SearchFlightsPageComponent implements OnInit {
     
     
   }
+
+  resFeedFuncSubmit(){
+    const originCode = this.newLeg.from.replace(/\s/g, '').split('-')[1]
+    const destinationCode = this.newLeg.to.replace(/\s/g, '').split('-')[1]
+    const date = this.newLeg.date;
+
+    this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
+      let newObj = {availableFlights:res}
+      console.log('newObj',newObj)
+      Object.assign(this.newLeg,newObj)
+      console.log('newLeg',this.newLeg)
+      // this.newLeg.availableFlights.push([...res])
+      // this.travelFormArray[this.i-1].availableFlights.push(res)
+      // this.travelFormArray.push({...this.newLeg})
+      this.newArray = [...this.travelFormArray]
+      this.newArray.push({...this.newLeg})
+      console.log('updated array',this.newArray)
+    },
+    error:error=>{
+
+      }
+    })
+    
+    
+  }
+
   travelFormSubmit(){
-    this.resFeedFunc()
-    this.newArray = [...this.travelFormArray]
-    this.newArray.push({...this.newLeg})
-    console.log(this.travelFormArray)
+    this.resFeedFuncSubmit()
+    // this.newArray = [...this.travelFormArray]
+    // this.newArray.push({...this.newLeg})
+    console.log('search button newArray',this.newArray)
   }
   
   addNewLocation(){
     this.resFeedFunc()
-    this.travelFormArray.push({...this.newLeg})
-    // this.newLeg.availableFlights=[]
-    console.log('travelFormArray',this.travelFormArray)
+    console.log('add new location button travelFormArray',this.travelFormArray)
   }
 }
 
