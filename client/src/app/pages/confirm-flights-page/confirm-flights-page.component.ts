@@ -9,6 +9,8 @@ import { ApiClientService } from 'src/app/service/api-client.service';
 })
 export class ConfirmFlightsPageComponent {
   selectedFlights = this.flightService.getSelectedFlights();
+  stripe: boolean = false;
+  
   totalPrice = this.flightService.getTotalPriceOfSelectedFlights();
 
   isCompleted=true;
@@ -18,6 +20,8 @@ export class ConfirmFlightsPageComponent {
   
   ngOnInit() {
     this.invokeStripe();
+    // this.selectedFlights = this.flightService.getSelectedFlights();
+    console.log("ngoninit",this.selectedFlights)
   }
 
   paymentHandler: any = null;
@@ -30,6 +34,11 @@ export class ConfirmFlightsPageComponent {
       token: function (stripeToken: any) {
         console.log(stripeToken);
         alert('Stripe token generated!');
+        this.stripe = true;
+        console.log(this.stripe);
+        this.flightService.createTripList(this.selectedFlights).subscribe((res:any)=> {
+          console.log("this is akram", res)
+        })
       },
     });
     paymentHandler.open({
@@ -37,6 +46,7 @@ export class ConfirmFlightsPageComponent {
       description: 'Book your flight!',
       amount: amount * 100,
     });
+    
   }
   invokeStripe() {
     if (!window.document.getElementById('stripe-script')) {
@@ -49,7 +59,8 @@ export class ConfirmFlightsPageComponent {
           key: this.published_key,
           locale: 'auto',
           token: function (stripeToken: any) {
-            console.log(stripeToken);
+            this.selectedFlights.stripe = true
+            console.log(this.selectedFlights);
             alert('Payment has been successfull!');
           },
         });
@@ -57,7 +68,12 @@ export class ConfirmFlightsPageComponent {
       window.document.body.appendChild(script);
     }
   }
+  doPayment(){
+    this.flightService.createTripList(this.selectedFlights)
+    console.log("I am confirmed filght" , this.flightService)
+  }
 }
+
 
 
 
