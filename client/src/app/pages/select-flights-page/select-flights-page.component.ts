@@ -60,6 +60,8 @@ ngOnInit(){
     console.log(this._FlightService.getSearchedFlights())
   }
 
+  backButton(){}
+
   confirm() {
     if(this.selectedFlight.length > 0) {
         this.route.navigate(['confirm-flights']);
