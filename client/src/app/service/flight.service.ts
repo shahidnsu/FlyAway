@@ -7,6 +7,11 @@ export class FlightService {
 
   constructor() { }
 
-  public flightsData!: [];
+  public flightsData = [];
+
+
+  getSearchedFlights () {
+    return this.flightsData;
+  }
   
 }

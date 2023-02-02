@@ -17,9 +17,17 @@ export class SelectFlightsPageComponent {
 
   selectedFlight: Flight[] = [];
   
+ngOnInit(){
+
+  // while(!this.selectedFlight.length) {
+  //   this.selectedFlight = this._FlightService.getSearchedFlights();
+  // }
+  // console.log('data from services: ',this.selectedFlight)
+}
 
   constructor(private route: Router, public _FlightService: FlightService, private flightService: ApiClientService) {}
 
+  
   searchResults = [
     [
       {
@@ -190,9 +198,9 @@ export class SelectFlightsPageComponent {
 
     this.selectedFlight = [...newFlightList, flight];
     console.log(this.selectedFlight);
-    console.log('data from services: ',this._FlightService.flightsData)
     this.totalPrice += parseFloat(flight.price);
     this.flightService.setSelectedFlights(this.selectedFlight,this.totalPrice);
+    console.log(this._FlightService.getSearchedFlights())
   }
 
   confirm() {

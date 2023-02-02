@@ -19,7 +19,9 @@ interface formValue {
 
 
 
+
 export class SearchFlightsPageComponent implements OnInit {
+  nav = false;
 
   obj = {
     'FromLocation':'Dhaka',
@@ -103,7 +105,7 @@ export class SearchFlightsPageComponent implements OnInit {
     this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
     
         
-        let newObj = {availableFlights:res}
+        let newObj = {availableFlights: res}
         console.log('newObj',newObj)
         Object.assign(this.newLeg,newObj)
         console.log('newLeg',this.newLeg)
@@ -117,17 +119,24 @@ export class SearchFlightsPageComponent implements OnInit {
         // })
         console.log('updated array',this.newArray)
         this._FlightService.flightsData = this.newArray
-        this.newArray = this.newArray.map((item:any) => {
-          return {from: item.from, to: item.to, date: item.date, availableFlights: item.availableFlights}
-        })
+        console.log('AAAAAAAAAAA', this._FlightService.getSearchedFlights());
+        // this.newArray = this.newArray.map((item:any) => {
+        //   return {from: item.from, to: item.to, date: item.date, availableFlights: item.availableFlights}
+        // })
         // console.log('service data', this._FlightService.flightsData)
-        this.router.navigate(['/select-flights'],this.newArray)
+        this.nav = true;
+        // while(this._FlightService.getSearchedFlights()){
+          
+        // }
+        
+        this.navigate();
+        
       
       
     },
     error:error=>{
 
-      }
+    }
     })
     
     
@@ -143,6 +152,10 @@ export class SearchFlightsPageComponent implements OnInit {
   addNewLocation(){
     this.resFeedFunc()
     console.log('add new location button travelFormArray',this.travelFormArray)
+  }
+
+  navigate () {
+    if(this.nav) this.router.navigate(['/select-flights'])
   }
 }
 
