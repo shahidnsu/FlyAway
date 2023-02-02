@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl,FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { Airport } from 'src/app/interfaces/airport';
@@ -8,70 +8,71 @@ import { AmadeusService } from 'src/app/service/amadeus.service';
 @Component({
   selector: 'app-select-date-and-places',
   templateUrl: './select-date-and-places.component.html',
-  styleUrls: ['./select-date-and-places.component.css']
+  styleUrls: ['./select-date-and-places.component.css'],
 })
-
 export class SelectDateAndPlacesComponent implements OnInit {
-addLocationIntheArray() {
-throw new Error('Method not implemented.');
-}
+  addLocationIntheArray() {
+    throw new Error('Method not implemented.');
+  }
 
-  constructor(private amadeusClient: AmadeusService){}
+  constructor(private amadeusClient: AmadeusService) { }
 
   @Input()
   addNewLocation!: () => void;
-  @Input() 
-  travelFormArray: any
+  @Input()
+  travelFormArray: any;
   travelForm!: FormGroup;
   // locationList!: any
 
   @Input() newLeg!: Object;
-  @Input() buttonDisabled! : boolean;
-  
-  locationArray: Airport[]=[];
+  @Input() buttonDisabled!: boolean;
 
-  toLocationArray: Airport[]=[];
+  locationArray: Airport[] = [];
+
+  toLocationArray: Airport[] = [];
 
   filteredOption!: Observable<any>;
   filteredOptionTo!: Observable<any>;
 
-  ngOnInit(){
-    
+  //user cannot select the preivous date for the flight ticket
+  //
+  minDate = new Date();
+
+  ngOnInit() {
     this.travelForm = new FormGroup({
-      from: new FormControl('',Validators.required),
-      to: new FormControl('',Validators.required),
-      date: new FormControl('',Validators.required)
-    })
-    console.log('form valid?',this.travelForm.valid)
+      from: new FormControl('', Validators.required),
+      to: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.required),
+    });
+    console.log('form valid?', this.travelForm.valid);
 
     // if(this.travelForm.valid){
     //   this.buttonDisabled = true
     // }
 
-    if(this.travelFormArray.length>1){
-      let toValue = this.travelFormArray[this.travelFormArray.length-1].to
+    if (this.travelFormArray.length > 1) {
+      let toValue = this.travelFormArray[this.travelFormArray.length - 1].to;
       this.travelForm.controls['from'].setValue(toValue);
       // console.log('testing new from',this.travelForm)
-    
+
       let selectedValue = toValue.replace(/\s/g, '').split('-');
-      
-      const selectedValueObj={
-        'city': selectedValue[0],
-        'iata': selectedValue[1],
-        'name': ''
-      }
-      this.getAirportRoutes(selectedValueObj)
+
+      const selectedValueObj = {
+        city: selectedValue[0],
+        iata: selectedValue[1],
+        name: '',
+      };
+      this.getAirportRoutes(selectedValueObj);
     }
 
-    this.travelForm.valueChanges.subscribe((value)=>{
+    this.travelForm.valueChanges.subscribe((value) => {
       // console.log('child',value)
-      this.getAirports(value.from)
+      this.getAirports(value.from);
 
       Object.assign(this.newLeg, value);
 
       // console.log('parent from child', this.newLeg);
-    })
-
+    });
 
     // this.filteredOption = this.travelForm.valueChanges.pipe(
     //   map(value => this._filter(value))
@@ -86,17 +87,17 @@ throw new Error('Method not implemented.');
   }
 
   private _filter(value: any): any {
-    return this.locationArray.filter((location: { city: string | any[]; }) => location.city.includes(value.from));
+    return this.locationArray.filter((location: { city: string | any[] }) =>
+      location.city.includes(value.from)
+    );
   }
-
 
   private _tofilter(value: any): any {
-    return this.toLocationArray.filter(location => location.city.includes(value.to));
+    return this.toLocationArray.filter((location) =>
+      location.city.includes(value.to)
+    );
   }
 
-
-
-  
   // parentFunc(){
   //   this.sendData.emit(this.travelForm.value)
   //   console.log(this.travelForm.value)
@@ -105,21 +106,19 @@ throw new Error('Method not implemented.');
   // submitFlight(){
   //   console.log('Flight details submitted')
   // }
-  getAirports(cityName:string) {
+  getAirports(cityName: string) {
     this.amadeusClient.airportSearch(cityName).subscribe((response) => {
       this.locationArray = response;
       // console.log(response);
     });
   }
 
-  getAirportRoutes(airportRoutes:any){
-    const {iata} = airportRoutes;
-    this.amadeusClient.airportRoute(iata).subscribe((res)=>{
+  getAirportRoutes(airportRoutes: any) {
+    const { iata } = airportRoutes;
+    this.amadeusClient.airportRoute(iata).subscribe((res) => {
       this.toLocationArray = res;
-      console.log('data is coming from iata',res)
-    })
+      console.log('data is coming from iata', res);
+    });
     // console.log('airportRoutes',airportRoutes)
   }
-  
-  }
-  
+}
