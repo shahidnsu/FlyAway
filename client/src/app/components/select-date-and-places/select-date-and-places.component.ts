@@ -34,6 +34,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
 
   filteredOption!: Observable<any>;
   filteredOptionTo!: Observable<any>;
+  toField :string ="";
 
   //user cannot select the preivous date for the flight ticket
   minDate = new Date();
@@ -65,6 +66,10 @@ export class SelectDateAndPlacesComponent implements OnInit {
 
       Object.assign(this.newLeg, value);
     });
+
+    this.travelForm.get('to')?.valueChanges.subscribe(value => {
+      this.toField = value;
+    })
   }
 
   private _filter(value: any): any {
@@ -72,13 +77,33 @@ export class SelectDateAndPlacesComponent implements OnInit {
       location.city.includes(value.from)
     );
   }
+ // varibale for to filed 
+  
+  
+  //matchedCity: any = []
 
-  tofilter(event:any): any {
-    return this.toLocationArray.filter(
-      (location: { city: string | any[] }) => location.city.includes(event.target.value)
+  // toFilter(): any {
+  //   this.matchedCity = [...this.toLocationArray]
+  //   this.matchedCity = this.matchedCity.filter((obj: any)=>{
+  //     return obj.city.includes(this.toField.toUpperCase())
+  //   })
+  //   //console.log(this.matchedCity)
+   
+  // }
 
-      // location.city.includes(value.to)
-    );
+  
+
+  //cityKeyValue: any = []
+  matchedCity: any = []
+
+  toFilter(event:any): any {
+    this.matchedCity = [...this.toLocationArray]
+    this.matchedCity = this.matchedCity.filter((obj: any)=>{
+      //console.log(obj)
+      return obj.city.includes(this.toField.toUpperCase())
+    })
+    //console.log(this.matchedCity)
+   
   }
 
   getAirports(cityName: string) {
@@ -91,6 +116,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
     const { iata } = airportRoutes;
     this.amadeusClient.airportRoute(iata).subscribe((res) => {
       this.toLocationArray = res;
+      
       //console.log('data is coming from iata', res);
     });
   }
