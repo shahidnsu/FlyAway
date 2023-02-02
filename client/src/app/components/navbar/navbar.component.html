@@ -1,33 +1,25 @@
-   
+<mat-toolbar style="background-color: transparent">
+  <mat-toolbar-row style="display: flex; justify-content: space-between">
+    <img routerLink="/" src="../../../assets/FlyAwayLogo.svg" />
 
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon"
+      aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
 
-    <mat-toolbar style="background-color:transparent;">
-        <mat-toolbar-row style="display: flex; justify-content: space-between;">
-          <img routerLink="/" src="../../../assets/FlyAwayLogo.svg"/>
-
-          <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
-            <mat-icon>menu</mat-icon>
-          </button>
-
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              
-              <span routerLink="profile">Profile</span>
-            </button>
-            <button mat-menu-item>
-              <span>Previous Flights</span>
-            </button>
-            <button mat-menu-item>
-              <span>Upcoming Flight</span>
-            </button>
-            <button mat-menu-item (click)="logout()">
-                <span>Logout</span>
-              </button>
-          </mat-menu>
-        </mat-toolbar-row>
-    </mat-toolbar>
-
-
-
-    
-      
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <span routerLink="profile">Profile</span>
+      </button>
+      <button mat-menu-item>
+        <span>Previous Flights</span>
+      </button>
+      <button mat-menu-item>
+        <span>Upcoming Flight</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

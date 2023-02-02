@@ -1,11 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Flight } from 'src/app/interfaces/flight';
 import { AmadeusService } from 'src/app/service/amadeus.service';
+
+interface formValue {
+  from: string,
+  to: string,
+  date: Date,
+  availableFlights: Flight[]
+}
 
 @Component({
   selector: 'app-search-flights-page',
   templateUrl: './search-flights-page.component.html',
   styleUrls: ['./search-flights-page.component.css']
 })
+
+
 
 export class SearchFlightsPageComponent implements OnInit {
 
@@ -20,9 +30,11 @@ export class SearchFlightsPageComponent implements OnInit {
   newLeg:any = {
     from: '',
     to: '',
-    date: ''
+    date: Date,
+    availableFlights : []
   }
 
+  i: number = 0
   
 
   constructor(private amadeus:AmadeusService){}
@@ -32,50 +44,74 @@ export class SearchFlightsPageComponent implements OnInit {
     console.log('parent',this.newLeg)
     
   }
+
   
   newArray: any=[]
   travelFormArray:any = [{
     from: '',
     to: '',
     date: Date,
-    availableFlights : []
+    // availableFlights : []
   }]
-  travelFormSubmit(){
-    this.newArray = [...this.travelFormArray]
-    this.newArray.push({...this.newLeg})
-    console.log(this.newArray)
-  }
-  
-  addNewLocation(){
+
+  resFeedFunc(){
     const originCode = this.newLeg.from.replace(/\s/g, '').split('-')[1]
     const destinationCode = this.newLeg.to.replace(/\s/g, '').split('-')[1]
     const date = this.newLeg.date;
 
-    // console.log('search flight',originCode+' '+destinationCode+' '+date);
-
-    // console.log('new leg',this.newLeg);
-
     this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
-      console.log(res);
-      // this.travelFormArray.availableFlights.push(...res)
-      // console.log('updated array',this.travelFormArray.availableFlights)
+      let newObj = {availableFlights:res}
+      console.log('newObj',newObj)
+      Object.assign(this.newLeg,newObj)
+      console.log('newLeg',this.newLeg)
+      // this.newLeg.availableFlights.push([...res])
+      // this.travelFormArray[this.i-1].availableFlights.push(res)
+      this.travelFormArray.push({...this.newLeg})
+      console.log('updated array',this.travelFormArray)
     },
     error:error=>{
 
-    }
-  })
-
-    // console.log()
-    this.travelFormArray.push({...this.newLeg})
-    if(this.travelFormArray.length>1){
-      let latestTo = this.travelFormArray[this.travelFormArray.length-1]
-      // console.log('latestTo', latestTo)
-    }
+      }
+    })
     
-    // console.log(this.travelFormArray)
-    // console.log('Parent Submit',this.newLeg)
-    // this.travelFormArray.shift()
-    console.log(this.travelFormArray)
+    
+  }
+
+  resFeedFuncSubmit(){
+    const originCode = this.newLeg.from.replace(/\s/g, '').split('-')[1]
+    const destinationCode = this.newLeg.to.replace(/\s/g, '').split('-')[1]
+    const date = this.newLeg.date;
+
+    this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
+      let newObj = {availableFlights:res}
+      console.log('newObj',newObj)
+      Object.assign(this.newLeg,newObj)
+      console.log('newLeg',this.newLeg)
+      // this.newLeg.availableFlights.push([...res])
+      // this.travelFormArray[this.i-1].availableFlights.push(res)
+      // this.travelFormArray.push({...this.newLeg})
+      this.newArray = [...this.travelFormArray]
+      this.newArray.push({...this.newLeg})
+      console.log('updated array',this.newArray)
+    },
+    error:error=>{
+
+      }
+    })
+    
+    
+  }
+
+  travelFormSubmit(){
+    this.resFeedFuncSubmit()
+    // this.newArray = [...this.travelFormArray]
+    // this.newArray.push({...this.newLeg})
+    console.log('search button newArray',this.newArray)
+  }
+  
+  addNewLocation(){
+    this.resFeedFunc()
+    console.log('add new location button travelFormArray',this.travelFormArray)
   }
 }
 
