@@ -91,9 +91,9 @@ export class SelectDateAndPlacesComponent implements OnInit {
    
   // }
 
-  //timeline code 
+  
 
-  cityKeyValue: any = []
+  //cityKeyValue: any = []
   matchedCity: any = []
 
   toFilter(event:any): any {
@@ -102,7 +102,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
       //console.log(obj)
       return obj.city.includes(this.toField.toUpperCase())
     })
-    console.log(this.matchedCity)
+    //console.log(this.matchedCity)
    
   }
 
