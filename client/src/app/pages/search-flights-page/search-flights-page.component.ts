@@ -120,9 +120,9 @@ export class SearchFlightsPageComponent implements OnInit {
         console.log('updated array',this.newArray)
         this._FlightService.flightsData = this.newArray
         console.log('AAAAAAAAAAA', this._FlightService.getSearchedFlights());
-        // this.newArray = this.newArray.map((item:any) => {
-        //   return {from: item.from, to: item.to, date: item.date, availableFlights: item.availableFlights}
-        // })
+        this.newArray = this.newArray.map((item:any) => {
+          return {from: item.from, to: item.to, date: item.date, availableFlights: item.availableFlights}
+        })
         // console.log('service data', this._FlightService.flightsData)
         this.nav = true;
         // while(this._FlightService.getSearchedFlights()){

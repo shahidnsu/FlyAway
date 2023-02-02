@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Flight } from 'src/app/interfaces/flight';
 import { FlightService } from 'src/app/service/flight.service';
 import { ApiClientService } from 'src/app/service/api-client.service';
+import { FlightOption } from 'src/app/interfaces/flightOption';
 
 @Component({
   selector: 'app-select-flights-page',
@@ -16,124 +17,124 @@ export class SelectFlightsPageComponent {
   totalPrice: number = 0;
 
   selectedFlight: Flight[] = [];
+  searchResults: FlightOption[] = [];
   
 ngOnInit(){
-
-  // while(!this.selectedFlight.length) {
-  //   this.selectedFlight = this._FlightService.getSearchedFlights();
-  // }
-  // console.log('data from services: ',this.selectedFlight)
+  setTimeout(() => {
+    this.searchResults = this._FlightService.getSearchedFlights();
+    console.log("Selected Flights: ", this.searchResults);
+  }, 5000)
 }
 
   constructor(private route: Router, public _FlightService: FlightService, private flightService: ApiClientService) {}
 
   
-  searchResults = [
-    [
-      {
-        segments: [
-          {
-            departure: {
-              iataCode: 'DAC',
-              at: '2023-03-04T13:00:00',
-            },
-            arrival: {
-              iataCode: 'CMB',
-              at: '2023-03-04T15:55:00',
-            },
-          },
-          {
-            departure: {
-              iataCode: 'CMB',
-              at: '2023-03-04T18:15:00',
-            },
-            arrival: {
-              iataCode: 'RUH',
-              at: '2023-03-04T21:30:00',
-            },
-          },
-        ],
-        price: "436.67",
-      },
-      {
-        segments: [
-          {
-            departure: {
-              iataCode: 'DAC',
-              at: '2023-03-04T13:00:00',
-            },
-            arrival: {
-              iataCode: 'KWI',
-              at: '2023-03-04T15:55:00',
-            },
-          },
-          {
-            departure: {
-              iataCode: 'KEI',
-              at: '2023-03-04T18:15:00',
-            },
-            arrival: {
-              iataCode: 'RUH',
-              at: '2023-03-04T21:30:00',
-            },
-          },
-        ],
-        price: "136.67",
-      },
-    ],
-    [
-      {
-        segments: [
-          {
-            departure: {
-              iataCode: 'RUH',
-              at: '2023-03-04T13:00:00',
-            },
-            arrival: {
-              iataCode: 'IND',
-              at: '2023-03-04T15:55:00',
-            },
-          },
-          {
-            departure: {
-              iataCode: 'IND',
-              at: '2023-03-04T18:15:00',
-            },
-            arrival: {
-              iataCode: 'USA',
-              at: '2023-03-04T21:30:00',
-            },
-          },
-        ],
-        price: "436.67",
-      },
-      {
-        segments: [
-          {
-            departure: {
-              iataCode: 'RUH',
-              at: '2023-03-04T13:00:00',
-            },
-            arrival: {
-              iataCode: 'KEI',
-              at: '2023-03-04T15:55:00',
-            },
-          },
-          {
-            departure: {
-              iataCode: 'KEI',
-              at: '2023-03-04T18:15:00',
-            },
-            arrival: {
-              iataCode: 'USA',
-              at: '2023-03-04T21:30:00',
-            },
-          },
-        ],
-        price: "136.67",
-      },
-    ],
-  ];
+  // searchResults = [
+  //   [
+  //     {
+  //       segments: [
+  //         {
+  //           departure: {
+  //             iataCode: 'DAC',
+  //             at: '2023-03-04T13:00:00',
+  //           },
+  //           arrival: {
+  //             iataCode: 'CMB',
+  //             at: '2023-03-04T15:55:00',
+  //           },
+  //         },
+  //         {
+  //           departure: {
+  //             iataCode: 'CMB',
+  //             at: '2023-03-04T18:15:00',
+  //           },
+  //           arrival: {
+  //             iataCode: 'RUH',
+  //             at: '2023-03-04T21:30:00',
+  //           },
+  //         },
+  //       ],
+  //       price: "436.67",
+  //     },
+  //     {
+  //       segments: [
+  //         {
+  //           departure: {
+  //             iataCode: 'DAC',
+  //             at: '2023-03-04T13:00:00',
+  //           },
+  //           arrival: {
+  //             iataCode: 'KWI',
+  //             at: '2023-03-04T15:55:00',
+  //           },
+  //         },
+  //         {
+  //           departure: {
+  //             iataCode: 'KEI',
+  //             at: '2023-03-04T18:15:00',
+  //           },
+  //           arrival: {
+  //             iataCode: 'RUH',
+  //             at: '2023-03-04T21:30:00',
+  //           },
+  //         },
+  //       ],
+  //       price: "136.67",
+  //     },
+  //   ],
+  //   [
+  //     {
+  //       segments: [
+  //         {
+  //           departure: {
+  //             iataCode: 'RUH',
+  //             at: '2023-03-04T13:00:00',
+  //           },
+  //           arrival: {
+  //             iataCode: 'IND',
+  //             at: '2023-03-04T15:55:00',
+  //           },
+  //         },
+  //         {
+  //           departure: {
+  //             iataCode: 'IND',
+  //             at: '2023-03-04T18:15:00',
+  //           },
+  //           arrival: {
+  //             iataCode: 'USA',
+  //             at: '2023-03-04T21:30:00',
+  //           },
+  //         },
+  //       ],
+  //       price: "436.67",
+  //     },
+  //     {
+  //       segments: [
+  //         {
+  //           departure: {
+  //             iataCode: 'RUH',
+  //             at: '2023-03-04T13:00:00',
+  //           },
+  //           arrival: {
+  //             iataCode: 'KEI',
+  //             at: '2023-03-04T15:55:00',
+  //           },
+  //         },
+  //         {
+  //           departure: {
+  //             iataCode: 'KEI',
+  //             at: '2023-03-04T18:15:00',
+  //           },
+  //           arrival: {
+  //             iataCode: 'USA',
+  //             at: '2023-03-04T21:30:00',
+  //           },
+  //         },
+  //       ],
+  //       price: "136.67",
+  //     },
+  //   ],
+  // ];
 
   // selectedFlights = [
   //   {

@@ -1,7 +1,7 @@
 <h3 class="error">{{msg}}</h3>
 
-<mat-stepper orientation="vertical">
-    <mat-step *ngFor="let flightOption of searchResults">
+<mat-stepper orientation="vertical" class="stepper">
+    <mat-step *ngFor="let flightOption of searchResults.slice(1)">
         <ng-template matStepLabel style="
         font-weight: lighter;
         display: flex;
@@ -9,15 +9,15 @@
         justify-content: space-around;
         align-items: center;
       ">
-            <mat-icon>flight_takeoff</mat-icon>{{ flightOption[0].segments[0].departure.iataCode | uppercase }}
+            <mat-icon>flight_takeoff</mat-icon>{{ flightOption.availableFlights[0].segments[0].departure.iataCode | uppercase }}
             <span> to </span> <mat-icon>flight_land</mat-icon>{{
-            flightOption[0].segments[flightOption[0].segments.length - 1].arrival
+            flightOption.availableFlights[0].segments[flightOption.availableFlights[0].segments.length - 1].arrival
             .iataCode | uppercase
             }}
         </ng-template>
 
         <ng-template matStepContent>
-            <app-select-flights *ngFor="let flights of flightOption" [flights]="flights"
+            <app-select-flights *ngFor="let flights of flightOption.availableFlights" [flights]="flights"
                 (selectFlightEvent)="handleSelect($event)"
                 [selected]="selectedFlight.includes(flights)"></app-select-flights>
         </ng-template>
