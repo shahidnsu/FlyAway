@@ -1,6 +1,7 @@
 import { Component, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Flight } from 'src/app/interfaces/flight';
+import { FlightService } from 'src/app/service/flight.service';
 import { ApiClientService } from 'src/app/service/api-client.service';
 
 @Component({
@@ -12,9 +13,12 @@ export class SelectFlightsPageComponent {
   msg: string = "";
   flights!: Flight[];
 
+  totalPrice: number = 0;
+
   selectedFlight: Flight[] = [];
   
-  constructor(private route: Router, private flightService: ApiClientService) {}
+
+  constructor(private route: Router, public _FlightService: FlightService, private flightService: ApiClientService) {}
 
   searchResults = [
     [
@@ -41,7 +45,7 @@ export class SelectFlightsPageComponent {
             },
           },
         ],
-        price: 436.67,
+        price: "436.67",
       },
       {
         segments: [
@@ -66,7 +70,7 @@ export class SelectFlightsPageComponent {
             },
           },
         ],
-        price: 136.67,
+        price: "136.67",
       },
     ],
     [
@@ -93,7 +97,7 @@ export class SelectFlightsPageComponent {
             },
           },
         ],
-        price: 436.67,
+        price: "436.67",
       },
       {
         segments: [
@@ -118,7 +122,7 @@ export class SelectFlightsPageComponent {
             },
           },
         ],
-        price: 136.67,
+        price: "136.67",
       },
     ],
   ];
@@ -186,7 +190,9 @@ export class SelectFlightsPageComponent {
 
     this.selectedFlight = [...newFlightList, flight];
     console.log(this.selectedFlight);
-    this.flightService.setSelectedFlights(this.selectedFlight);
+    console.log('data from services: ',this._FlightService.flightsData)
+    this.totalPrice += parseFloat(flight.price);
+    this.flightService.setSelectedFlights(this.selectedFlight,this.totalPrice);
   }
 
   confirm() {

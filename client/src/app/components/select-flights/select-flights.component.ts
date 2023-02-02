@@ -9,8 +9,7 @@ import { Flight } from 'src/app/interfaces/flight';
 export class SelectFlightsComponent {
   
   @Input() selected!: boolean;
-  @Output() selectFlightEvent = new EventEmitter();
-  
+  @Output() selectFlightEvent = new EventEmitter();  
   // @Input() selectedFlights;
   @Input() flights!: Flight;
 

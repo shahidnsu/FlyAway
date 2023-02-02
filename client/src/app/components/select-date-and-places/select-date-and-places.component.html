@@ -1,4 +1,6 @@
 <form class="selectItem" [formGroup]="travelForm" (submit)="addNewLocation()">
+  <p *ngIf="isSuccess">Flights Found!</p>
+  <p *ngIf="isFailed">No Flights Found!</p>
   <mat-form-field appearance="outline">
     <mat-label>From</mat-label>
     <input formControlName="from" [matAutocomplete]="auto1" matInput placeholder="Enter a city" />
@@ -37,4 +39,5 @@
       </mat-datepicker-actions>
     </mat-datepicker>
   </mat-form-field>
+
 </form>
