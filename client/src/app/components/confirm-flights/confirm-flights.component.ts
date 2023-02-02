@@ -9,12 +9,6 @@ import { Flight } from 'src/app/interfaces/flight';
 export class ConfirmFlightsComponent {
 
   @Input() flights: any;
-
   @Input() confirmed!: boolean;
-  @Output() confirmFlightEvent = new EventEmitter();
 
-
-  handleClick () {
-    this.confirmFlightEvent.emit(this.flights);
-  }
 }

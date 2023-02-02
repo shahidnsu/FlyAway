@@ -73,9 +73,11 @@ export class SelectDateAndPlacesComponent implements OnInit {
     );
   }
 
-  private _tofilter(value: any): any {
-    return this.toLocationArray.filter((location) =>
-      location.city.includes(value.to)
+  tofilter(event:any): any {
+    return this.toLocationArray.filter(
+      (location: { city: string | any[] }) => location.city.includes(event.target.value)
+
+      // location.city.includes(value.to)
     );
   }
 
@@ -89,7 +91,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
     const { iata } = airportRoutes;
     this.amadeusClient.airportRoute(iata).subscribe((res) => {
       this.toLocationArray = res;
-      console.log('data is coming from iata', res);
+      //console.log('data is coming from iata', res);
     });
   }
 }

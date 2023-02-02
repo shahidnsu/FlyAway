@@ -17,7 +17,7 @@
     <mat-label>To</mat-label>
     <input formControlName="to" [matAutocomplete]="auto2" matInput placeholder="Enter a city" />
     <mat-autocomplete autoActiveFirstOption #auto2="matAutocomplete">
-      <mat-option *ngFor="let option of toLocationArray" (onSelectionChange)="getAirportRoutes(option)"
+      <mat-option *ngFor="let option of toLocationArray" (keyup)="tofilter($event)"
         [value]="option.city + ' - ' + option.iata">
         {{ option.city }} - {{ option.iata }}
       </mat-option>

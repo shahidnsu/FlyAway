@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Flight } from '../interfaces/flight';
 import { User } from '../interfaces/User';
 import { AuthService } from './auth.service';
 
@@ -11,6 +12,8 @@ export class ApiClientService {
 
   rootUrl = "http://localhost:3000"
   token = this.auth.getToken();
+  selectedFlights: Flight[] = [];
+  totalPrice!: number;
 
   constructor(private httpClient : HttpClient,private auth:AuthService) { }
 
@@ -33,5 +36,18 @@ export class ApiClientService {
       }
     };
     return this.httpClient.put<User>(`${this.rootUrl}/profile`, {firstName,lastName,email,passport,dob,country,phoneNumber} ,httpOptions)
-  } 
+  }
+
+  setSelectedFlights(selectedFlights: Flight[], totalPrice: number) {
+    this.selectedFlights = selectedFlights.map((flight) => flight);
+    this.totalPrice = totalPrice;
+    return this.selectedFlights;
+  }
+  
+  getSelectedFlights() {
+    return this.selectedFlights;
+  }
+  getTotalPriceOfSelectedFlights() {
+    return this.totalPrice;
+  }
 }
