@@ -50,6 +50,7 @@ import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-fl
 import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
 import { PaymentComponent } from './pages/payment/payment.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BackButtonComponent } from './components/back-button/back-button.component';
 
 
 export function playerFactory(): any {
@@ -78,6 +79,7 @@ export function playerFactory(): any {
         ConfirmFlightsComponent,
         ConfirmFlightsPageComponent,
         PaymentComponent,
+        BackButtonComponent,
     ],
     imports: [
         ReactiveFormsModule,

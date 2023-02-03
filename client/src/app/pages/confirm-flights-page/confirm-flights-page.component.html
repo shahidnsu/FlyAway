@@ -1,9 +1,5 @@
 <div class="margin-div">
-
-    <button mat-fab extended class="backButton" (click)="backButton()">
-        <mat-icon>keyboard_arrow_left</mat-icon>
-        Back
-    </button>
+    <app-back-button prev="select-flights"></app-back-button>
     
     <mat-stepper orientation="vertical" #stepper [linear]="isLinear">
         <mat-step *ngFor="let flightOption of selectedFlights" [completed]="isCompleted">
