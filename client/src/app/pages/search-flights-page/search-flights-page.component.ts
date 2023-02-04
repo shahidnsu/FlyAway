@@ -4,6 +4,8 @@ import { Flight } from 'src/app/interfaces/flight';
 import { FlightOption } from 'src/app/interfaces/flightOption';
 import { AmadeusService } from 'src/app/service/amadeus.service';
 import { FlightService } from 'src/app/service/flight.service';
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
 
 interface formValue {
   from: string,
@@ -24,6 +26,15 @@ interface formValue {
 export class SearchFlightsPageComponent implements OnInit {
   nav = false;
   isLoading: boolean = false;
+  lottieLoading:boolean = false;
+
+  options: AnimationOptions = {
+    path: './assets/9932-flight-ticket.json'
+  };
+
+  onAnimate(animationItem: AnimationItem): void {
+    console.log(animationItem);
+  }
   searchResults: FlightOption[] = [];
 
   flightNumber!: number;
@@ -108,7 +119,7 @@ export class SearchFlightsPageComponent implements OnInit {
     const originCode = this.newLeg.from.replace(/\s/g, '').split('-')[1]
     const destinationCode = this.newLeg.to.replace(/\s/g, '').split('-')[1]
     const date = this.newLeg.date;
-    this.isLoading = true
+    this.lottieLoading = true
     this.amadeus.searchFlight({ originCode, destinationCode, date }).subscribe({
       next: res => {
         let newObj = { availableFlights: res }
@@ -120,7 +131,7 @@ export class SearchFlightsPageComponent implements OnInit {
         this.newArray.push({ ...this.newLeg })
 
         this._FlightService.setSearchedFlights(this.newArray);
-        this.isLoading = false
+        this.lottieLoading = false
         this.router.navigate(['/select-flights'])
 
         // console.log('updated array',this.newArray)
