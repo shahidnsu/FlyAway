@@ -18,7 +18,7 @@ export class SelectFlightsPageComponent {
 
   totalPrice: number = 0;
 
-  isLoading: boolean = true;
+  isLoading: boolean = false;
   selectedFlight: Flight[] = [];
   searchResults: FlightOption[] = [];
 
@@ -29,23 +29,25 @@ export class SelectFlightsPageComponent {
   onAnimate(animationItem: AnimationItem): void {
     console.log(animationItem);
   }
-  
-ngOnInit(){
-//   setTimeout(() => {
-//     this.searchResults = this._FlightService.getSearchedFlights();
-//     this.isLoading = false;
-//     console.log("Selected Flights: ", this.searchResults);
-//   }, 5000)
-// }
-this._FlightService.getSearchedFlights().subscribe((flights) => {
-  this.searchResults = flights;
-  if(this.searchResults.length) this.isLoading = false;
-})
+
+  ngOnInit() {
+    //   setTimeout(() => {
+    //     this.searchResults = this._FlightService.getSearchedFlights();
+    //     this.isLoading = false;
+    //     console.log("Selected Flights: ", this.searchResults);
+    //   }, 5000)
+    // }
+    // this._FlightService.getSearchedFlights().subscribe((flights) => {
+    //   this.searchResults = flights;
+    //   if(this.searchResults.length) this.isLoading = false;
+    // })
+
+    this.searchResults = this._FlightService.getSearchedFlights()
 
 
-}
+  }
 
-  constructor(private route: Router, public _FlightService: FlightService, private flightService: ApiClientService) {}
+  constructor(private route: Router, public _FlightService: FlightService, private flightService: ApiClientService) { }
 
 
 
@@ -60,19 +62,19 @@ this._FlightService.getSearchedFlights().subscribe((flights) => {
         return false;
       } else return true;
     });
-    
+
     this.selectedFlight = [...newFlightList, flight];
-    this.totalPrice = this.selectedFlight.reduce((acc: number, curr: Flight) => ((acc * 100) +(parseFloat(curr.price) * 100)) / 100, 0);
-    this.flightService.setSelectedFlights(this.selectedFlight,this.totalPrice);
+    this.totalPrice = this.selectedFlight.reduce((acc: number, curr: Flight) => ((acc * 100) + (parseFloat(curr.price) * 100)) / 100, 0);
+    this.flightService.setSelectedFlights(this.selectedFlight, this.totalPrice);
     console.log(this._FlightService.getSearchedFlights())
   }
 
 
   confirm() {
-    if(this.selectedFlight.length > 0) {
-        this.route.navigate(['confirm-flights']);
+    if (this.selectedFlight.length > 0) {
+      this.route.navigate(['confirm-flights']);
     } else {
-        this.msg = "Confirm at least one flight for booking!"
+      this.msg = "Confirm at least one flight for booking!"
     }
   }
 }

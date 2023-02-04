@@ -63,7 +63,8 @@ export class ConfirmFlightsPageComponent {
           token: function (stripeToken: any) {
             this.selectedFlights.stripe = true;
             console.log(this.selectedFlights);
-            alert('Payment has been successfull!');
+            //alert('Payment has been successfull!');
+            
           },
         });
       };

@@ -24,6 +24,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent,canActivate: [AuthGuard]},
   {path: 'search-flights', component: SearchFlightsPageComponent,canActivate : [AuthGuard]},
   {path: 'select-flights', component: SelectFlightsPageComponent,canActivate:[AuthGuard]},
+  
   {path: 'flight-summary', component: FlightSummaryComponent, canActivate :[AuthGuard]},
   {path: 'confirm-flights', component: ConfirmFlightsPageComponent, canActivate : [AuthGuard]},
   {path: 'payment', component: PaymentComponent, canActivate: [AuthGuard]},

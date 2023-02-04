@@ -15,21 +15,22 @@ import { FlightOption } from '../interfaces/flightOption';
 //   getSearchedFlights () {
 //     return this.flightsData;
 //   }
-  
+
 // }
 
 export class FlightService {
 
   constructor() { }
 
-  flightsData = new Subject<FlightOption[]>();
+  flightsData: FlightOption[] = []
+  // flightsData = new Subject<FlightOption[]>();
 
-  getSearchedFlights () {
+  getSearchedFlights() {
     return this.flightsData;
   }
 
-  setSearchedFlights (flights: FlightOption[]) {
-    this.flightsData.next(flights);
+  setSearchedFlights(flights: FlightOption[]) {
+    this.flightsData = flights;
   }
-  
+
 }

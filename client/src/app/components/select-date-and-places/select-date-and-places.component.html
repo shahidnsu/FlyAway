@@ -1,6 +1,6 @@
 <form class="selectItem" [formGroup]="travelForm" (submit)="addNewLocation()">
-  <p *ngIf="isSuccess">Flights Found!</p>
-  <p *ngIf="isFailed">No Flights Found!</p>
+  <p *ngIf="isSuccess" class="msg">Flights Found!</p>
+  <p *ngIf="isFailed" class="msg failed">No Flights Found!</p>
   <mat-form-field appearance="outline">
     <mat-label>From</mat-label>
     <input formControlName="from" [matAutocomplete]="auto1" matInput placeholder="Enter a city" />
@@ -27,7 +27,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="example-form-field">
-    <mat-label>DD/MM/YYYY</mat-label>
+    <mat-label>MM/DD/YYYY</mat-label>
     <input formControlName="date" [min]="minDate" matInput [matDatepicker]="datepicker" />
     <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
     <mat-datepicker #datepicker>
