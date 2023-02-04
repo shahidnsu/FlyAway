@@ -40,7 +40,7 @@ export class SearchFlightsPageComponent implements OnInit {
     isSuccess: false,
   }
 
-  flag:number=0 
+  
 
   constructor(private amadeus:AmadeusService, private router:Router, private _FlightService: FlightService){}
 
@@ -85,7 +85,7 @@ export class SearchFlightsPageComponent implements OnInit {
       this.travelFormArray.push({...this.newLeg})
       
       console.log('updated array',this.travelFormArray)
-      console.log('flag',this.flag)
+      
        
     },
     error:error=>{
@@ -111,18 +111,21 @@ export class SearchFlightsPageComponent implements OnInit {
         
         this.newArray = [...this.travelFormArray]
         this.newArray.push({...this.newLeg})
+
+        this._FlightService.setSearchedFlights(this.newArray);
+        this.router.navigate(['/select-flights'])
         
-        console.log('updated array',this.newArray)
-        this._FlightService.flightsData = this.newArray
-        console.log('AAAAAAAAAAA', this._FlightService.getSearchedFlights());
-        this.newArray = this.newArray.map((item:any) => {
-          return {from: item.from, to: item.to, date: item.date, availableFlights: item.availableFlights}
-        })
+        // console.log('updated array',this.newArray)
+        // this._FlightService.flightsData = this.newArray
+        // console.log('AAAAAAAAAAA', this._FlightService.getSearchedFlights());
+        // this.newArray = this.newArray.map((item:any) => {
+        //   return {from: item.from, to: item.to, date: item.date, availableFlights: item.availableFlights}
+        // })
         
-        this.nav = true;
+        // this.nav = true;
         
         
-        this.navigate();
+        // this.navigate();
         
       
       
