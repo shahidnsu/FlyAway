@@ -2,6 +2,10 @@
 .selectFlight{
   margin-top: 5%;
 }
+.icon {
+  font-size: medium;
+  margin-bottom: 0;
+}
 
 .button-class {
     display: flex;

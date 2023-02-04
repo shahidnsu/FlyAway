@@ -1,36 +1,34 @@
 
-<mat-card style="margin-bottom: 10px;" [class.confirmed]="confirmed">
-
-    <mat-card-header class="airport" *ngFor="let eachSegment of flights.segments">
-        <div style="justify-content: start; text-align: left;width:100%; ">
-            <mat-card-title>{{eachSegment.departure.iataCode | uppercase }}</mat-card-title>
-            <mat-card-subtitle>{{eachSegment.departure.at | date: "h:mm a"}}</mat-card-subtitle>
-        </div>
-
-        <div class="hr-line">
-            <hr>   
-            <span class="hr-icon"><mat-icon>airplane_ticket</mat-icon></span>
-        </div>
-
-        <div style=" text-align: right; width:100%;">
-            <mat-card-title>{{eachSegment.arrival.iataCode | uppercase }}</mat-card-title>
-            <mat-card-subtitle>{{eachSegment.arrival.at | date: "h:mm a"}}</mat-card-subtitle>  
-        </div> 
-
-    </mat-card-header>
+<mat-card style="margin-bottom: 10px;" [class.confirmed]="confirmed" >
+    <div  *ngFor="let eachSegment of flights.segments">
+        <mat-card-header class="airport">
+            <div style="justify-content: start; text-align: left;width:100%; ">
+                <mat-card-title>{{eachSegment.departure.iataCode | uppercase }}</mat-card-title>
+                <mat-card-subtitle>{{eachSegment.departure.at | date: "h:mm a"}}</mat-card-subtitle>
+            </div>
     
-    <mat-divider></mat-divider>
-            <mat-card-content style="display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">
-                <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>date_range</mat-icon> MM/DD/YYYY</h3>
-                <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>timer</mat-icon> TIME</h3> 
-            </mat-card-content>
-        <mat-divider></mat-divider>
-
+            <div class="hr-line">
+                <hr>   
+                <span class="hr-icon"><mat-icon>airplane_ticket</mat-icon></span>
+            </div>
+    
+            <div style=" text-align: right; width:100%;">
+                <mat-card-title>{{eachSegment.arrival.iataCode | uppercase }}</mat-card-title>
+                <mat-card-subtitle>{{eachSegment.arrival.at | date: "h:mm a"}}</mat-card-subtitle>  
+            </div> 
+    
+        </mat-card-header>
+        
+                <mat-card-content style="display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">
+                    <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: flex-start;margin-top: 0.5rem;margin-left: 0;">   <mat-icon>date_range</mat-icon> {{eachSegment.departure.at | date: "mediumDate"}}</h3>
+                    <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: flex-end;margin-top: 0.5rem;margin-right: 0;">   <mat-icon>timer</mat-icon> {{eachSegment.departure.at | date: "h:mm a"}}</h3> 
+                </mat-card-content>
+            <mat-divider></mat-divider>
+    </div>
     <mat-card-content style="display:flex;flex-direction:row;justify-content: space-evenly;margin-top: 0.5rem;">
-                    <h1 style="font-weight: lighter;">Price</h1>
-                    <h1> ${{flights.price}}</h1>
-            </mat-card-content>
-
+        <h1 style="font-weight: lighter;">Price</h1>
+        <h1> ${{flights.price}}</h1>
+    </mat-card-content>
 </mat-card> 
 
 
