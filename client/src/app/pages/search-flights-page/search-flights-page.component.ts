@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Flight } from 'src/app/interfaces/flight';
+import { FlightOption } from 'src/app/interfaces/flightOption';
 import { AmadeusService } from 'src/app/service/amadeus.service';
 import { FlightService } from 'src/app/service/flight.service';
 
@@ -22,6 +23,8 @@ interface formValue {
 
 export class SearchFlightsPageComponent implements OnInit {
   nav = false;
+  isLoading: boolean = false;
+  searchResults: FlightOption[]= [];
 
   obj = {
     'FromLocation':'Dhaka',
@@ -47,6 +50,10 @@ export class SearchFlightsPageComponent implements OnInit {
   ngOnInit(): void {
     
     console.log('parent',this.newLeg)
+     this._FlightService.getSearchedFlights().subscribe((flights) => {
+      this.searchResults = flights;
+      if(!this.searchResults.length) this.isLoading = true;
+    })
     
   }
 
@@ -73,6 +80,7 @@ export class SearchFlightsPageComponent implements OnInit {
         this.newLeg.isFailed= false
       }
       else{
+        this.isLoading = true
         this.newLeg.isFailed=true
         this.newLeg.isSuccess=false
       }
@@ -81,9 +89,8 @@ export class SearchFlightsPageComponent implements OnInit {
       console.log('newObj',newObj)
       Object.assign(this.newLeg,newObj)
       console.log('newLeg',this.newLeg)
-      
       this.travelFormArray.push({...this.newLeg})
-      
+
       console.log('updated array',this.travelFormArray)
       
        
@@ -102,8 +109,6 @@ export class SearchFlightsPageComponent implements OnInit {
     const date = this.newLeg.date;
 
     this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
-    
-        
         let newObj = {availableFlights: res}
         console.log('newObj',newObj)
         Object.assign(this.newLeg,newObj)
