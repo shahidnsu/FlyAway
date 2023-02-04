@@ -50,8 +50,6 @@ export class SearchFlightsPageComponent implements OnInit {
   ngOnInit(): void {
     
     console.log('parent',this.newLeg)
-    this.loaderCheck();
-
   }
 
   
@@ -69,16 +67,16 @@ export class SearchFlightsPageComponent implements OnInit {
     const originCode = this.newLeg.from.replace(/\s/g, '').split('-')[1]
     const destinationCode = this.newLeg.to.replace(/\s/g, '').split('-')[1]
     const date = this.newLeg.date;
+    this.isLoading = true
 
     this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
       
       if(res.length){
-        this.isLoading = false
         this.newLeg.isSuccess=true
         this.newLeg.isFailed= false
+        this.isLoading = false
       }
       else{
-        this.isLoading = true
         this.newLeg.isFailed=true
         this.newLeg.isSuccess=false
       }
@@ -90,7 +88,6 @@ export class SearchFlightsPageComponent implements OnInit {
       this.travelFormArray.push({...this.newLeg})
 
       console.log('updated array',this.travelFormArray)
-      
        
     },
     error:error=>{
@@ -129,7 +126,6 @@ export class SearchFlightsPageComponent implements OnInit {
         
         
         // this.navigate();
-        
       
       
     },
@@ -149,7 +145,7 @@ export class SearchFlightsPageComponent implements OnInit {
   }
   
   addNewLocation(){
-    this.resFeedFunc()
+    this.resFeedFunc();
     console.log('add new location button travelFormArray',this.travelFormArray)
   }
 
@@ -157,12 +153,6 @@ export class SearchFlightsPageComponent implements OnInit {
     if(this.nav) this.router.navigate(['/select-flights'])
   }
 
-  loaderCheck() {
-    this._FlightService.getSearchedFlights().subscribe((flights) => {
-      this.searchResults = flights;
-      if(!this.searchResults.length) this.isLoading = true;
-    })
-  }
 }
 
 
