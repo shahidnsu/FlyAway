@@ -22,14 +22,15 @@ export class FlightService {
 
   constructor() { }
 
-  flightsData = new Subject<FlightOption[]>();
+  flightsData:FlightOption[] = []
+  // flightsData = new Subject<FlightOption[]>();
 
   getSearchedFlights () {
     return this.flightsData;
   }
 
   setSearchedFlights (flights: FlightOption[]) {
-    this.flightsData.next(flights);
+    this.flightsData = flights;
   }
   
 }
