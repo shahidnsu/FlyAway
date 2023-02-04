@@ -49,6 +49,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
 import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 export function playerFactory(): any {
@@ -100,7 +101,8 @@ export function playerFactory(): any {
         MatSelectModule,
         MatMenuModule,
         MatStepperModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatProgressSpinnerModule
     ],
     providers: [MatDatepickerModule],
     bootstrap: [AppComponent]

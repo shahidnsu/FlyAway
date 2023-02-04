@@ -10,43 +10,46 @@ import { ApiClientService } from 'src/app/service/api-client.service';
 export class ConfirmFlightsPageComponent {
   selectedFlights = this.flightService.getSelectedFlights();
   stripe: boolean = false;
-  
+
   totalPrice = this.flightService.getTotalPriceOfSelectedFlights();
 
-  isCompleted=true;
+  isCompleted = true;
   isLinear = true;
 
-  constructor(private route: Router, private flightService: ApiClientService) {}
-  
+  constructor(private route: Router, private flightService: ApiClientService) { }
+
   ngOnInit() {
     this.invokeStripe();
-    // this.selectedFlights = this.flightService.getSelectedFlights();
-    console.log("ngoninit",this.selectedFlights)
+    this.selectedFlights = this.flightService.getSelectedFlights();
+    console.log('Selected flights service: ', this.selectedFlights);
   }
 
   paymentHandler: any = null;
-  published_key = 'pk_test_51MWLP4CtRfbKEF0FQNdWE4BiKjKOekTvMmkR4WBsBQdOFpKftVrcXRsTArFdXHuH4c6M2qcYx1CY4Ur3Cs4PzUYQ00ntT6NrTJ'
- 
+  published_key =
+    'pk_test_51MWLP4CtRfbKEF0FQNdWE4BiKjKOekTvMmkR4WBsBQdOFpKftVrcXRsTArFdXHuH4c6M2qcYx1CY4Ur3Cs4PzUYQ00ntT6NrTJ';
+
   makePayment(amount: any) {
     const paymentHandler = (<any>window).StripeCheckout.configure({
       key: this.published_key,
       locale: 'auto',
-      token: function (stripeToken: any) {
+      token: function(stripeToken: any) {
         console.log(stripeToken);
         alert('Stripe token generated!');
         this.stripe = true;
         console.log(this.stripe);
-        this.flightService.createTripList(this.selectedFlights).subscribe((res:any)=> {
-          console.log("this is akram", res)
-        })
+        this.flightService
+          .createTripList(this.selectedFlights)
+          .subscribe((res: any) => {
+            console.log('this is akram', res);
+          });
       },
     });
     paymentHandler.open({
       name: 'FlyAway',
       description: 'Book your flight!',
       amount: amount * 100,
+      // email: 'samiya.kazi09@gmail.com'
     });
-    
   }
   invokeStripe() {
     if (!window.document.getElementById('stripe-script')) {
@@ -58,8 +61,8 @@ export class ConfirmFlightsPageComponent {
         this.paymentHandler = (<any>window).StripeCheckout.configure({
           key: this.published_key,
           locale: 'auto',
-          token: function (stripeToken: any) {
-            this.selectedFlights.stripe = true
+          token: function(stripeToken: any) {
+            this.selectedFlights.stripe = true;
             console.log(this.selectedFlights);
             alert('Payment has been successfull!');
           },
@@ -68,117 +71,111 @@ export class ConfirmFlightsPageComponent {
       window.document.body.appendChild(script);
     }
   }
-  doPayment(){
-    this.flightService.createTripList(this.selectedFlights)
-    console.log("I am confirmed filght" , this.flightService)
+  backButton() {
+    this.route.navigate(['/select-flights']);
   }
 }
 
+//  confirmedFlight = [
+//     {
+//       segments: [
+//           {
+//               departure: {
+//                   iataCode: "DAC",
+//                   at: "2023-03-04T13:00:00"
+//               },
+//               arrival: {
+//                   iataCode: "KWI",
+//                   at: "2023-03-04T15:55:00"
+//             }
+//           },
+//           {
+//               departure: {
+//                   iataCode: "KEI",
+//                   at: "2023-03-04T18:15:00"
+//               },
+//               arrival: {
+//                   iataCode: "RUH",
+//                   at: "2023-03-04T21:30:00"
+//               }
+//           }
+//       ],
+//       price: 136.67
+//     }
+// ,
 
+//         {
+//           segments: [
+//               {
+//                   departure: {
+//                       iataCode: "RUH",
+//                       at: "2023-03-04T13:00:00"
+//                   },
+//                   arrival: {
+//                       iataCode: "KEI",
+//                       at: "2023-03-04T15:55:00"
+//                   }
+//               },
+//               {
+//                   departure: {
+//                       iataCode: "KEI",
+//                       at: "2023-03-04T18:15:00"
+//                   },
+//                   arrival: {
+//                       iataCode: "USA",
+//                       at: "2023-03-04T21:30:00"
+//                   }
+//               }
+//           ],
+//           price: 136.67
+//         }
+//   ];
 
+// confirmFlights = [
+//   {
+//     from: {
+//       time: "5.00PM",
+//       iataCode: "DEL",
+//       airportName:"Indira Gandhi International Airport",
+//     },
+//     to: {
+//       time: "7.30PM",
+//       iataCode: "CCU",
+//       airportName:"Subhash Chandra Bose International Airport",
+//     },
+//     travelDate: "01/31/2023",
+//     duration: "09:30",
+//     price: "$230"
+//   },
 
-  //  confirmedFlight = [
-  //     {
-  //       segments: [
-  //           {
-  //               departure: {
-  //                   iataCode: "DAC",
-  //                   at: "2023-03-04T13:00:00"
-  //               },
-  //               arrival: {
-  //                   iataCode: "KWI",
-  //                   at: "2023-03-04T15:55:00"
-  //             }
-  //           },
-  //           {
-  //               departure: {
-  //                   iataCode: "KEI",
-  //                   at: "2023-03-04T18:15:00"
-  //               },
-  //               arrival: {
-  //                   iataCode: "RUH",
-  //                   at: "2023-03-04T21:30:00"
-  //               }
-  //           }
-  //       ],
-  //       price: 136.67
-  //     }    
-  // ,
-    
-  //         {
-  //           segments: [
-  //               {
-  //                   departure: {
-  //                       iataCode: "RUH",
-  //                       at: "2023-03-04T13:00:00"
-  //                   },
-  //                   arrival: {
-  //                       iataCode: "KEI",
-  //                       at: "2023-03-04T15:55:00"
-  //                   }
-  //               },
-  //               {
-  //                   departure: {
-  //                       iataCode: "KEI",
-  //                       at: "2023-03-04T18:15:00"
-  //                   },
-  //                   arrival: {
-  //                       iataCode: "USA",
-  //                       at: "2023-03-04T21:30:00"
-  //                   }
-  //               }
-  //           ],
-  //           price: 136.67
-  //         } 
-  //   ];
-
-  // confirmFlights = [
-  //   {
-  //     from: {
-  //       time: "5.00PM",
-  //       iataCode: "DEL",
-  //       airportName:"Indira Gandhi International Airport",
-  //     },
-  //     to: {
-  //       time: "7.30PM",
-  //       iataCode: "CCU",
-  //       airportName:"Subhash Chandra Bose International Airport",
-  //     },
-  //     travelDate: "01/31/2023",
-  //     duration: "09:30",
-  //     price: "$230"
-  //   },
-
-  //   {
-  //     from: {
-  //       time: "4.00PM",
-  //       iataCode: "DEL",
-  //       airportName:"Indira Gandhi International Airport",
-  //     },
-  //     to: {
-  //       time: "6.30PM",
-  //       iataCode: "CCU",
-  //       airportName:"Subhash Chandra Bose International Airport",
-  //     },
-  //     travelDate: "MM/DD/YYYY",
-  //     duration: "09:30",
-  //     price: "$230"
-  //   },
-  //   {
-  //     from: {
-  //       time: "3.00PM",
-  //       iataCode: "DEL",
-  //       airportName:"Indira Gandhi International Airport",
-  //     },
-  //     to: {
-  //       time: "5.30PM",
-  //       iataCode: "CCU",
-  //       airportName:"Subhash Chandra Bose International Airport",
-  //     },
-  //     travelDate: "MM/DD/YYYY",
-  //     duration: "09:30",
-  //     price: "$230"
-  //   }
-  // ];
-
-
+//   {
+//     from: {
+//       time: "4.00PM",
+//       iataCode: "DEL",
+//       airportName:"Indira Gandhi International Airport",
+//     },
+//     to: {
+//       time: "6.30PM",
+//       iataCode: "CCU",
+//       airportName:"Subhash Chandra Bose International Airport",
+//     },
+//     travelDate: "MM/DD/YYYY",
+//     duration: "09:30",
+//     price: "$230"
+//   },
+//   {
+//     from: {
+//       time: "3.00PM",
+//       iataCode: "DEL",
+//       airportName:"Indira Gandhi International Airport",
+//     },
+//     to: {
+//       time: "5.30PM",
+//       iataCode: "CCU",
+//       airportName:"Subhash Chandra Bose International Airport",
+//     },
+//     travelDate: "MM/DD/YYYY",
+//     duration: "09:30",
+//     price: "$230"
+//   }
+// ];
