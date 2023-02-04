@@ -71,6 +71,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
       this.toField = value;
     })
   }
+  
 
   private _filter(value: any): any {
     return this.locationArray.filter((location: { city: string | any[] }) =>
