@@ -50,11 +50,8 @@ export class SearchFlightsPageComponent implements OnInit {
   ngOnInit(): void {
     
     console.log('parent',this.newLeg)
-     this._FlightService.getSearchedFlights().subscribe((flights) => {
-      this.searchResults = flights;
-      if(!this.searchResults.length) this.isLoading = true;
-    })
-    
+    this.loaderCheck();
+
   }
 
   
@@ -76,6 +73,7 @@ export class SearchFlightsPageComponent implements OnInit {
     this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
       
       if(res.length){
+        this.isLoading = false
         this.newLeg.isSuccess=true
         this.newLeg.isFailed= false
       }
@@ -157,6 +155,13 @@ export class SearchFlightsPageComponent implements OnInit {
 
   navigate () {
     if(this.nav) this.router.navigate(['/select-flights'])
+  }
+
+  loaderCheck() {
+    this._FlightService.getSearchedFlights().subscribe((flights) => {
+      this.searchResults = flights;
+      if(!this.searchResults.length) this.isLoading = true;
+    })
   }
 }
 
