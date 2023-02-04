@@ -21,8 +21,8 @@
     
     <mat-divider></mat-divider>
             <mat-card-content style="display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">
-                <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>date_range</mat-icon> MM/DD/YYYY</h3>
-                <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>timer</mat-icon> TIME</h3> 
+                <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>date_range</mat-icon> {{flights.date | date: "mediumDate"}}</h3>
+                <h3 style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around;margin-top: 0.5rem;">   <mat-icon>timer</mat-icon> {{flights.date | date: "h:mm a"}}</h3> 
             </mat-card-content>
         <mat-divider></mat-divider>
 

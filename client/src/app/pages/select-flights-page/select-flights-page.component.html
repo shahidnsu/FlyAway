@@ -1,11 +1,11 @@
 <div class="selectFlight">
-    <app-back-button prev="search-flights"></app-back-button>
-    <!-- <ng-lottie *ngIf="isLoading"
+    <!-- <app-back-button prev="search-flights"></app-back-button> -->
+    <ng-lottie *ngIf="isLoading"
         class="loading"
         [options]="options" 
         (animationCreated)="onAnimate($event)"
     >
-    </ng-lottie> -->
+    </ng-lottie>
     
     <h3 class="error">{{msg}}</h3>
     
@@ -22,11 +22,12 @@
                 <span style="margin: 1rem;"> to </span> <mat-icon class="icon">flight_land</mat-icon>{{
                 flightOption.availableFlights[0].segments[flightOption.availableFlights[0].segments.length - 1].arrival
                 .iataCode | uppercase
-                }}
+                }} <span style="margin: 1rem;"> on </span>  {{flightOption.date | date }}
             </ng-template>
     
             <ng-template matStepContent>
-                <app-select-flights *ngFor="let flights of flightOption.availableFlights" [flights]="flights"
+                <app-select-flights *ngFor="let flights of flightOption.availableFlights" 
+                    [flights]="flights"
                     (selectFlightEvent)="handleSelect($event)"
                     [selected]="selectedFlight.includes(flights)"></app-select-flights>
             </ng-template>
