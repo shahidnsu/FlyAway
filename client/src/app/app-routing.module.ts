@@ -12,6 +12,8 @@ import { SelectFlightsPageComponent } from './pages/select-flights-page/select-f
 import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
 import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { PreviousFlightsPageComponent } from './pages/previous-flights-page/previous-flights-page.component';
+import { UpcomingFlightsPageComponent } from './pages/upcoming-flights-page/upcoming-flights-page.component';
 
 const routes: Routes = [
   
@@ -23,7 +25,9 @@ const routes: Routes = [
   {path: 'select-flights', component: SelectFlightsPageComponent},
   {path: 'flight-summary', component: FlightSummaryComponent},
   {path: 'confirm-flights', component: ConfirmFlightsPageComponent},
-  {path: 'payment', component: PaymentComponent}
+  {path: 'payment', component: PaymentComponent},
+  {path: 'previous-flights', component: PreviousFlightsPageComponent},
+  {path: 'upcoming-flights', component: UpcomingFlightsPageComponent}
 
 ];
 
