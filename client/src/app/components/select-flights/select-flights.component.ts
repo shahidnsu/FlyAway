@@ -12,6 +12,7 @@ export class SelectFlightsComponent {
   @Output() selectFlightEvent = new EventEmitter();  
   // @Input() selectedFlights;
   @Input() flights!: Flight;
+  @Input() flightDate!: Date;
 
   handleClick () {
     this.selectFlightEvent.emit(this.flights);

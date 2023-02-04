@@ -59,7 +59,7 @@ this._FlightService.getSearchedFlights().subscribe((flights) => {
         return false;
       } else return true;
     });
-
+    
     this.selectedFlight = [...newFlightList, flight];
     this.totalPrice = this.selectedFlight.reduce((acc: number, curr: Flight) => ((acc * 100) +(parseFloat(curr.price) * 100)) / 100, 0);
     this.flightService.setSelectedFlights(this.selectedFlight,this.totalPrice);
