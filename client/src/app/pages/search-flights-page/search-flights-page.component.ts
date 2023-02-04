@@ -48,8 +48,8 @@ export class SearchFlightsPageComponent implements OnInit {
   constructor(private amadeus: AmadeusService, private router: Router, private _FlightService: FlightService) { }
 
   ngOnInit(): void {
-    
-    console.log('parent',this.newLeg)
+
+    console.log('parent', this.newLeg)
   }
 
 
@@ -69,28 +69,29 @@ export class SearchFlightsPageComponent implements OnInit {
     const date = this.newLeg.date;
     this.isLoading = true
 
-    this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
-      
-      if(res.length){
-        this.newLeg.isSuccess=true
-        this.newLeg.isFailed= false
-        this.isLoading = false
-      }
-      else{
-        this.newLeg.isFailed=true
-        this.newLeg.isSuccess=false
-      }
-      
-      let newObj = {availableFlights:res}
-      console.log('newObj',newObj)
-      Object.assign(this.newLeg,newObj)
-      console.log('newLeg',this.newLeg)
-      this.travelFormArray.push({...this.newLeg})
+    this.amadeus.searchFlight({ originCode, destinationCode, date }).subscribe({
+      next: res => {
 
-      console.log('updated array',this.travelFormArray)
-       
-    },
-    error:error=>{
+        if (res.length) {
+          this.newLeg.isSuccess = true
+          this.newLeg.isFailed = false
+          this.isLoading = false
+        }
+        else {
+          this.newLeg.isFailed = true
+          this.newLeg.isSuccess = false
+        }
+
+        let newObj = { availableFlights: res }
+        console.log('newObj', newObj)
+        Object.assign(this.newLeg, newObj)
+        console.log('newLeg', this.newLeg)
+        this.travelFormArray.push({ ...this.newLeg })
+
+        console.log('updated array', this.travelFormArray)
+
+      },
+      error: error => {
 
       }
     })
@@ -123,15 +124,15 @@ export class SearchFlightsPageComponent implements OnInit {
         // this.newArray = this.newArray.map((item:any) => {
         //   return {from: item.from, to: item.to, date: item.date, availableFlights: item.availableFlights}
         // })
-        
+
         // this.nav = true;
-        
-        
+
+
         // this.navigate();
-      
-      
-    },
-    error:error=>{
+
+
+      },
+      error: error => {
 
         // this.nav = true;
 
@@ -152,10 +153,10 @@ export class SearchFlightsPageComponent implements OnInit {
     // this.newArray.push({...this.newLeg})
     console.log('search button newArray', this.newArray)
   }
-  
-  addNewLocation(){
+
+  addNewLocation() {
     this.resFeedFunc();
-    console.log('add new location button travelFormArray',this.travelFormArray)
+    console.log('add new location button travelFormArray', this.travelFormArray)
   }
 
   navigate() {
