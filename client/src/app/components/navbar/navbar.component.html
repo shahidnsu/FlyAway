@@ -8,16 +8,19 @@
     </button>
 
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <span routerLink="profile">Profile</span>
+      <button routerLink="profile" mat-menu-item>
+        <span>Profile</span>
       </button>
-      <button mat-menu-item>
+      <button routerLink="search-flights" mat-menu-item>
+        <span>Search Flights</span>
+      </button>
+      <button routerLink="previous-flights" mat-menu-item>
         <span>Previous Flights</span>
       </button>
-      <button mat-menu-item>
-        <span>Upcoming Flight</span>
+      <button routerLink="upcoming-flights" mat-menu-item >
+        <span>Upcoming Flights</span>
       </button>
-      <button mat-menu-item (click)="logout()">
+      <button (click)="logout()" mat-menu-item>
         <span>Logout</span>
       </button>
     </mat-menu>

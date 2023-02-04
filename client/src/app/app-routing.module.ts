@@ -12,18 +12,23 @@ import { SelectFlightsPageComponent } from './pages/select-flights-page/select-f
 import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
 import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
 import { PaymentComponent } from './pages/payment/payment.component';
+import { PreviousFlightsPageComponent } from './pages/previous-flights-page/previous-flights-page.component';
+import { UpcomingFlightsPageComponent } from './pages/upcoming-flights-page/upcoming-flights-page.component';
+import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   
   {path: '', component: SplashScreenComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'search-flights', component: SearchFlightsPageComponent},
+  {path: 'profile', component: ProfileComponent,canActivate: [AuthGuard]},
+  {path: 'search-flights', component: SearchFlightsPageComponent,canActivate : [AuthGuard]},
   {path: 'select-flights', component: SelectFlightsPageComponent},
-  {path: 'flight-summary', component: FlightSummaryComponent},
-  {path: 'confirm-flights', component: ConfirmFlightsPageComponent},
-  {path: 'payment', component: PaymentComponent}
+  {path: 'flight-summary', component: FlightSummaryComponent, canActivate :[AuthGuard]},
+  {path: 'confirm-flights', component: ConfirmFlightsPageComponent, canActivate : [AuthGuard]},
+  {path: 'payment', component: PaymentComponent, canActivate: [AuthGuard]},
+  {path: 'previous-flights', component: PreviousFlightsPageComponent,canActivate : [AuthGuard]},
+  {path: 'upcoming-flights', component: UpcomingFlightsPageComponent,canActivate: [AuthGuard]}
 
 ];
 

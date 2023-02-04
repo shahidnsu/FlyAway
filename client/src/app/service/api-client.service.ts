@@ -50,4 +50,14 @@ export class ApiClientService {
   getTotalPriceOfSelectedFlights() {
     return this.totalPrice;
   }
+  createTripList(tripObject: any):Observable <any>{
+    const httpOptions = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${this.token}`
+      }
+    };
+    console.log("I am Afia",tripObject)
+    return this.httpClient.post<any>(`${this.rootUrl}/tripList`, tripObject,httpOptions )
+  }
 }
