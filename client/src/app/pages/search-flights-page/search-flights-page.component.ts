@@ -48,10 +48,8 @@ export class SearchFlightsPageComponent implements OnInit {
   constructor(private amadeus: AmadeusService, private router: Router, private _FlightService: FlightService) { }
 
   ngOnInit(): void {
-
-    console.log('parent', this.newLeg)
-    // this.loaderCheck();
-
+    
+    console.log('parent',this.newLeg)
   }
 
 
@@ -69,32 +67,30 @@ export class SearchFlightsPageComponent implements OnInit {
     const originCode = this.newLeg.from.replace(/\s/g, '').split('-')[1]
     const destinationCode = this.newLeg.to.replace(/\s/g, '').split('-')[1]
     const date = this.newLeg.date;
+    this.isLoading = true
 
-    this.amadeus.searchFlight({ originCode, destinationCode, date }).subscribe({
-      next: res => {
+    this.amadeus.searchFlight({originCode,destinationCode,date}).subscribe({next:res=>{
+      
+      if(res.length){
+        this.newLeg.isSuccess=true
+        this.newLeg.isFailed= false
+        this.isLoading = false
+      }
+      else{
+        this.newLeg.isFailed=true
+        this.newLeg.isSuccess=false
+      }
+      
+      let newObj = {availableFlights:res}
+      console.log('newObj',newObj)
+      Object.assign(this.newLeg,newObj)
+      console.log('newLeg',this.newLeg)
+      this.travelFormArray.push({...this.newLeg})
 
-        if (res.length) {
-          this.isLoading = false
-          this.newLeg.isSuccess = true
-          this.newLeg.isFailed = false
-        }
-        else {
-          this.isLoading = true
-          this.newLeg.isFailed = true
-          this.newLeg.isSuccess = false
-        }
-
-        let newObj = { availableFlights: res }
-        console.log('newObj', newObj)
-        Object.assign(this.newLeg, newObj)
-        console.log('newLeg', this.newLeg)
-        this.travelFormArray.push({ ...this.newLeg })
-
-        console.log('updated array', this.travelFormArray)
-
-
-      },
-      error: error => {
+      console.log('updated array',this.travelFormArray)
+       
+    },
+    error:error=>{
 
       }
     })
@@ -127,6 +123,15 @@ export class SearchFlightsPageComponent implements OnInit {
         // this.newArray = this.newArray.map((item:any) => {
         //   return {from: item.from, to: item.to, date: item.date, availableFlights: item.availableFlights}
         // })
+        
+        // this.nav = true;
+        
+        
+        // this.navigate();
+      
+      
+    },
+    error:error=>{
 
         // this.nav = true;
 
@@ -134,9 +139,6 @@ export class SearchFlightsPageComponent implements OnInit {
         // this.navigate();
 
 
-
-      },
-      error: error => {
 
       }
     })
@@ -150,10 +152,10 @@ export class SearchFlightsPageComponent implements OnInit {
     // this.newArray.push({...this.newLeg})
     console.log('search button newArray', this.newArray)
   }
-
-  addNewLocation() {
-    this.resFeedFunc()
-    console.log('add new location button travelFormArray', this.travelFormArray)
+  
+  addNewLocation(){
+    this.resFeedFunc();
+    console.log('add new location button travelFormArray',this.travelFormArray)
   }
 
   navigate() {
