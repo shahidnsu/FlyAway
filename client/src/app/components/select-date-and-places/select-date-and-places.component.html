@@ -1,5 +1,5 @@
 <form class="selectItem" [formGroup]="travelForm" (submit)="addNewLocation()">
-  <p *ngIf="isSuccess" class="msg">Flights Found!</p>
+  <p *ngIf="isSuccess" class="msg">{{flightNumber}}Flights Found!</p>
   <p *ngIf="isFailed" class="msg failed">No Flights Found!</p>
   <mat-form-field appearance="outline">
     <mat-label>From</mat-label>

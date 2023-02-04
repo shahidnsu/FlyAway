@@ -26,6 +26,8 @@ export class SearchFlightsPageComponent implements OnInit {
   isLoading: boolean = false;
   searchResults: FlightOption[] = [];
 
+  flightNumber!: number;
+
   obj = {
     'FromLocation': 'Dhaka',
     'FromAirPort': 'Shahjalal Int Airport',
@@ -42,6 +44,8 @@ export class SearchFlightsPageComponent implements OnInit {
     isFailed: false,
     isSuccess: false,
   }
+
+
 
 
 
@@ -74,6 +78,7 @@ export class SearchFlightsPageComponent implements OnInit {
 
         if (res.length) {
           this.newLeg.isSuccess = true
+          this.flightNumber = res.length;
           this.newLeg.isFailed = false
           this.isLoading = false
         }

@@ -24,7 +24,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
   @Input()
   travelFormArray: any;
   travelForm!: FormGroup;
-
+  @Input() flightNumber!: number;
   @Input() newLeg!: Object;
   @Input() buttonDisabled!: boolean;
 
