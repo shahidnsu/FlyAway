@@ -55,7 +55,7 @@ export class LoginComponent {
           this.loginForm.reset();
 
           setTimeout(() => {
-            this.router.navigate(['select-flights']);
+            this.router.navigate(['search-flights']);
           }, 1000)
           
         },
