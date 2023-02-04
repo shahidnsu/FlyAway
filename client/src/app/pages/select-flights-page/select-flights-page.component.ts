@@ -38,10 +38,7 @@ ngOnInit(){
 //   }, 5000)
 // }
 
-this._FlightService.getSearchedFlights().subscribe((flights) => {
-  this.searchResults = flights;
-  if(this.searchResults.length) this.isLoading = false;
-})
+
 }
 
   constructor(private route: Router, public _FlightService: FlightService, private flightService: ApiClientService) {}
@@ -66,7 +63,6 @@ this._FlightService.getSearchedFlights().subscribe((flights) => {
     console.log(this._FlightService.getSearchedFlights())
   }
 
-  backButton(){}
 
   confirm() {
     if(this.selectedFlight.length > 0) {
