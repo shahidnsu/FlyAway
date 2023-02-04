@@ -1,10 +1,14 @@
-<mat-spinner class="loader" *ngIf="isLoading"></mat-spinner>
-
+<!-- <mat-spinner class="loader" ></mat-spinner> -->
 <mat-card>
     <mat-card-content *ngFor="let item of travelFormArray" style="margin-bottom: 5%">
-        <app-select-date-and-places [travelFormArray]="travelFormArray"  [addNewLocation]="addNewLocation"
+      <app-select-date-and-places [travelFormArray]="travelFormArray"  [addNewLocation]="addNewLocation"
             [newLeg]="newLeg" [isSuccess]="item.isSuccess" [isFailed]="item.isFailed"></app-select-date-and-places>
     </mat-card-content>
+
+
+    <mat-card-header *ngIf="isLoading" style="color: green;margin-left: auto;margin-right: auto; text-align: center;margin-bottom: 1rem;">
+      <div class="loader"></div> Searching for flights ...
+    </mat-card-header>
 
     <button (click)="addNewLocation()" mat-stroked-button style="
       background-color: #31305a;
