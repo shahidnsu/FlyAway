@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'profile', component: ProfileComponent,canActivate: [AuthGuard]},
   {path: 'search-flights', component: SearchFlightsPageComponent,canActivate : [AuthGuard]},
-  {path: 'select-flights', component: SelectFlightsPageComponent,canActivate : [AuthGuard]},
+  {path: 'select-flights', component: SelectFlightsPageComponent},
   {path: 'flight-summary', component: FlightSummaryComponent, canActivate :[AuthGuard]},
   {path: 'confirm-flights', component: ConfirmFlightsPageComponent, canActivate : [AuthGuard]},
   {path: 'payment', component: PaymentComponent, canActivate: [AuthGuard]},

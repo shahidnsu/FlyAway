@@ -37,6 +37,10 @@ ngOnInit(){
 //     console.log("Selected Flights: ", this.searchResults);
 //   }, 5000)
 // }
+this._FlightService.getSearchedFlights().subscribe((flights) => {
+  this.searchResults = flights;
+  if(this.searchResults.length) this.isLoading = false;
+})
 
 
 }
