@@ -15,9 +15,9 @@ export class ApiClientService {
   selectedFlights: Flight[] = [];
   totalPrice!: number;
 
-  constructor(private httpClient : HttpClient,private auth:AuthService) { }
+  constructor(private httpClient: HttpClient, private auth: AuthService) { }
 
-  getProfile() : Observable<User> {
+  getProfile(): Observable<User> {
     // console.log(this.token)
     const httpOptions = {
       headers: {
@@ -25,17 +25,17 @@ export class ApiClientService {
         'Authorization': `${this.token}`
       }
     };
-    return this.httpClient.get<User>(`${this.rootUrl}/profile`,httpOptions)
-  } 
+    return this.httpClient.get<User>(`${this.rootUrl}/profile`, httpOptions)
+  }
 
-  updateProfile(firstName: string, lastName: string, email: string, passport: string, dob:string,country:string,phoneNumber:string) : Observable<User> {
+  updateProfile(firstName: string, lastName: string, email: string, passport: string, dob: string, country: string, phoneNumber: string): Observable<User> {
     const httpOptions = {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `${this.token}`
       }
     };
-    return this.httpClient.put<User>(`${this.rootUrl}/profile`, {firstName,lastName,email,passport,dob,country,phoneNumber} ,httpOptions)
+    return this.httpClient.put<User>(`${this.rootUrl}/profile`, { firstName, lastName, email, passport, dob, country, phoneNumber }, httpOptions)
   }
 
   setSelectedFlights(selectedFlights: Flight[], totalPrice: number) {
@@ -43,21 +43,33 @@ export class ApiClientService {
     this.totalPrice = totalPrice;
     return this.selectedFlights;
   }
-  
+
   getSelectedFlights() {
     return this.selectedFlights;
   }
   getTotalPriceOfSelectedFlights() {
     return this.totalPrice;
   }
-  createTripList(tripObject: any):Observable <any>{
+
+
+  createTripList(tripObject: any): Observable<any> {
     const httpOptions = {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `${this.token}`
       }
     };
-    console.log("I am Afia",tripObject)
-    return this.httpClient.post<any>(`${this.rootUrl}/tripList`, tripObject,httpOptions )
+    console.log("I am Afia", tripObject)
+    return this.httpClient.post<any>(`${this.rootUrl}/tripList`, tripObject, httpOptions)
+  }
+
+  getTripList(): Observable<any[]> {
+    const httpOptions = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${this.token}`
+      }
+    };
+    return this.httpClient.get<any[]>(`${this.rootUrl}/tripList`, httpOptions);
   }
 }
