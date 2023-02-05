@@ -15,18 +15,48 @@
 .failed {
     color: red;
 }
-.SearchFlightBtn{
+/* .SearchFlightBtn{
     padding: 3% 0;
     margin: 0 2%;
     font-size: medium;
     font-weight: 600;
     border: 0;
     background-color: rgb(173, 207, 238);
-}
-.SearchFlightBtn:disabled{
-    background-color: rgb(229, 243, 255);
-}
+} */
+/* .SearchFlightBtn:disabled{
+    background-color: rgba(211, 211, 211, 0.51);
+    color: #31305A;
+    border-color: rgba(211, 211, 211, 0.51);
+} */
 .iconControl{
     margin-bottom: 3%;
     text-align: right;
 }
+
+  
+button {
+    width: 21rem;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 104px;
+    gap: 8px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  
+.SearchFlightBtn {
+    color: #FFFFFF;
+    /* background: #31305A; */
+    border: 2px solid rgb(49, 48, 90, 0.5);
+    background: rgb(49, 48, 90, 0.8);
+    border-radius: 5px;
+  }

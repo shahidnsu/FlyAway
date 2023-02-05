@@ -42,13 +42,12 @@
     font-weight: 700;
     border: 0;
   } */
-/* 
-  .addLocationBtn:disabled {
-    background-color: #31305a67;
-  }
-  .viewFlightsBtn:disabled {
+
+  .viewFlightsBtn:disabled, .addLocationBtn:disabled  {
     background-color: rgba(211, 211, 211, 0.51);
-  } */
+    color: #31305A;
+    border-color: rgba(211, 211, 211, 0.51);
+  }
   .pageHead{
     margin-top: 5%;
     margin-bottom: 2%;
@@ -60,7 +59,7 @@
 
    
  button {
-  width: 23rem;
+  width: 21rem;
   height: 48px;
   margin-left: auto;
   margin-right: auto;
@@ -72,8 +71,8 @@
   gap: 8px;
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 15px;
+  line-height: 20px;
   text-align: center;
   margin-bottom: 1rem;
 }
