@@ -29,7 +29,7 @@ import { SelectFlightsComponent } from './components/select-flights/select-fligh
 import { MatDividerModule } from '@angular/material/divider';
 import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpInterceptor } from '@angular/common/http';
 
 
 
@@ -53,6 +53,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { PreviousFlightsPageComponent } from './pages/previous-flights-page/previous-flights-page.component';
 import { UpcomingFlightsPageComponent } from './pages/upcoming-flights-page/upcoming-flights-page.component';
+import { TokenInterceptorService } from './shared/token-interceptor.service';
 
 
 export function playerFactory(): any {
@@ -110,7 +111,7 @@ export function playerFactory(): any {
         MatAutocompleteModule,
         MatProgressSpinnerModule
     ],
-    providers: [MatDatepickerModule],
+    providers: [MatDatepickerModule, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }],
     bootstrap: [AppComponent]
 })
 
