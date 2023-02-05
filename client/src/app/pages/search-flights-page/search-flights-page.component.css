@@ -12,3 +12,30 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  .add-location-btn {
+    background-color: #31305a;
+    padding: 15px 0px 15px 0px;
+    color: white;
+    margin: 1% 5%;
+    font-size: medium;
+  }
+
+  .view-flights-btn {
+    background-color: white;
+    padding: 15px 0px 15px 0px;
+    color: #31305a;
+    margin: 1% 5% 1% 5%;
+    font-size: medium;
+  }
+
+  .add-location-btn:disabled, .view-flights-btn:disabled {
+    background-color: lightgrey;
+  }

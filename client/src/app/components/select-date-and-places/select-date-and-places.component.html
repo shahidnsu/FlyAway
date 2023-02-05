@@ -1,6 +1,6 @@
-<form class="selectItem" [formGroup]="travelForm" (submit)="addNewLocation()">
-  <p *ngIf="isSuccess" class="msg">Flights Found!</p>
-  <p *ngIf="isFailed" class="msg failed">No Flights Found!</p>
+<form class="selectItem" [formGroup]="travelForm" (submit)="searchFlightFunc()">
+  <p *ngIf="item.isSuccess" class="msg">{{flightNumber}}Flights Found!</p>
+  <p *ngIf="item.isFailed" class="msg failed">No Flights Found!</p>
   <mat-form-field appearance="outline">
     <mat-label>From</mat-label>
     <input formControlName="from" [matAutocomplete]="auto1" matInput placeholder="Enter a city" />
@@ -39,5 +39,5 @@
       </mat-datepicker-actions>
     </mat-datepicker>
   </mat-form-field>
-
+<button class="SearchFlightBtn" type="submit">Search Flights</button>
 </form>

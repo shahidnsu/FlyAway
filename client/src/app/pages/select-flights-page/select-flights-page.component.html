@@ -1,16 +1,16 @@
 <div class="selectFlight">
     <!-- <app-back-button prev="search-flights"></app-back-button> -->
-    <ng-lottie *ngIf="isLoading"
+    <!-- <ng-lottie *ngIf="isLoading"
         class="loading"
         [options]="options" 
         (animationCreated)="onAnimate($event)"
     >
-    </ng-lottie>
+    </ng-lottie> -->
     
     <h3 class="error">{{msg}}</h3>
     
     <mat-stepper orientation="vertical" class="stepper">
-        <mat-step *ngFor="let flightOption of searchResults.slice(1)">
+        <mat-step *ngFor="let flightOption of searchResults">
             <ng-template matStepLabel style="
             font-weight: lighter;
             display: flex;

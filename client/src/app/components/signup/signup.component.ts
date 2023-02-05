@@ -1,4 +1,3 @@
-import { User } from './../../interfaces/User';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { AnimationItem } from 'lottie-web';
@@ -39,13 +38,11 @@ export class SignupComponent {
     private router: Router) { }
 
   onAnimate(animationItem: AnimationItem): void {
-    //console.log(animationItem);  
   }
 
   signup() {
     let { firstName, lastName, email, passport, dateOfBirth, password, confirmPassword, country, phoneNumber } = this.signupForm.value;
 
-    //checking is form is valid
     if (firstName && lastName && email && passport && dateOfBirth && password && confirmPassword && country && phoneNumber) {
 
       this.isError = false;
@@ -53,12 +50,8 @@ export class SignupComponent {
       if (password === confirmPassword) {
 
         this.isPassError = false;
-        //converting the angular date object to string to avoid complexity
-        // console.log(dob, typeof dob);
-        console.log(this.signupForm.value);
         let dob = new Date(dateOfBirth);
-        
-
+      
         this.auth.signUp({ firstName, lastName, email, passport, password, country, phoneNumber, dob }).subscribe({
           next: response => {
             console.log(response);

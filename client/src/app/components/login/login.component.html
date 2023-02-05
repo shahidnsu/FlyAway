@@ -1,9 +1,8 @@
 <div class="main-container">
-    <!-- <div class="login-box"> -->
         <mat-card class="example-card">
             <mat-card-title>Hi, Welcome Back! 👋</mat-card-title>
             <div class="error" *ngIf="isError">{{userError}}</div>
-            <div *ngIf="isSubmitted">Login Successfull</div>
+            <div class="error success" *ngIf="isSubmitted">Login Successfull</div>
             <mat-card-content>
                 <form [formGroup]="loginForm" >
                     <app-input-field 
@@ -37,20 +36,3 @@
 
 
 
-
- <!-- <mat-form-field appearance="outline" class="field-full-width">
-                    <mat-label>Enter your email</mat-label>
-                    <input matInput [formControl]="emailFormControl" placeholder="pat@example.com">
-                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                            Please enter a valid email address
-                        </mat-error>
-                        <mat-error *ngIf="emailFormControl.hasError('required')">
-                            Email is <strong>required</strong>
-                        </mat-error>
-                </mat-form-field> -->
-
-                 <!-- <mat-form-field  appearance="outline" class="field-full-width">
-                    <mat-label>Enter your password</mat-label>
-                    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-                </mat-form-field> -->
