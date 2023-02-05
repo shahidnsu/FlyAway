@@ -1,4 +1,3 @@
-import { User } from './../../interfaces/User';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { AnimationItem } from 'lottie-web';

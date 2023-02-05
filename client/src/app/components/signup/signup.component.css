@@ -24,7 +24,7 @@
  .example-card {
      width: 25rem;
       position: absolute;
-      top: 3rem;
+      top: 2rem;
       margin: auto;
       z-index: 1;
   }
@@ -45,8 +45,8 @@
     justify-content: center;
   }
   mat-card-title {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     color: #31305A;
   }
 
