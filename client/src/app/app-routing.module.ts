@@ -28,8 +28,7 @@ const routes: Routes = [
   {path: 'flight-summary', component: FlightSummaryComponent, canActivate :[AuthGuard]},
   {path: 'confirm-flights', component: ConfirmFlightsPageComponent, canActivate : [AuthGuard]},
   {path: 'payment', component: PaymentComponent, canActivate: [AuthGuard]},
-  {path: 'previous-flights', component: PreviousFlightsPageComponent,canActivate : [AuthGuard]},
-  {path: 'upcoming-flights', component: UpcomingFlightsPageComponent,canActivate: [AuthGuard]}
+  {path: 'trip-history', component: UpcomingFlightsPageComponent,canActivate: [AuthGuard]}
 
 ];
 
