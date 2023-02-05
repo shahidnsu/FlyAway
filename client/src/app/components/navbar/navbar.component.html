@@ -20,8 +20,11 @@
       <button routerLink="trip-history" mat-menu-item >
         <span>Trip History</span>
       </button>
-      <button (click)="logout()" mat-menu-item>
+      <button *ngIf="user" (click)="logout()" mat-menu-item>
         <span>Logout</span>
+      </button>
+      <button *ngIf="!user" (click)="login()" mat-menu-item>
+        <span>Login</span>
       </button>
     </mat-menu>
   </mat-toolbar-row>
