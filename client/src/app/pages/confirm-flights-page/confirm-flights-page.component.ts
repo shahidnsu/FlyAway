@@ -28,20 +28,19 @@ export class ConfirmFlightsPageComponent {
   published_key =
     'pk_test_51MWLP4CtRfbKEF0FQNdWE4BiKjKOekTvMmkR4WBsBQdOFpKftVrcXRsTArFdXHuH4c6M2qcYx1CY4Ur3Cs4PzUYQ00ntT6NrTJ';
 
+    check(){
+      console.log('stripe', this.stripe);
+    }
+
   makePayment(amount: any) {
     const paymentHandler = (<any>window).StripeCheckout.configure({
       key: this.published_key,
       locale: 'auto',
-      token: function(stripeToken: any) {
-        console.log(stripeToken);
+      token: function (stripeToken: any) {
+        console.log(stripeToken.id);
+        localStorage.setItem("stripe", JSON.stringify(stripeToken))
         alert('Stripe token generated!');
         this.stripe = true;
-        console.log(this.stripe);
-        this.flightService
-          .createTripList(this.selectedFlights)
-          .subscribe((res: any) => {
-            console.log('this is akram', res);
-          });
       },
     });
     paymentHandler.open({
@@ -61,7 +60,7 @@ export class ConfirmFlightsPageComponent {
         this.paymentHandler = (<any>window).StripeCheckout.configure({
           key: this.published_key,
           locale: 'auto',
-          token: function(stripeToken: any) {
+          token: function (stripeToken: any) {
             this.selectedFlights.stripe = true;
             console.log(this.selectedFlights);
             //alert('Payment has been successfull!');
@@ -75,6 +74,9 @@ export class ConfirmFlightsPageComponent {
   backButton() {
     this.route.navigate(['/select-flights']);
   }
+
+ 
+
 }
 
 //  confirmedFlight = [

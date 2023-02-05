@@ -15,10 +15,10 @@ router.put('/profile', authMiddleware, userController.profileUpdate);
 router.get('/airports/:city', apiController.searchAirport);
 router.get('/flight-search', apiController.flightSearch)
 router.post('/flight-confirmation', apiController.flightConfirmation),
-router.post('/flight-booking', apiController.flightBooking)
+    router.post('/flight-booking', apiController.flightBooking)
 router.get("/search-airports-routes/:iataCode", apiController.searchAirPortRoutes)
 
-router.get('/tripList', authMiddleware,tripListController.getTrip);
-router.post('/tripList', tripListController.createTrip);
+router.get('/tripList', authMiddleware, tripListController.getTrip);
+router.post('/tripList', authMiddleware, tripListController.createTrip);
 
 module.exports = router;

@@ -34,7 +34,10 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder,
     private auth: AuthService,
-    private router:Router) { }
+    private router:Router
+    ) { 
+      localStorage.clear();
+    }
 
   onAnimate(animationItem: AnimationItem): void {
     console.log(animationItem);
@@ -46,7 +49,7 @@ export class LoginComponent {
       this.auth.login(this.loginForm.value.email!, this.loginForm.value.password!).subscribe({
         next: (response: any) => {
 
-          console.log(response);
+          console.log(response.body.email);
           localStorage.setItem('token', response.headers.get('authorization'));
           localStorage.setItem('user', response.body.email);
 
