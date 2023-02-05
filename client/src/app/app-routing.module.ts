@@ -12,9 +12,9 @@ import { SelectFlightsPageComponent } from './pages/select-flights-page/select-f
 import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
 import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
 import { PaymentComponent } from './pages/payment/payment.component';
-import { PreviousFlightsPageComponent } from './pages/previous-flights-page/previous-flights-page.component';
-import { UpcomingFlightsPageComponent } from './pages/upcoming-flights-page/upcoming-flights-page.component';
+
 import { AuthGuard } from './shared/auth.guard';
+import { TripHistoryComponent } from './pages/trip-history/trip-history.component';
 
 const routes: Routes = [
   
@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'flight-summary', component: FlightSummaryComponent, canActivate :[AuthGuard]},
   {path: 'confirm-flights', component: ConfirmFlightsPageComponent, canActivate : [AuthGuard]},
   {path: 'payment', component: PaymentComponent, canActivate: [AuthGuard]},
-  {path: 'trip-history', component: UpcomingFlightsPageComponent,canActivate: [AuthGuard]}
+  {path: 'trip-history', component: TripHistoryComponent,canActivate: [AuthGuard]}
 
 ];
 

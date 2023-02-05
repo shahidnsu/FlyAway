@@ -13,12 +13,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  // hide = true;
-  // error: string = '';
-  // errorMsg: string = '';
-  // emailFormControl = new FormControl('');
-
-
   isSubmitted: boolean = false;
   userError: string = '';
   isError: boolean = false;
@@ -40,7 +34,6 @@ export class LoginComponent {
     }
 
   onAnimate(animationItem: AnimationItem): void {
-    console.log(animationItem);
   }
 
   login() {

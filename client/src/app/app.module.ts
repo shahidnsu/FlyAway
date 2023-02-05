@@ -53,6 +53,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { PreviousFlightsPageComponent } from './pages/previous-flights-page/previous-flights-page.component';
 import { UpcomingFlightsPageComponent } from './pages/upcoming-flights-page/upcoming-flights-page.component';
+import { TripHistoryComponent } from './pages/trip-history/trip-history.component';
 
 
 export function playerFactory(): any {
@@ -84,6 +85,7 @@ export function playerFactory(): any {
         BackButtonComponent,
         PreviousFlightsPageComponent,
         UpcomingFlightsPageComponent,
+        TripHistoryComponent,
     ],
     imports: [
         ReactiveFormsModule,

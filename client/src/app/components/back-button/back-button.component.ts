@@ -13,7 +13,6 @@ export class BackButtonComponent {
   constructor (private router: Router, private location: Location) {}
   
   backButton () {
-    //this.location.back();
     if (this.prev === 'last') {
       this.location.back()
     } else {

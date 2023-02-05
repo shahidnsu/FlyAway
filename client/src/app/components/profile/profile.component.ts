@@ -32,17 +32,11 @@ export class ProfileComponent implements OnInit {
     private apiClient: ApiClientService,
     private amadeusClient: AmadeusService
   ) { }
+  
   ngOnInit(): void {
     this.getProfile();
-    //this.getAirports();
   }
 
-  // just for testing purpose
-  getAirports() {
-    this.amadeusClient.airportSearch('lon').subscribe((response) => {
-      console.log(response);
-    });
-  }
   getProfile() {
     this.apiClient.getProfile().subscribe((response) => {
       let { firstName, lastName, email, dob, passport, country, phoneNumber } = response;
@@ -58,7 +52,6 @@ export class ProfileComponent implements OnInit {
         phoneNumber
       });
 
-      console.log('User got: ', response)
     });
   }
 
