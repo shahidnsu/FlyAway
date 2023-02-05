@@ -38,7 +38,7 @@ export class SearchFlightsPageComponent implements OnInit {
   };
 
   onAnimate(animationItem: AnimationItem): void {
-    console.log(animationItem);
+    
   }
   searchResults: FlightOption[] = [];
 
@@ -143,12 +143,13 @@ export class SearchFlightsPageComponent implements OnInit {
 
     this.amadeus.searchFlight({ originCode, destinationCode, date }).subscribe({
       next: res => {
-        this.searchFlightsLoading = false;
+        
 
         if (res.length) {
           element.isSuccess = true;
           element.isFailed = false;
           this.searchResults[index] = {...values, availableFlights: res};
+          this.searchFlightsLoading = false;
         } else {
           element.isSuccess = false;
           element.isFailed = true;
