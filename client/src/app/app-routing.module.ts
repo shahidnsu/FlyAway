@@ -15,6 +15,7 @@ import { PaymentComponent } from './pages/payment/payment.component';
 
 import { AuthGuard } from './shared/auth.guard';
 import { TripHistoryComponent } from './pages/trip-history/trip-history.component';
+import { SingleTripComponent } from './pages/single-trip/single-trip.component';
 
 const routes: Routes = [
   
@@ -28,7 +29,9 @@ const routes: Routes = [
   {path: 'flight-summary', component: FlightSummaryComponent, canActivate :[AuthGuard]},
   {path: 'confirm-flights', component: ConfirmFlightsPageComponent, canActivate : [AuthGuard]},
   {path: 'payment', component: PaymentComponent, canActivate: [AuthGuard]},
-  {path: 'trip-history', component: TripHistoryComponent,canActivate: [AuthGuard]}
+  {path: 'trip-history', component: TripHistoryComponent,canActivate: [AuthGuard]},
+  {path: 'trip', component: SingleTripComponent,canActivate: [AuthGuard]}
+
 
 ];
 

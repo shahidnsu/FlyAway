@@ -4,6 +4,11 @@
     justify-content: center;
     text-align: center;
 }
+
+.card {
+  width: 100%;
+}
+
 .airport {
   display: flex;
   justify-content: center;
@@ -21,7 +26,8 @@
   display:flex;
   flex-direction:row;
   justify-content: space-evenly;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  color: #31305A;
 }
 
 h3 {
@@ -61,7 +67,7 @@ span {
 
 
 
-.container{
+ .container{
     display: flex;
     flex-direction: row;
     margin-top: 1rem;
@@ -75,7 +81,7 @@ span {
     width:50%;
     margin-left: auto;
     justify-content: end;
-  }
+  } 
 
 
 .confirmed {

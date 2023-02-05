@@ -1,5 +1,39 @@
-mat-card-header, mat-card-title {
-    margin-left: auto;
-    margin-right: auto;
+h2 {
+    color: #31305A;
+    margin-left: 1rem;
+    margin-top: 3rem;
+}
+.date-box {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
+
+::ng-deep .mat-vertical-stepper-content 
+{
+    visibility: visible !important;
+    height: 100% !important;
+}
+
+::ng-deep .mat-step-icon-content { 
+    display: none !important; 
+} 
+
+::ng-deep .mat-step-icon {
+	border-radius: 50%;
+	height: 2rem !important;
+	width: 2rem !important;
+
+    background-color: #31305A;
+}
+
+mat-card {
+    margin: 0.5rem;
+}
+
+span {
+    font-weight: bolder;
+    margin: 0;
 }
 

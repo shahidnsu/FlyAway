@@ -38,7 +38,7 @@ export class SearchFlightsPageComponent implements OnInit {
   };
 
   onAnimate(animationItem: AnimationItem): void {
-    console.log(animationItem);
+    
   }
   searchResults: FlightOption[] = [];
 
@@ -100,6 +100,14 @@ export class SearchFlightsPageComponent implements OnInit {
     console.log('search button newArray', this.newArray);
   }
 
+  deleteLeg(item:formValue){
+    this.searchResults.splice(item.index,1)
+    console.log(this.travelFormArray)
+    this.travelFormArray.splice(item.index,1)
+    this.checkDisable();
+    
+  }
+
   addNewLocation() {
     const newElement = this.searchResults[this.searchResults.length - 1];
     newElement.index = this.lastIndex;
@@ -131,6 +139,7 @@ export class SearchFlightsPageComponent implements OnInit {
     const originCode = values.from.replace(/\s/g, '').split('-')[1]
     const destinationCode = values.to.replace(/\s/g, '').split('-')[1]
     const date = values.date;
+    this.isLoading = true;
 
     const { index } = values;
     const element = this.travelFormArray[index];
@@ -143,12 +152,14 @@ export class SearchFlightsPageComponent implements OnInit {
 
     this.amadeus.searchFlight({ originCode, destinationCode, date }).subscribe({
       next: res => {
-        this.searchFlightsLoading = false;
+        
 
         if (res.length) {
+          this.isLoading = false;
           element.isSuccess = true;
           element.isFailed = false;
           this.searchResults[index] = {...values, availableFlights: res};
+          this.searchFlightsLoading = false;
         } else {
           element.isSuccess = false;
           element.isFailed = true;

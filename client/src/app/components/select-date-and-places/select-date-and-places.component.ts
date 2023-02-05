@@ -33,6 +33,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
   @Input() item!: FlightOption;
 
   @Output() formSubmitEvent = new EventEmitter();
+  @Output() deleteItemEvent = new EventEmitter();
 
   locationArray: Airport[] = [];
 
@@ -140,6 +141,11 @@ export class SelectDateAndPlacesComponent implements OnInit {
       this.disable = true
     }
     
+  }
+
+  removeItem(){
+    console.log("remove Item", this.travelForm.value)
+    this.deleteItemEvent.emit(this.item)
   }
 
   getAirports(cityName: string) {

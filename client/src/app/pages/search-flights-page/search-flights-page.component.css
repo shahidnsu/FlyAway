@@ -20,7 +20,7 @@
     margin-top: 5rem;
   }
 
-  .addLocationBtn {
+  /* .addLocationBtn {
     background-color: #31305a;
     padding: 10px 0px 10px 0px;
     color: white;
@@ -28,27 +28,27 @@
     font-size:large;
     font-weight: 700;
     border: 0;
-  }
+  } */
 
   .maincard{
     padding-bottom: 5%;
   }
 
-  .viewFlightsBtn {
+  /* .viewFlightsBtn {
     background-color: white;
     padding: 10px 0px 10px 0px;
     margin: 0.5% 5%;
     font-size:large;
     font-weight: 700;
     border: 0;
-  }
-
+  } */
+/* 
   .addLocationBtn:disabled {
     background-color: #31305a67;
   }
   .viewFlightsBtn:disabled {
     background-color: rgba(211, 211, 211, 0.51);
-  }
+  } */
   .pageHead{
     margin-top: 5%;
     margin-bottom: 2%;
@@ -57,3 +57,38 @@
     font-size: x-large;
     text-align: center;
   }
+
+   
+ button {
+  width: 23rem;
+  height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 104px;
+  gap: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.addLocationBtn {
+  color: #31305A;
+  background: #FFFFFF;
+  border: 2px solid #31305A;
+  border-radius: 5px;
+}
+
+.viewFlightsBtn {
+  color: #FFFFFF;
+  background: #31305A;
+  border: 2px solid #31305A;
+  border-radius: 5px;
+}
+
