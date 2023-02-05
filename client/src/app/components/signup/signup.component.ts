@@ -16,6 +16,10 @@ export class SignupComponent {
   userError: string = '';
   isError: boolean = false;
   isPassError: boolean = false;
+ 
+  today = new Date();
+  minAge = 18;
+  validAge = new Date(this.today.getFullYear() - this.minAge, this.today.getMonth(), this.today.getDate());
 
 
   signupForm = new FormGroup({

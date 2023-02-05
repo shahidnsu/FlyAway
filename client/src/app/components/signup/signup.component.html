@@ -51,7 +51,7 @@
                         <div class="right">
                             <mat-form-field appearance="outline" style="width:100%">
                                 <mat-label>Date of birth</mat-label>
-                                <input formControlName="dateOfBirth" matInput [matDatepicker]="picker">
+                                <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" [max]="validAge">
                                 <mat-hint>MM/DD/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
