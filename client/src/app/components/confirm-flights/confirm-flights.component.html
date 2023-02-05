@@ -1,5 +1,5 @@
 
-<mat-card style="margin-bottom: 10px;" [class.confirmed]="confirmed" >
+<mat-card class="card" [class.confirmed]="confirmed" >
     <div  *ngFor="let eachSegment of flights.segments">
         <mat-card-header class="airport">
             <div style="justify-content: start; text-align: left;width:100%; ">
@@ -26,8 +26,8 @@
             <mat-divider></mat-divider>
     </div>
     <mat-card-content class="price-box">
-        <h1 style="font-weight: lighter;">Price</h1>
-        <h1> ${{flights.price}}</h1>
+        <h2 style="font-weight: lighter;">Price</h2>
+        <h2> ${{flights.price}}</h2>
     </mat-card-content>
 </mat-card> 
 

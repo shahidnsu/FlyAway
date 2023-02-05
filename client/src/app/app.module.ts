@@ -55,6 +55,7 @@ import { PreviousFlightsPageComponent } from './pages/previous-flights-page/prev
 import { UpcomingFlightsPageComponent } from './pages/upcoming-flights-page/upcoming-flights-page.component';
 import { TokenInterceptorService } from './shared/token-interceptor.service';
 import { TripHistoryComponent } from './pages/trip-history/trip-history.component';
+import { SingleTripComponent } from './pages/single-trip/single-trip.component';
 
 
 export function playerFactory(): any {
@@ -87,6 +88,7 @@ export function playerFactory(): any {
         PreviousFlightsPageComponent,
         UpcomingFlightsPageComponent,
         TripHistoryComponent,
+        SingleTripComponent,
     ],
     imports: [
         ReactiveFormsModule,
