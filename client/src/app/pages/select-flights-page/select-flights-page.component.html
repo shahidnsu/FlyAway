@@ -10,7 +10,7 @@
     <h3 class="error">{{msg}}</h3>
     
     <mat-stepper orientation="vertical" class="stepper">
-        <mat-step *ngFor="let flightOption of searchResults.slice(1)">
+        <mat-step *ngFor="let flightOption of searchResults">
             <ng-template matStepLabel style="
             font-weight: lighter;
             display: flex;

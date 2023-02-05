@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { Airport } from 'src/app/interfaces/airport';
+import { FlightOption } from 'src/app/interfaces/flightOption';
 import { AmadeusService } from 'src/app/service/amadeus.service';
 
 @Component({
@@ -27,6 +28,9 @@ export class SelectDateAndPlacesComponent implements OnInit {
   @Input() flightNumber!: number;
   @Input() newLeg!: Object;
   @Input() buttonDisabled!: boolean;
+  @Input() item!: FlightOption;
+
+  @Output() formSubmitEvent = new EventEmitter();
 
   locationArray: Airport[] = [];
 
@@ -105,6 +109,17 @@ export class SelectDateAndPlacesComponent implements OnInit {
     })
     //console.log(this.matchedCity)
 
+  }
+
+  searchFlightFunc(){
+    if(this.travelForm.valid){
+      console.log(this.travelForm.value)
+      this.formSubmitEvent.emit({...this.item, ...this.travelForm.value})
+    }
+    else{
+
+    }
+    
   }
 
   getAirports(cityName: string) {
