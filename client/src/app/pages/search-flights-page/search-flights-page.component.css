@@ -49,3 +49,11 @@
   .viewFlightsBtn:disabled {
     background-color: rgba(211, 211, 211, 0.51);
   }
+  .pageHead{
+    margin-top: 5%;
+    margin-bottom: 2%;
+    color: 31305a;
+    font-weight: 500;
+    font-size: x-large;
+    text-align: center;
+  }
