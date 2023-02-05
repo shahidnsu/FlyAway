@@ -8,16 +8,16 @@
     </button>
 
     <mat-menu #menu="matMenu">
-      <button routerLink="profile" mat-menu-item>
+      <button *ngIf="user" routerLink="profile" mat-menu-item>
         <span>Profile</span>
       </button>
-      <button routerLink="search-flights" mat-menu-item>
+      <button *ngIf="user" routerLink="search-flights" mat-menu-item>
         <span>Search Flights</span>
       </button>
       <!-- <button routerLink="previous-flights" mat-menu-item>
         <span>Previous Flights</span>
       </button> -->
-      <button routerLink="trip-history" mat-menu-item >
+      <button *ngIf="user" routerLink="trip-history" mat-menu-item >
         <span>Trip History</span>
       </button>
       <button *ngIf="user" (click)="logout()" mat-menu-item>
