@@ -1,25 +1,2 @@
-    
- 
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title><mat-icon>history</mat-icon> Trip History</mat-card-title>
-        </mat-card-header>
-        <!-- <app-back-button prev="search-flights"></app-back-button> -->
-     
-        <mat-stepper matStepperIcon="number" *ngFor="let trip of selectedFlights" orientation="vertical" #stepper [linear]="isLinear">
-            <mat-step *ngFor="let flightOption of  trip.trip" [completed]="isCompleted">
-    
-                    <ng-template matStepLabel style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around; align-items: center;"> {{flightOption.segments[0].departure.iataCode | uppercase}}  <span> to </span> {{flightOption.segments[flightOption.segments.length-1].arrival.iataCode | uppercase}}
-                    </ng-template> 
-            
-                    <ng-template matStepContent>
-                        <app-confirm-flights 
-                          [flights]="flightOption"
-                          ></app-confirm-flights>
-                      </ng-template>
-    
-                
-            </mat-step>
-        </mat-stepper>
 
-    </mat-card>
+   

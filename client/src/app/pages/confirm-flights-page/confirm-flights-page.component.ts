@@ -21,7 +21,6 @@ export class ConfirmFlightsPageComponent {
   ngOnInit() {
     this.invokeStripe();
     this.selectedFlights = this.flightService.getSelectedFlights();
-    console.log('Selected flights service: ', this.selectedFlights);
   }
 
   paymentHandler: any = null;
@@ -37,7 +36,6 @@ export class ConfirmFlightsPageComponent {
       key: this.published_key,
       locale: 'auto',
       token: function (stripeToken: any) {
-        console.log(stripeToken.id);
         localStorage.setItem("stripe", JSON.stringify(stripeToken))
         alert('Stripe token generated!');
         this.stripe = true;
@@ -49,6 +47,9 @@ export class ConfirmFlightsPageComponent {
       amount: amount * 100,
       // email: 'samiya.kazi09@gmail.com'
     });
+
+    this.flightService.createTripList(this.selectedFlights).subscribe(res=>console.log(res));
+    
   }
   invokeStripe() {
     if (!window.document.getElementById('stripe-script')) {
@@ -74,9 +75,6 @@ export class ConfirmFlightsPageComponent {
   backButton() {
     this.route.navigate(['/select-flights']);
   }
-
- 
-
 }
 
 //  confirmedFlight = [
