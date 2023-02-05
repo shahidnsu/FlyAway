@@ -16,8 +16,13 @@
     color: red;
 }
 .SearchFlightBtn{
-    padding: 2% 0;
+    padding: 3% 0;
     margin: 0 2%;
     font-size: medium;
     font-weight: 600;
+    border: 0;
+    background-color: rgb(173, 207, 238);
+}
+.SearchFlightBtn:disabled{
+    background-color: rgb(229, 243, 255);
 }

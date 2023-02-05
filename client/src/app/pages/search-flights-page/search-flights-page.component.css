@@ -20,22 +20,32 @@
     margin-top: 5rem;
   }
 
-  .add-location-btn {
+  .addLocationBtn {
     background-color: #31305a;
-    padding: 15px 0px 15px 0px;
+    padding: 10px 0px 10px 0px;
     color: white;
-    margin: 1% 5%;
-    font-size: medium;
+    margin: 0.5% 5%;
+    font-size:large;
+    font-weight: 700;
+    border: 0;
   }
 
-  .view-flights-btn {
+  .maincard{
+    padding-bottom: 5%;
+  }
+
+  .viewFlightsBtn {
     background-color: white;
-    padding: 15px 0px 15px 0px;
-    color: #31305a;
-    margin: 1% 5% 1% 5%;
-    font-size: medium;
+    padding: 10px 0px 10px 0px;
+    margin: 0.5% 5%;
+    font-size:large;
+    font-weight: 700;
+    border: 0;
   }
 
-  .add-location-btn:disabled, .view-flights-btn:disabled {
-    background-color: lightgrey;
+  .addLocationBtn:disabled {
+    background-color: #31305a67;
+  }
+  .viewFlightsBtn:disabled {
+    background-color: rgba(211, 211, 211, 0.51);
   }

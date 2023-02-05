@@ -16,6 +16,8 @@ export class SelectDateAndPlacesComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
+  disable = true
+
   constructor(private amadeusClient: AmadeusService) { }
 
   @Input() isSuccess!: Boolean
@@ -53,10 +55,12 @@ export class SelectDateAndPlacesComponent implements OnInit {
 
     if (this.travelFormArray.length > 1) {
       let toValue = this.travelFormArray[this.travelFormArray.length - 1].to;
+      let prevDate = this.travelFormArray[this.travelFormArray.length - 1].date;
       this.travelForm.controls['from'].setValue(toValue);
-
+      this.minDate = prevDate;
       let selectedValue = toValue.replace(/\s/g, '').split('-');
 
+      
       const selectedValueObj = {
         city: selectedValue[0],
         iata: selectedValue[1],
@@ -69,6 +73,8 @@ export class SelectDateAndPlacesComponent implements OnInit {
       this.getAirports(value.from);
 
       Object.assign(this.newLeg, value);
+
+      this.checkDisable()
     });
 
     this.travelForm.get('to')?.valueChanges.subscribe(value => {
@@ -111,13 +117,27 @@ export class SelectDateAndPlacesComponent implements OnInit {
 
   }
 
+  checkDisable(){
+    if(this.travelForm.valid){
+      this.disable = false
+    }
+    else{
+      this.disable = true
+    }
+  }
+
+  // dateClick(){
+  //   this.checkDisable()
+  //   console.log("date clicked")
+  // }
+
   searchFlightFunc(){
     if(this.travelForm.valid){
       console.log(this.travelForm.value)
       this.formSubmitEvent.emit({...this.item, ...this.travelForm.value})
     }
     else{
-
+      this.disable = true
     }
     
   }

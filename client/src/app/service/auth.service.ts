@@ -21,15 +21,14 @@ export class AuthService {
   }
 
   getToken(){
-    return localStorage.getItem('token');
+    return localStorage.getItem('token')||'';
   }
   isLoggedIn(){
-    
       return localStorage.getItem('token') != null;
-    
   }
-
-
+  getUser(){
+    return localStorage.getItem('user');
+  }
 }
 
 

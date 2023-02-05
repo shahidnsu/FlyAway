@@ -47,6 +47,9 @@ export class ConfirmFlightsPageComponent {
       amount: amount * 100,
       // email: 'samiya.kazi09@gmail.com'
     });
+
+    this.flightService.createTripList(this.selectedFlights).subscribe(res=>console.log(res));
+    
   }
   invokeStripe() {
     if (!window.document.getElementById('stripe-script')) {
@@ -72,9 +75,6 @@ export class ConfirmFlightsPageComponent {
   backButton() {
     this.route.navigate(['/select-flights']);
   }
-
- 
-
 }
 
 //  confirmedFlight = [

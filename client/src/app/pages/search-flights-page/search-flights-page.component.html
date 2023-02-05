@@ -7,7 +7,7 @@
 </ng-lottie>
 
 <ng-template #searchbox>
-  <mat-card>
+  <mat-card class="maincard">
     <mat-card-content *ngFor="let item of travelFormArray" style="margin-bottom: 5%">
       <app-select-date-and-places [travelFormArray]="travelFormArray"  [addNewLocation]="addNewLocation"
             [newLeg]="newLeg" [isSuccess]="item.isSuccess" [isFailed]="item.isFailed" [flightNumber]="flightNumber"
@@ -20,12 +20,12 @@
       <div class="loader"></div> Searching for flights ...
     </mat-card-header>
 
-    <button (click)="addNewLocation()" mat-stroked-button class="add-location-btn" [disabled]="disabled">
+    <button (click)="addNewLocation()" class="addLocationBtn"  [disabled]="disabled">
         Add New Location
     </button>
     <button
     
-    (click)="travelFormSubmit()" mat-stroked-button class="view-flights-btn" [disabled]="disabled">
+    (click)="travelFormSubmit()" class="viewFlightsBtn" [disabled]="disabled">
         View Flights
     </button>
 </mat-card>
