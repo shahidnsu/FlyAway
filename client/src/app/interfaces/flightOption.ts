@@ -4,5 +4,8 @@ export interface FlightOption {
     from: string,
     to: string, 
     date: Date,
-    availableFlights: Flight[];
+    availableFlights: Flight[],
+    index: number,
+    isSuccess: boolean,
+    isFailed: boolean
 }

@@ -18,4 +18,6 @@
 .SearchFlightBtn{
     padding: 2% 0;
     margin: 0 2%;
+    font-size: medium;
+    font-weight: 600;
 }

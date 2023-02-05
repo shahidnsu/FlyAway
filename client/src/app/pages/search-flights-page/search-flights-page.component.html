@@ -10,7 +10,9 @@
   <mat-card>
     <mat-card-content *ngFor="let item of travelFormArray" style="margin-bottom: 5%">
       <app-select-date-and-places [travelFormArray]="travelFormArray"  [addNewLocation]="addNewLocation"
-            [newLeg]="newLeg" [isSuccess]="item.isSuccess" [isFailed]="item.isFailed" [flightNumber]="flightNumber"></app-select-date-and-places>
+            [newLeg]="newLeg" [isSuccess]="item.isSuccess" [isFailed]="item.isFailed" [flightNumber]="flightNumber"
+            (formSubmitEvent)="searchFlights($event)"
+            [item]="item"></app-select-date-and-places>
     </mat-card-content>
 
 
@@ -18,24 +20,12 @@
       <div class="loader"></div> Searching for flights ...
     </mat-card-header>
 
-    <button (click)="addNewLocation()" mat-stroked-button style="
-      background-color: #31305a;
-      padding: 15px 0px 15px 0px;
-      color: white;
-      margin: 1% 5%;
-      font-size: medium;
-    ">
+    <button (click)="addNewLocation()" mat-stroked-button class="add-location-btn" [disabled]="disabled">
         Add New Location
     </button>
     <button
     
-    (click)="travelFormSubmit()" mat-stroked-button style="
-      background-color: white;
-      padding: 15px 0px 15px 0px;
-      color: #31305a;
-      margin: 1% 5% 1% 5%;
-      font-size: medium;
-    ">
+    (click)="travelFormSubmit()" mat-stroked-button class="view-flights-btn" [disabled]="disabled">
         View Flights
     </button>
 </mat-card>
