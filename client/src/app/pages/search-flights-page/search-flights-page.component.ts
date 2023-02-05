@@ -100,6 +100,14 @@ export class SearchFlightsPageComponent implements OnInit {
     console.log('search button newArray', this.newArray);
   }
 
+  deleteLeg(item:formValue){
+    this.searchResults.splice(item.index,1)
+    console.log(this.travelFormArray)
+    this.travelFormArray.splice(item.index,1)
+    this.checkDisable();
+    
+  }
+
   addNewLocation() {
     const newElement = this.searchResults[this.searchResults.length - 1];
     newElement.index = this.lastIndex;
