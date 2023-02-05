@@ -57,6 +57,8 @@ export class ProfileComponent implements OnInit {
         country,
         phoneNumber
       });
+
+      console.log('User got: ', response)
     });
   }
 

@@ -19,10 +19,12 @@ export class ApiClientService {
 
   getProfile(): Observable<User> {
     // console.log(this.token)
+    const token = this.auth.getToken();
+
     const httpOptions = {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `${this.token}`
+        'Authorization': `${token}`
       }
     };
     return this.httpClient.get<User>(`${this.rootUrl}/profile`, httpOptions)
