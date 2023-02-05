@@ -1,4 +1,7 @@
 <form class="selectItem" [formGroup]="travelForm" (submit)="searchFlightFunc()">
+  <div class="iconControl">
+    <mat-icon >remove_circle_outline</mat-icon>
+  </div>
   
   <p *ngIf="item.isSuccess" class="msg">{{flightNumber}}Flights Found!</p>
   <p *ngIf="item.isFailed" class="msg failed">No Flights Found!</p>

@@ -131,6 +131,7 @@ export class SearchFlightsPageComponent implements OnInit {
     const originCode = values.from.replace(/\s/g, '').split('-')[1]
     const destinationCode = values.to.replace(/\s/g, '').split('-')[1]
     const date = values.date;
+    this.isLoading = true;
 
     const { index } = values;
     const element = this.travelFormArray[index];
@@ -146,6 +147,7 @@ export class SearchFlightsPageComponent implements OnInit {
         
 
         if (res.length) {
+          this.isLoading = false;
           element.isSuccess = true;
           element.isFailed = false;
           this.searchResults[index] = {...values, availableFlights: res};
