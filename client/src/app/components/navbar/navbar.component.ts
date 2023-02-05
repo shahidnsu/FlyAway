@@ -10,12 +10,25 @@ import { AuthService } from 'src/app/service/auth.service';
 export class NavbarComponent implements OnInit {
   logo = './assets/FlyAwayLogo.svg'
 
-  constructor(private router: Router) { }
+  user: string | null = ''
+
+  constructor(private router: Router, private auth: AuthService) { }
   ngOnInit(): void {
+    this.authCheck();
+    this.router.events.subscribe(() => {
+      this.authCheck();
+    })
   }
 
   logout() {
     localStorage.clear();
     this.router.navigate(['login']);
   }
+  login() {
+    this.router.navigate(['login']);
+  }
+  authCheck() {
+    this.user = this.auth.getUser();
+  }
+
 }
