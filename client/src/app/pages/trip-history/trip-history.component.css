@@ -22,10 +22,10 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    font-size: 9px
+    font-size: 10px
   }
 .items{
-  flex-basis: 30%;
+  flex-basis: 45%;
 	flex-grow: 0;
 	flex-shrink: 0;
   display: flex;
