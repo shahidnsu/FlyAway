@@ -2,7 +2,7 @@
   <div class="iconControl">
     <mat-icon (click)="removeItem()">remove_circle_outline</mat-icon>
   </div>
-  
+
   <p *ngIf="item.isSuccess" class="msg">{{flightNumber}}Flights Found!</p>
   <p *ngIf="item.isFailed" class="msg failed">No Flights Found!</p>
   <mat-form-field appearance="outline">
@@ -21,10 +21,10 @@
     <mat-label>To</mat-label>
     <input formControlName="to" [matAutocomplete]="auto2" matInput placeholder="Enter a city" (keyup)="toFilter($event)" />
     <mat-autocomplete autoActiveFirstOption #auto2="matAutocomplete">
-      <mat-option  *ngFor="let option of matchedCity" 
+      <mat-option  *ngFor="let option of matchedCity"
         [value]="option.city + ' - ' + option.iata">
         {{ option.city }} - {{ option.iata }}
-      </mat-option> 
+      </mat-option>
 
     </mat-autocomplete>
     <mat-icon matPrefix>flight_land</mat-icon>

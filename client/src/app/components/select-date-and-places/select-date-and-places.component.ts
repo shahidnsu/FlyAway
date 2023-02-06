@@ -61,7 +61,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
       this.minDate = prevDate;
       let selectedValue = toValue.replace(/\s/g, '').split('-');
 
-      
+
       const selectedValueObj = {
         city: selectedValue[0],
         iata: selectedValue[1],
@@ -82,14 +82,14 @@ export class SelectDateAndPlacesComponent implements OnInit {
       this.toField = value;
     })
   }
-  
+
 
   private _filter(value: any): any {
     return this.locationArray.filter((location: { city: string | any[] }) =>
       location.city.includes(value.from)
     );
   }
-  // varibale for to filed 
+  // varibale for to filed
 
 
   //matchedCity: any = []
@@ -140,7 +140,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
     else{
       this.disable = true
     }
-    
+
   }
 
   removeItem(){
