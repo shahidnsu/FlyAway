@@ -1,7 +1,7 @@
 
 
 
-<h2> See the places<br> you visited before ...</h2>
+<div class="headText"> See the places you visited before ...</div>
 
 <mat-card *ngFor="let trips of selectedTrips">
     <div (click)="handleClick(trips)" *ngFor="let trip of trips.trip">
