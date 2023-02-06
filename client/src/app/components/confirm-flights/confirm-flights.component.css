@@ -1,3 +1,7 @@
+mat-card-title {
+  margin: 0 !important;
+  color: #31305A;
+}
 
 .logo {
     display: flex;
@@ -20,14 +24,14 @@
   display:flex;
   flex-direction:row;
   justify-content: space-around;
-  margin-top: 0.5rem;
+  color: grey;
 }
 .price-box {
   display:flex;
   flex-direction:row;
   justify-content: space-evenly;
-  margin-top: 1.5rem;
   color: #31305A;
+  margin-top: 0.5rem;
 }
 
 h3 {
