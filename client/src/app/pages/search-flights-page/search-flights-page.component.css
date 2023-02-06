@@ -35,11 +35,13 @@
   word-spacing: 0.4rem;
   margin-left: 0.5rem;
   line-height: 2rem;
+  word-spacing: normal;
 }
 
 .maincard {
   padding-bottom: 5%;
   width: 100%;
+
 }
 
 .main-container {
