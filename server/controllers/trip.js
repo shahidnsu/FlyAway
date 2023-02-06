@@ -5,6 +5,7 @@ const createTrip = async (req, res) => {
     try {
         
         const result = await TripList.create(req.body);
+        console.log("hello from stripe")
         res.status(200).send(result);
 
     }

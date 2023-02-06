@@ -2,6 +2,7 @@ const router = require('express').Router();
 const userController = require('./controllers/users');
 const apiController = require('./controllers/api');
 const tripListController = require('./controllers/trip');
+const stripeController = require('./controllers/stripePayment')
 
 const { authMiddleware } = require('./middlewares/auth');
 
@@ -20,5 +21,6 @@ router.get("/search-airports-routes/:iataCode", apiController.searchAirPortRoute
 
 router.get('/tripList', authMiddleware, tripListController.getTrip);
 router.post('/tripList', authMiddleware, tripListController.createTrip);
+router.post('/create-checkout-session', stripeController.successPayment);
 
 module.exports = router;
