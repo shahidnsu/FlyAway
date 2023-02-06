@@ -8,49 +8,43 @@ import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 
 interface formValue {
-  from: string,
-  to: string,
-  date: Date,
-  availableFlights: Flight[],
-  isSuccess: false,
-  isFailed: false,
-  index: number
+  from: string;
+  to: string;
+  date: Date;
+  availableFlights: Flight[];
+  isSuccess: false;
+  isFailed: false;
+  index: number;
 }
 
 @Component({
   selector: 'app-search-flights-page',
   templateUrl: './search-flights-page.component.html',
-  styleUrls: ['./search-flights-page.component.css']
+  styleUrls: ['./search-flights-page.component.css'],
 })
-
-
-
-
 export class SearchFlightsPageComponent implements OnInit {
   nav = false;
   isLoading: boolean = false;
-  lottieLoading:boolean = false;
+  lottieLoading: boolean = false;
   disabled = true;
   searchFlightsLoading = false;
 
   options: AnimationOptions = {
-    path: './assets/9932-flight-ticket.json'
+    path: './assets/9932-flight-ticket.json',
   };
 
-  onAnimate(animationItem: AnimationItem): void {
-    
-  }
+  onAnimate(animationItem: AnimationItem): void {}
   searchResults: FlightOption[] = [];
 
   flightNumber!: number;
 
   obj = {
-    'FromLocation': 'Dhaka',
-    'FromAirPort': 'Shahjalal Int Airport',
-    'ToLocation': 'Dubai',
-    'ToAirPort': 'Sarjah Int Airport',
-    'Date': '12/02/2023'
-  }
+    FromLocation: 'Dhaka',
+    FromAirPort: 'Shahjalal Int Airport',
+    ToLocation: 'Dubai',
+    ToAirPort: 'Sarjah Int Airport',
+    Date: '12/02/2023',
+  };
 
   newLeg: any = {
     from: '',
@@ -59,36 +53,34 @@ export class SearchFlightsPageComponent implements OnInit {
     availableFlights: [],
     isFailed: false,
     isSuccess: false,
+  };
+
+  constructor(
+    private amadeus: AmadeusService,
+    private router: Router,
+    private _FlightService: FlightService
+  ) {}
+
+  ngOnInit(): void {
+    console.log('parent', this.newLeg);
   }
 
-  
-  
-  
-  
-  
-  constructor(private amadeus: AmadeusService, private router: Router, private _FlightService: FlightService) { }
-  
-  ngOnInit(): void {
-    
-    console.log('parent', this.newLeg)
-  }
-  
-  
-  newArray: any = []
-  travelFormArray: any = [{
-    from: '',
-    to: '',
-    date: Date,
-    isFailed: false,
-    isSuccess: false,
-    index: 0
-  }]
+  newArray: any = [];
+  travelFormArray: any = [
+    {
+      from: '',
+      to: '',
+      date: Date,
+      isFailed: false,
+      isSuccess: false,
+      index: 0,
+    },
+  ];
 
   lastIndex = this.travelFormArray.length;
 
-
   travelFormSubmit() {
-    console.log('Search results when submitting: ', this.searchResults)
+    console.log('Search results when submitting: ', this.searchResults);
     this._FlightService.setSearchedFlights(this.searchResults);
     this.lottieLoading = true;
 
@@ -100,25 +92,34 @@ export class SearchFlightsPageComponent implements OnInit {
     console.log('search button newArray', this.newArray);
   }
 
-  deleteLeg(item:formValue){
-    this.searchResults.splice(item.index,1)
-    console.log(this.travelFormArray)
-    this.travelFormArray.splice(item.index,1)
+  deleteLeg(item: formValue) {
+    // console.log('search result array before deleteing', this.searchResults);
+    // console.log('travelform Array before deleteing', this.travelFormArray);
+    this.searchResults.splice(item.index, 1);
+    this.travelFormArray.splice(item.index, 1);
+    this.lastIndex--
+    // console.log('search result array after deleteing', this.searchResults);
+    // console.log('travelform Array after deleteing', this.travelFormArray);
     this.checkDisable();
-    
   }
+
+  // deleteLeg(){
+  //   this.searchResults.pop();
+  //   this.travelFormArray.pop();
+  //   this.lastIndex--
+  // }
 
   addNewLocation() {
     const newElement = this.searchResults[this.searchResults.length - 1];
     newElement.index = this.lastIndex;
     this.travelFormArray.push(newElement);
     this.lastIndex++;
-
+    console.log('search result array', this.searchResults);
     this.disabled = true;
   }
 
   navigate() {
-    if (this.nav) this.router.navigate(['/select-flights'])
+    if (this.nav) this.router.navigate(['/select-flights']);
   }
 
   // loaderCheck() {
@@ -128,16 +129,19 @@ export class SearchFlightsPageComponent implements OnInit {
   //   })
   // }
 
-  checkDisable () {
-    this.disabled = this.travelFormArray.reduce((acc: boolean, curr: formValue) => {
-      if(curr.isFailed) return true
-      else return acc
-    }, false)
+  checkDisable() {
+    this.disabled = this.travelFormArray.reduce(
+      (acc: boolean, curr: formValue) => {
+        if (curr.isFailed) return true;
+        else return acc;
+      },
+      false
+    );
   }
 
-  searchFlights (values: formValue) {
-    const originCode = values.from.replace(/\s/g, '').split('-')[1]
-    const destinationCode = values.to.replace(/\s/g, '').split('-')[1]
+  searchFlights(values: formValue) {
+    const originCode = values.from.replace(/\s/g, '').split('-')[1];
+    const destinationCode = values.to.replace(/\s/g, '').split('-')[1];
     const date = values.date;
     this.isLoading = true;
 
@@ -151,14 +155,12 @@ export class SearchFlightsPageComponent implements OnInit {
     this.disabled = true;
 
     this.amadeus.searchFlight({ originCode, destinationCode, date }).subscribe({
-      next: res => {
-        
-
+      next: (res) => {
         if (res.length) {
           this.isLoading = false;
           element.isSuccess = true;
           element.isFailed = false;
-          this.searchResults[index] = {...values, availableFlights: res};
+          this.searchResults[index] = { ...values, availableFlights: res };
           this.searchFlightsLoading = false;
         } else {
           element.isSuccess = false;
@@ -167,13 +169,8 @@ export class SearchFlightsPageComponent implements OnInit {
 
         this.checkDisable();
         console.log('Search results: ', this.searchResults);
-
       },
-      error: error => {
-
-      }
-    })
+      error: (error) => {},
+    });
   }
 }
-
-
