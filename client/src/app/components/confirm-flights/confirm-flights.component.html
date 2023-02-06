@@ -13,7 +13,7 @@
             </div>
     
             <div style=" text-align: right; width:100%;">
-                <mat-card-title>{{eachSegment.arrival.iataCode | uppercase }}</mat-card-title>
+                <mat-card-title class="mat-title">{{eachSegment.arrival.iataCode | uppercase }}</mat-card-title>
                 <mat-card-subtitle>{{eachSegment.arrival.at | date: "h:mm a"}}</mat-card-subtitle>  
             </div> 
     
@@ -23,13 +23,13 @@
                 <h3> <mat-icon>date_range</mat-icon> {{eachSegment.departure.at | date: "mediumDate"}}</h3>
                 <h3 class="right"><mat-icon>alarm</mat-icon> {{eachSegment.departure.at | date: "h:mm a"}}</h3> 
             </mat-card-content>
-            
+
         <mat-divider></mat-divider>
     </div>
-    <mat-card-content class="price-box">
+    <div class="price-box">
         <h2 style="font-weight: lighter;">Price</h2>
         <h2> ${{flights.price}}</h2>
-    </mat-card-content>
+    </div>
 </mat-card> 
 
 
