@@ -1,3 +1,24 @@
+mat-card-title {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+::ng-deep example-card { 
+  margin-top: 0 !important; 
+  margin-left: 0 !important; 
+  margin-right: 0 !important; 
+} 
+
+.date-iata {
+  font-size: 10px;
+  /* display: inline-block;
+  width: 180px; */
+  /* display:flex;
+  flex-direction:row; */
+  /* justify-content: space-around; */
+  /* margin-top: 1.5rem; */
+  /* color: #31305A;*/
+}
 
 .logo {
     display: flex;
@@ -22,19 +43,24 @@
 }
 .hr-icon {
   position: absolute;
-  top: -0.7rem;
+  top: -1.2rem;
   animation: icon-move 5s infinite;
 }
 @keyframes icon-move {
   0%{left: 0%;}
   100%{left: 80%;}
 }
-span {
+/* span {
   display: inline-block;
   vertical-align: middle;
+} */
+
+.priceBox {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly; 
+  color: #31305A;
 }
-
-
 
 .container{
     display: flex;
