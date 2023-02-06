@@ -13,7 +13,7 @@ import { AnimationOptions } from 'ngx-lottie';
   styleUrls: ['./select-flights-page.component.css'],
 })
 export class SelectFlightsPageComponent {
-  msg: string = "";
+  msg: string = '';
   flights!: Flight[];
 
   totalPrice: number = 0;
@@ -23,7 +23,7 @@ export class SelectFlightsPageComponent {
   searchResults: FlightOption[] = [];
 
   options: AnimationOptions = {
-    path: './assets/9932-flight-ticket.json'
+    path: './assets/9932-flight-ticket.json',
   };
 
   onAnimate(animationItem: AnimationItem): void {
@@ -42,39 +42,42 @@ export class SelectFlightsPageComponent {
     //   if(this.searchResults.length) this.isLoading = false;
     // })
 
-    this.searchResults = this._FlightService.getSearchedFlights()
-
-
+    this.searchResults = this._FlightService.getSearchedFlights();
   }
 
-  constructor(private route: Router, public _FlightService: FlightService, private flightService: ApiClientService) { }
-
-
+  constructor(
+    private route: Router,
+    public _FlightService: FlightService,
+    private flightService: ApiClientService
+  ) {}
 
   handleSelect(flight: Flight) {
     const newFlightList = this.selectedFlight.filter((fl) => {
       if (
         flight.segments[0].departure.iataCode ==
-        fl.segments[0].departure.iataCode &&
+          fl.segments[0].departure.iataCode &&
         flight.segments[flight.segments.length - 1].arrival.iataCode ==
-        fl.segments[fl.segments.length - 1].arrival.iataCode
+          fl.segments[fl.segments.length - 1].arrival.iataCode
       ) {
         return false;
       } else return true;
     });
 
     this.selectedFlight = [...newFlightList, flight];
-    this.totalPrice = this.selectedFlight.reduce((acc: number, curr: Flight) => ((acc * 100) + (parseFloat(curr.price) * 100)) / 100, 0);
+    this.totalPrice = this.selectedFlight.reduce(
+      (acc: number, curr: Flight) =>
+        (acc * 100 + parseFloat(curr.price) * 100) / 100,
+      0
+    );
     this.flightService.setSelectedFlights(this.selectedFlight, this.totalPrice);
-    console.log(this._FlightService.getSearchedFlights())
+    console.log(this._FlightService.getSearchedFlights());
   }
 
-
   confirm() {
-    if (this.selectedFlight.length > 0) {
+    if (this.selectedFlight.length === this.searchResults.length) {
       this.route.navigate(['confirm-flights']);
     } else {
-      this.msg = "Confirm at least one flight for booking!"
+      this.msg = 'Confirm at least one flight for booking from each option!';
     }
   }
 }

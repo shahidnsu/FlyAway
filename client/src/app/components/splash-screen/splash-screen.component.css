@@ -1,4 +1,6 @@
- 
+ body {
+    background:#E0F6F7;
+ }
 .main-container {
     position: relative;
     display: flex;

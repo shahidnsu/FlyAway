@@ -1,10 +1,10 @@
-<h3 class="pageHead" *ngIf="!lottieLoading">Select the places you<br> want to visit...</h3>
+<h3 class="pageHead" *ngIf="!lottieLoading">Search the places you<br> want to visit...</h3>
 
 <div class="main-container">
 <!-- <mat-spinner class="loader" ></mat-spinner> -->
 <ng-lottie *ngIf="lottieLoading else searchbox"
     class="loading"
-    [options]="options" 
+    [options]="options"
     (animationCreated)="onAnimate($event)"
   >
 </ng-lottie>
@@ -27,7 +27,7 @@
         Add New Location
     </button>
     <button
-    
+
     (click)="travelFormSubmit()" class="viewFlightsBtn" [disabled]="disabled">
         View Flights
     </button>

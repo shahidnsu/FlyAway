@@ -7,3 +7,9 @@
     z-index: 1;
 } */
 
+.colored-nav {
+    background-color: #E0F6F7;
+}
+.non-colored-nav {
+    background-color: transparent;
+}

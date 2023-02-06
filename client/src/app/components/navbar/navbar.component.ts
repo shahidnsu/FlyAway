@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
   user: string | null = ''
 
-  constructor(private router: Router, private auth: AuthService) { }
+  constructor(public router: Router, private auth: AuthService) { }
   ngOnInit(): void {
     this.authCheck();
     this.router.events.subscribe(() => {
@@ -29,6 +29,10 @@ export class NavbarComponent implements OnInit {
   }
   authCheck() {
     this.user = this.auth.getUser();
+  }
+
+  toolbarColor() {
+    
   }
 
 }
