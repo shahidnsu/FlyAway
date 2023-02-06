@@ -20,18 +20,34 @@
     margin-top: 5rem;
   }
 
-  /* .addLocationBtn {
-    background-color: #31305a;
-    padding: 10px 0px 10px 0px;
-    color: white;
-    margin: 0.5% 5%;
-    font-size:large;
-    font-weight: 700;
-    border: 0;
-  } */
+  .pageHead{
+    margin-top:1rem;
+    margin-bottom: 1rem;
+    color: 31305;
+    font-weight: 500;
+    width: 100%;
+    color: #31305A;
+    font-size: 1.5rem;
+    word-spacing: 0.4rem;
+    margin-left: 0.5rem;
+    line-height: 2rem;
+  }
+
 
   .maincard{
     padding-bottom: 5%;
+    width: 100%;
+  }
+
+  .main-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:  100%;
+    height: 90vh;
+    margin: 0 0;
+    background-color: white;
   }
 
   /* .viewFlightsBtn {
@@ -47,19 +63,11 @@
     background-color: rgba(211, 211, 211, 0.51);
     color: #31305A;
     border-color: rgba(211, 211, 211, 0.51);
-  }
-  .pageHead{
-    margin-top: 5%;
-    margin-bottom: 2%;
-    color: 31305a;
-    font-weight: 500;
-    font-size: x-large;
-    text-align: center;
-  }
-
+  } 
+ 
    
  button {
-  width: 21rem;
+  width: 19rem;
   height: 48px;
   margin-left: auto;
   margin-right: auto;
@@ -67,14 +75,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 12px 104px;
+  padding: 12px 80px;
   gap: 8px;
   font-style: normal;
   font-weight: 500;
-  font-size: 15px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 15px;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 4%;
 }
 
 .addLocationBtn {

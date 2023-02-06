@@ -1,5 +1,6 @@
-<h2 class="pageHead" *ngIf="!lottieLoading">Select the places you want to visit...</h2>
+<h3 class="pageHead" *ngIf="!lottieLoading">Select the places you<br> want to visit...</h3>
 
+<div class="main-container">
 <!-- <mat-spinner class="loader" ></mat-spinner> -->
 <ng-lottie *ngIf="lottieLoading else searchbox"
     class="loading"
@@ -33,4 +34,4 @@
 </mat-card>
 </ng-template>
 
-
+</div>
