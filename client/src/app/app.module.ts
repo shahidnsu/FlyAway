@@ -56,7 +56,9 @@ import { UpcomingFlightsPageComponent } from './pages/upcoming-flights-page/upco
 import { TokenInterceptorService } from './shared/token-interceptor.service';
 import { TripHistoryComponent } from './pages/trip-history/trip-history.component';
 import { SingleTripComponent } from './pages/single-trip/single-trip.component';
-
+import {NgxStripeModule} from 'ngx-stripe';
+import { SuccessPaymentComponent } from './components/success-payment/success-payment.component';
+//import {HttpClientModule} from '@angular/common/http'
 
 export function playerFactory(): any {
     return import('lottie-web');
@@ -89,10 +91,12 @@ export function playerFactory(): any {
         UpcomingFlightsPageComponent,
         TripHistoryComponent,
         SingleTripComponent,
+        SuccessPaymentComponent,
     ],
     imports: [
         ReactiveFormsModule,
         BrowserModule,
+        NgxStripeModule.forRoot('pk_test_51MWLP4CtRfbKEF0FQNdWE4BiKjKOekTvMmkR4WBsBQdOFpKftVrcXRsTArFdXHuH4c6M2qcYx1CY4Ur3Cs4PzUYQ00ntT6NrTJ'),
         MatToolbarModule,
         AppRoutingModule,
         BrowserAnimationsModule,
@@ -113,7 +117,8 @@ export function playerFactory(): any {
         MatMenuModule,
         MatStepperModule,
         MatAutocompleteModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        HttpClientModule
     ],
     providers: [MatDatepickerModule, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }],
     bootstrap: [AppComponent]
