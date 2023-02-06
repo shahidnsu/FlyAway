@@ -1,30 +1,33 @@
 
-<mat-card style="margin-bottom: 10px;" (click)="handleClick()" [class.selected]="selected">
+<mat-card class="example-card" style="margin-bottom: 10px;" (click)="handleClick()" [class.selected]="selected">
 
         <mat-card-header class="airport" *ngFor="let eachSegment of flights.segments">
             <div style="justify-content: start; text-align: left;width:100%; ">
                 <mat-card-title>{{eachSegment.departure.at | date: "h:mm a"}}</mat-card-title>
-                <mat-card-subtitle>{{eachSegment.departure.at | date: "mediumDate"}}</mat-card-subtitle>
-                <mat-card-subtitle>{{eachSegment.departure.iataCode | uppercase }}</mat-card-subtitle>
+                <mat-card-subtitle class="date-iata">
+                    <span style="float:left;margin-right: 0.2rem;">{{eachSegment.arrival.at | date: "mediumDate"}} </span>
+                    <span >{{eachSegment.arrival.iataCode | uppercase}}</span>
+                   <!-- {{eachSegment.departure.at | date: "mediumDate"}}    
+                   {{eachSegment.departure.iataCode | uppercase }} -->
+                </mat-card-subtitle>
             </div>
     
             <div class="hr-line">
                 <hr>   
-                <span class="hr-icon"><mat-icon>airplane_ticket</mat-icon></span>
+                <span class="hr-icon"><mat-icon>flight_takeoff</mat-icon></span>
             </div>
     
             <div style=" text-align: right; width:100%;">
                 <mat-card-title>{{eachSegment.arrival.at | date: "h:mm a" }}</mat-card-title>
-                <mat-card-subtitle>{{eachSegment.arrival.at | date: "mediumDate"}}</mat-card-subtitle>
-                <mat-card-subtitle>{{eachSegment.arrival.iataCode | uppercase}}</mat-card-subtitle>
+                <mat-card-subtitle class="date-iata">
+                    <span>{{eachSegment.arrival.at | date: "mediumDate"}} </span>
+                    <span style="float:right;margin-left: 0.2rem;">{{eachSegment.arrival.iataCode | uppercase}}</span> 
+                </mat-card-subtitle>
             </div> 
 
         </mat-card-header>
-        
-        <mat-divider></mat-divider>
-
-        <mat-card-content style="display:flex;flex-direction:row;justify-content: space-evenly;">
-                <h3 style="color: gray;">From  ${{flights.price}}</h3>
+        <mat-card-content class="priceBox">
+                <h3>Price  ${{flights.price}}</h3>
         </mat-card-content>
 
 </mat-card> 

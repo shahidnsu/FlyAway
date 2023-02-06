@@ -19,11 +19,12 @@
     
         </mat-card-header>
         
-                <mat-card-content class="date-box">
-                    <h3>   <mat-icon>date_range</mat-icon> {{eachSegment.departure.at | date: "mediumDate"}}</h3>
-                    <h3 class="right"><mat-icon>alarm</mat-icon> {{eachSegment.departure.at | date: "h:mm a"}}</h3> 
-                </mat-card-content>
-            <mat-divider></mat-divider>
+            <mat-card-content class="date-box">
+                <h3> <mat-icon>date_range</mat-icon> {{eachSegment.departure.at | date: "mediumDate"}}</h3>
+                <h3 class="right"><mat-icon>alarm</mat-icon> {{eachSegment.departure.at | date: "h:mm a"}}</h3> 
+            </mat-card-content>
+            
+        <mat-divider></mat-divider>
     </div>
     <mat-card-content class="price-box">
         <h2 style="font-weight: lighter;">Price</h2>
