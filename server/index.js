@@ -6,6 +6,7 @@ const router = require("./router");
 const dotenv = require("dotenv");
 const { mongoose, uri } = require("./db");
 const PORT = process.env.SERVER_PORT || 3000;
+app.use(express.static('public'))
 
 const corsConfig = {
     origin: "http://localhost:4200",
