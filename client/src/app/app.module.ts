@@ -29,15 +29,15 @@ import { SelectFlightsComponent } from './components/select-flights/select-fligh
 import { MatDividerModule } from '@angular/material/divider';
 import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HttpClientModule, HTTP_INTERCEPTORS, HttpInterceptor } from '@angular/common/http';
-
-
-
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  HttpInterceptor,
+} from '@angular/common/http';
 
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
-
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
@@ -57,29 +57,27 @@ import { TokenInterceptorService } from './shared/token-interceptor.service';
 import { TripHistoryComponent } from './pages/trip-history/trip-history.component';
 import { SingleTripComponent } from './pages/single-trip/single-trip.component';
 import {NgxStripeModule} from 'ngx-stripe';
-import { SuccessPaymentComponent } from './components/success-payment/success-payment.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SuccessPageComponent } from './pages/success-page/success-page.component';
 //import {HttpClientModule} from '@angular/common/http'
 
 export function playerFactory(): any {
-    return import('lottie-web');
+  return import('lottie-web');
 }
 
-
-
 @NgModule({
-    declarations: [
-        AppComponent,
-        SplashScreenComponent,
-        LoginComponent,
-        SelectDateAndPlacesComponent,
-        NavbarComponent,
-        PopupComponent,
-        SelectFlightsComponent,
-        InputFieldComponent,
-        SignupComponent,
-        FlightSummaryComponent,
-        SelectSummaryComponent,
+  declarations: [
+    AppComponent,
+    SplashScreenComponent,
+    LoginComponent,
+    SelectDateAndPlacesComponent,
+    NavbarComponent,
+    PopupComponent,
+    SelectFlightsComponent,
+    InputFieldComponent,
+    SignupComponent,
+    FlightSummaryComponent,
+    SelectSummaryComponent,
 
         SelectFlightsPageComponent,
         SearchFlightsPageComponent,
@@ -92,7 +90,8 @@ export function playerFactory(): any {
         UpcomingFlightsPageComponent,
         TripHistoryComponent,
         SingleTripComponent,
-        SuccessPaymentComponent,
+        SuccessPageComponent,
+
     ],
     imports: [
         ReactiveFormsModule,
@@ -125,9 +124,6 @@ export function playerFactory(): any {
     ],
     providers: [MatDatepickerModule, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }],
     bootstrap: [AppComponent]
+
 })
-
-
-
-
-export class AppModule { }
+export class AppModule {}

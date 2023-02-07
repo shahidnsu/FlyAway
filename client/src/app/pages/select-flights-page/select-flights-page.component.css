@@ -1,6 +1,17 @@
+.pageHead{
+  margin-left: 2rem;
+  /* margin-top: 1rem; */
+  font-weight: 500;
+  width: 60%;
+  color: #31305a;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  word-spacing: normal;
+  margin-top: 10%;
+}
+
 
 .selectFlight{
-  margin-top: 2%;
   margin-bottom: 10vh;
 }
 .icon {
@@ -16,12 +27,12 @@
 }
 
 
-::ng-deep mat-stepper { 
-  margin: 0 !important; 
-  /* margin-left: 0 !important; 
+::ng-deep mat-stepper {
+  margin: 0 !important;
+  /* margin-left: 0 !important;
   margin-right: 0 !important;  */
 
-} 
+}
 
 ::ng-deep .mat-step-icon {
 	border-radius: 50%;
@@ -49,7 +60,7 @@
     margin-right: auto;
 
   }
-  
+
   button:hover {
     cursor: pointer;
     box-shadow: #31305A;
@@ -71,7 +82,10 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1rem;
-  color: red;  
+  padding: 5px 8px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
 }
 
 .stepper {
@@ -86,4 +100,8 @@
 }
 .backButton{
   background-color: #41406d;
+}
+
+.errorContainer{
+  text-align: center;
 }
