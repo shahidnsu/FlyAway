@@ -14,6 +14,8 @@ import { AnimationOptions } from 'ngx-lottie';
 })
 export class SelectFlightsPageComponent {
   msg: string = '';
+  isError:boolean=false;
+
   flights!: Flight[];
 
   totalPrice: number = 0;
@@ -75,8 +77,10 @@ export class SelectFlightsPageComponent {
 
   confirm() {
     if (this.selectedFlight.length === this.searchResults.length) {
+      this.isError=false;
       this.route.navigate(['confirm-flights']);
     } else {
+      this.isError=true;
       this.msg = 'Confirm at least one flight for booking from each option!';
     }
   }
