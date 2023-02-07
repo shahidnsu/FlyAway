@@ -9,7 +9,7 @@ const creatingMailOptions = function() {
     
     let mailOptions = {
       from: "hello.hr.portal@gmail.com",
-      to: `${userEmail}`,
+      to: userEmail,
       subject: "Your trip is  booked",
       text: `
       <div style="background: transparent linear-gradient(90deg, #2BAD90 0%, #00489A 100%) 0% 0% no-repeat padding-box;
