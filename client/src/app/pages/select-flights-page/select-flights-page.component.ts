@@ -54,6 +54,7 @@ export class SelectFlightsPageComponent {
   ) {}
 
   handleSelect(flight: Flight) {
+    this.isError=false;
     const newFlightList = this.selectedFlight.filter((fl) => {
       if (
         flight.segments[0].departure.iataCode ==
@@ -77,7 +78,7 @@ export class SelectFlightsPageComponent {
 
   confirm() {
     if (this.selectedFlight.length === this.searchResults.length) {
-      this.isError=false;
+      
       this.route.navigate(['confirm-flights']);
     } else {
       this.isError=true;
