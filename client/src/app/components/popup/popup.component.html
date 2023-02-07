@@ -1,1 +1,13 @@
-<p>popup works!</p>
+<!-- <mat-dialog-content>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+<button mat-raised-button color="primary" mat-dialog-close tabindex="-1">{{cancelButtonText}}</button>
+</mat-dialog-actions> -->
+
+<div mat-dialog-content>
+    {{message}}
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close tabindex="-1">{{cancelButtonText}}</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
+  </div>

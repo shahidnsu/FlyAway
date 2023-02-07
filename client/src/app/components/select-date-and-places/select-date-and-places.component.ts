@@ -1,10 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { Airport } from 'src/app/interfaces/airport';
 import { FlightOption } from 'src/app/interfaces/flightOption';
 import { AmadeusService } from 'src/app/service/amadeus.service';
+import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-select-date-and-places',
@@ -18,7 +20,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
 
   disable = true
 
-  constructor(private amadeusClient: AmadeusService) { }
+  constructor(private amadeusClient: AmadeusService, public dialog: MatDialog) { }
 
   @Input() isSuccess!: Boolean
   @Input() isFailed!: Boolean
@@ -162,4 +164,26 @@ export class SelectDateAndPlacesComponent implements OnInit {
       //console.log('data is coming from iata', res);
     });
   }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(PopupComponent,{
+      data:{
+        message: 'Are you sure want to delete?',
+        buttonText: {
+          ok: 'Yes',
+          cancel: 'No'
+        }
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+       this.removeItem();
+       console.log("Flight has been removed");
+      }
+    });
+  }
+  
+
+
 }

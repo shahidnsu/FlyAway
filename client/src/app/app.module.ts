@@ -56,8 +56,8 @@ import { UpcomingFlightsPageComponent } from './pages/upcoming-flights-page/upco
 import { TokenInterceptorService } from './shared/token-interceptor.service';
 import { TripHistoryComponent } from './pages/trip-history/trip-history.component';
 import { SingleTripComponent } from './pages/single-trip/single-trip.component';
-import { NgxStripeModule } from 'ngx-stripe';
-
+import {NgxStripeModule} from 'ngx-stripe';
+import { MatDialogModule } from '@angular/material/dialog';
 import { SuccessPageComponent } from './pages/success-page/success-page.component';
 //import {HttpClientModule} from '@angular/common/http'
 
@@ -79,56 +79,51 @@ export function playerFactory(): any {
     FlightSummaryComponent,
     SelectSummaryComponent,
 
-    SelectFlightsPageComponent,
-    SearchFlightsPageComponent,
-    ProfileComponent,
-    ConfirmFlightsComponent,
-    ConfirmFlightsPageComponent,
-    PaymentComponent,
-    BackButtonComponent,
-    PreviousFlightsPageComponent,
-    UpcomingFlightsPageComponent,
-    TripHistoryComponent,
-    SingleTripComponent,
-    SuccessPageComponent,
-  ],
-  imports: [
-    ReactiveFormsModule,
-    BrowserModule,
-    NgxStripeModule.forRoot(
-      'pk_test_51MWLP4CtRfbKEF0FQNdWE4BiKjKOekTvMmkR4WBsBQdOFpKftVrcXRsTArFdXHuH4c6M2qcYx1CY4Ur3Cs4PzUYQ00ntT6NrTJ'
-    ),
-    MatToolbarModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    LottieModule.forRoot({ player: playerFactory }),
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatListModule,
-    MatDividerModule,
-    MatGridListModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatMenuModule,
-    MatStepperModule,
-    MatAutocompleteModule,
-    MatProgressSpinnerModule,
-    HttpClientModule,
-  ],
-  providers: [
-    MatDatepickerModule,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true,
-    },
-  ],
-  bootstrap: [AppComponent],
+        SelectFlightsPageComponent,
+        SearchFlightsPageComponent,
+        ProfileComponent,
+        ConfirmFlightsComponent,
+        ConfirmFlightsPageComponent,
+        PaymentComponent,
+        BackButtonComponent,
+        PreviousFlightsPageComponent,
+        UpcomingFlightsPageComponent,
+        TripHistoryComponent,
+        SingleTripComponent,
+        SuccessPageComponent,
+
+    ],
+    imports: [
+        ReactiveFormsModule,
+        BrowserModule,
+        NgxStripeModule.forRoot('pk_test_51MWLP4CtRfbKEF0FQNdWE4BiKjKOekTvMmkR4WBsBQdOFpKftVrcXRsTArFdXHuH4c6M2qcYx1CY4Ur3Cs4PzUYQ00ntT6NrTJ'),
+        MatToolbarModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        LottieModule.forRoot({ player: playerFactory }),
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatListModule,
+        MatDividerModule,
+        MatGridListModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatMenuModule,
+        MatStepperModule,
+        MatAutocompleteModule,
+        MatProgressSpinnerModule,
+        HttpClientModule,
+        MatDialogModule
+
+    ],
+    providers: [MatDatepickerModule, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }],
+    bootstrap: [AppComponent]
+
 })
 export class AppModule {}
