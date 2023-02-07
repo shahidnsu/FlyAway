@@ -27,72 +27,108 @@ import { MatCardModule } from '@angular/material/card';
 import { SelectFlightsComponent } from './components/select-flights/select-flights.component';
 
 import { MatDividerModule } from '@angular/material/divider';
-import { ProfileInputComponent } from './components/profile-input/profile-input.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  HttpInterceptor,
+} from '@angular/common/http';
 
-
-
-import { MatSelectModule } from '@angular/material/select';
-import { MatMenuModule } from '@angular/material/menu';
 import { InputFieldComponent } from './components/input-field/input-field.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { SelectSummaryComponent } from './components/select-summary/select-summary.component';
-import { TestLoginComponent } from './components/test-login/test-login.component';
-import { TestInputComponent } from "./components/test-input/test-input.component";
 
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatStepperModule } from '@angular/material/stepper';
+import { SelectFlightsPageComponent } from './pages/select-flights-page/select-flights-page.component';
+import { SearchFlightsPageComponent } from './pages/search-flights-page/search-flights-page.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ConfirmFlightsComponent } from './components/confirm-flights/confirm-flights.component';
+import { ConfirmFlightsPageComponent } from './pages/confirm-flights-page/confirm-flights-page.component';
+import { PaymentComponent } from './pages/payment/payment.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BackButtonComponent } from './components/back-button/back-button.component';
+import { PreviousFlightsPageComponent } from './pages/previous-flights-page/previous-flights-page.component';
+import { UpcomingFlightsPageComponent } from './pages/upcoming-flights-page/upcoming-flights-page.component';
+import { TokenInterceptorService } from './shared/token-interceptor.service';
+import { TripHistoryComponent } from './pages/trip-history/trip-history.component';
+import { SingleTripComponent } from './pages/single-trip/single-trip.component';
+import { NgxStripeModule } from 'ngx-stripe';
 
-
-
+import { SuccessPageComponent } from './pages/success-page/success-page.component';
+//import {HttpClientModule} from '@angular/common/http'
 
 export function playerFactory(): any {
-    return import('lottie-web');
+  return import('lottie-web');
 }
 
-
-
 @NgModule({
-    declarations: [
-        AppComponent,
-        SplashScreenComponent,
-        LoginComponent,
-        SelectDateAndPlacesComponent,
-        NavbarComponent,
-        PopupComponent,
-        SelectFlightsComponent,
-        InputFieldComponent,
-        SignupComponent,
-        ProfileInputComponent,
-        ProfileComponent,
-        FlightSummaryComponent,
-        SelectSummaryComponent,
-        TestLoginComponent,
-        TestInputComponent
-    ],
-    providers: [MatDatepickerModule],
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        MatToolbarModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        LottieModule.forRoot({ player: playerFactory }),
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatIconModule,
-        MatListModule,
-        MatDividerModule,
-        MatGridListModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatMenuModule,
-    ]
+  declarations: [
+    AppComponent,
+    SplashScreenComponent,
+    LoginComponent,
+    SelectDateAndPlacesComponent,
+    NavbarComponent,
+    PopupComponent,
+    SelectFlightsComponent,
+    InputFieldComponent,
+    SignupComponent,
+    FlightSummaryComponent,
+    SelectSummaryComponent,
+
+    SelectFlightsPageComponent,
+    SearchFlightsPageComponent,
+    ProfileComponent,
+    ConfirmFlightsComponent,
+    ConfirmFlightsPageComponent,
+    PaymentComponent,
+    BackButtonComponent,
+    PreviousFlightsPageComponent,
+    UpcomingFlightsPageComponent,
+    TripHistoryComponent,
+    SingleTripComponent,
+    SuccessPageComponent,
+  ],
+  imports: [
+    ReactiveFormsModule,
+    BrowserModule,
+    NgxStripeModule.forRoot(
+      'pk_test_51MWLP4CtRfbKEF0FQNdWE4BiKjKOekTvMmkR4WBsBQdOFpKftVrcXRsTArFdXHuH4c6M2qcYx1CY4Ur3Cs4PzUYQ00ntT6NrTJ'
+    ),
+    MatToolbarModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    LottieModule.forRoot({ player: playerFactory }),
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatListModule,
+    MatDividerModule,
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatStepperModule,
+    MatAutocompleteModule,
+    MatProgressSpinnerModule,
+    HttpClientModule,
+  ],
+  providers: [
+    MatDatepickerModule,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

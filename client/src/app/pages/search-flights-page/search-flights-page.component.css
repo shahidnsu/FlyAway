@@ -1,0 +1,106 @@
+
+.main-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  height: 90vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+/*
+.maincard:not([class*=mat-elevation-z0]){
+  box-shadow: none !important;
+} */
+
+.maincard {
+  width: 23rem;
+  /* position: absolute; */
+  /* top: 11%; */
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+
+
+.pageHead {
+  margin-left: 2rem;
+  margin-top: 1rem;
+  font-weight: 500;
+  width: 100%;
+  color: #31305a;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  word-spacing: normal;
+  margin-top: 10%;
+}
+
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #31305a;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+
+.viewFlightsBtn:disabled,
+.addLocationBtn:disabled {
+  background-color: rgba(211, 211, 211, 0.51);
+  color: #31305a;
+  border-color: rgba(211, 211, 211, 0.51);
+}
+
+button {
+  width: 90%;
+  height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 15px;
+  text-align: center;
+  margin-bottom: 4%;
+}
+
+.addLocationBtn {
+  color: #31305a;
+  background: #ffffff;
+  border: 2px solid #31305a;
+  border-radius: 5px;
+}
+
+.viewFlightsBtn {
+  color: #ffffff;
+  background: #31305a;
+  border: 2px solid #31305a;
+  border-radius: 5px;
+}

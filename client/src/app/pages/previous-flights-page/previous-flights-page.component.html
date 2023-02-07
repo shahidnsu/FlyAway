@@ -1,0 +1,19 @@
+<div class="margin-div">
+    <!-- <app-back-button prev="search-flights"></app-back-button> -->
+    <mat-stepper orientation="vertical" #stepper [linear]="isLinear">
+        <mat-step *ngFor="let flightOption of selectedFlights" [completed]="isCompleted">
+            <ng-template matStepLabel style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around; align-items: center;"> {{flightOption.segments[0].departure.iataCode | uppercase}}  <span> to </span> {{flightOption.segments[flightOption.segments.length-1].arrival.iataCode | uppercase}}
+            </ng-template> 
+    
+            <ng-template matStepContent>
+                <app-confirm-flights 
+                  [flights]="flightOption"
+                  ></app-confirm-flights>
+              </ng-template>
+              <mat-card>
+                 Total Price ${{totalPrice}}<mat-icon>arrow_right_alt</mat-icon>
+              </mat-card>
+        </mat-step>
+    </mat-stepper>
+</div>
+

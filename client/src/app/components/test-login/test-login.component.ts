@@ -1,3 +1,4 @@
+import { AmadeusService } from './../../service/amadeus.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -8,10 +9,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class TestLoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { 
-    // this.loginForm.valueChanges.subscribe(res=> console.log(res));
+  constructor(private fb: FormBuilder,private amadeusApi: AmadeusService) { 
   }
   ngOnInit(): void {
+    this.test()
   }
 
   loginForm = new FormGroup({
@@ -21,5 +22,8 @@ export class TestLoginComponent implements OnInit {
 
   signup(){
     console.log(this.loginForm.value);
+  }
+  test(){
+    this.amadeusApi.flightSearch();
   }
 }

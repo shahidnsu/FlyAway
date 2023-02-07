@@ -1,28 +1,32 @@
 <div class="main-container">
-    <div class="login-box">
         <mat-card class="example-card">
             <mat-card-title>Hi, Welcome Back! 👋</mat-card-title>
-      <mat-card-content>
-        <form [formGroup]="loginForm" class="form"> 
-            <app-input-field type="email" label="Enter your email" holder="pat@example.com" [formControl]="emailFormControl">
-                <input matInput name="email" formControlName="email" />
-            </app-input-field>  
-            <app-input-field type="password" label="Enter your password" holder="Enter your password">
-                <input matInput  name="password" formControlName="password" />
-            </app-input-field> 
- 
-            <!-- <p *ngIf="error" class="error">
-                {{ error }}
-            </p> -->
-
-          <button class="button-class" type="submit" (click)="login()">Log In</button>
-          <p>Don’t have an account?  <span style="font-weight: bolder;text-decoration: underline;">Sign Up</span></p>
-
-
-        </form>
-      </mat-card-content>
+            <div class="error" *ngIf="isError">{{userError}}</div>
+            <div class="error success" *ngIf="isSubmitted">Login Successfull</div>
+            <mat-card-content>
+                <form [formGroup]="loginForm" >
+                    <app-input-field 
+                    [control]="loginForm.controls.email" 
+                    label="Email" 
+                    type="email"
+                    placeHolder="example@gmail.com">
+                    </app-input-field>
+                    
+                    
+                    <app-input-field 
+                    [control]="loginForm.controls.password" 
+                     label="Password" 
+                     type="password"
+                     placeHolder="enter your password">
+                    </app-input-field>
+        
+                    <button class="button-class" type='submit' (click)="login()">Sign In</button>
+                    <p>Don’t have an account?  <a routerLink="/signup" style="font-weight: bolder;text-decoration: underline;">Sign Up</a></p>
+                    
+                </form>
+                
+            </mat-card-content>
     </mat-card>
-    </div>
     <ng-lottie
         class="bg"
         [options]="options" 
@@ -32,20 +36,3 @@
 
 
 
-
- <!-- <mat-form-field appearance="outline" class="field-full-width">
-                    <mat-label>Enter your email</mat-label>
-                    <input matInput [formControl]="emailFormControl" placeholder="pat@example.com">
-                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                            Please enter a valid email address
-                        </mat-error>
-                        <mat-error *ngIf="emailFormControl.hasError('required')">
-                            Email is <strong>required</strong>
-                        </mat-error>
-                </mat-form-field> -->
-
-                 <!-- <mat-form-field  appearance="outline" class="field-full-width">
-                    <mat-label>Enter your password</mat-label>
-                    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-                </mat-form-field> -->

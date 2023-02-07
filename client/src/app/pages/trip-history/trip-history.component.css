@@ -1,0 +1,62 @@
+.headText {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: 31305;
+  font-weight: 500;
+  width: 85%;
+  color: #31305a;
+  font-size: 1.5rem;
+  word-spacing: 0.4rem;
+  margin-left: 0.5rem;
+  line-height: 2rem;
+  word-spacing: normal;
+}
+.date-box {
+    /* display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    margin-top: 0.5rem; */
+    font-weight:lighter;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    font-size: 10px
+  }
+.items{
+  flex-basis: 45%;
+	flex-grow: 0;
+	flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+
+::ng-deep .mat-vertical-stepper-content
+{
+    visibility: visible !important;
+    height: 100% !important;
+}
+
+::ng-deep .mat-step-icon-content {
+    display: none !important;
+}
+
+::ng-deep .mat-step-icon {
+	border-radius: 50%;
+	height: 2rem !important;
+	width: 2rem !important;
+
+    background-color: #31305A;
+}
+
+mat-card {
+    margin: 0.5rem;
+}
+
+span {
+    font-weight: bolder;
+    margin: 0;
+}
+

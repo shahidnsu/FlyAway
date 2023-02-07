@@ -1,0 +1,39 @@
+
+
+
+<div class="headText"> See the places you visited before ...</div>
+
+<mat-card *ngFor="let trips of selectedTrips">
+    <div (click)="handleClick(trips)" *ngFor="let trip of trips.trip">
+        <mat-card-content  class="date-box">
+          <div class="items" style="font-size: large;">{{trip.segments[0].departure.iataCode | uppercase}} - {{trip.segments[trip.segments.length-1].arrival.iataCode | uppercase}}</div>
+          <div class="items" style="color:#31305a"><mat-icon>date_range</mat-icon><span style="flex-shrink: 1; align-self: center;">{{trip.segments[0].departure.at | date: "mediumDate" }}</span></div>
+          <!-- <div class="items"><mat-icon>alarm</mat-icon><span style="flex-shrink: 1; align-self: center;">{{trip.segments[0].departure.at | date: "h:mm a" }} </span></div> -->
+        </mat-card-content>
+    </div>
+</mat-card>
+
+
+
+<!-- <mat-card-header>
+    <h2> See the places<br> you visited before ...</h2>
+</mat-card-header>
+<mat-card>
+    <mat-stepper *ngFor="let trip of selectedFlights" orientation="vertical"  #stepper [linear]="isLinear">
+        <mat-step *ngFor="let flightOption of  trip.trip" [completed]="isCompleted">
+
+                <ng-template matStepperIcon="edit">
+                    <mat-icon>list</mat-icon>
+                </ng-template>
+
+                <ng-template matStepLabel style="font-weight:lighter;display:flex;flex-direction:row;justify-content: space-around; align-items: center;"> {{flightOption.segments[0].departure.iataCode | uppercase}}  <span> to </span> {{flightOption.segments[flightOption.segments.length-1].arrival.iataCode | uppercase}}
+                </ng-template>
+
+                <ng-template matStepContent>
+                    <app-confirm-flights
+                      [flights]="flightOption"
+                      ></app-confirm-flights>
+                  </ng-template>
+        </mat-step>
+    </mat-stepper>
+</mat-card> -->

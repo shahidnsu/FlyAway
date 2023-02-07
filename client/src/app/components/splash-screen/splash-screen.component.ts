@@ -15,6 +15,5 @@ export class SplashScreenComponent {
   constructor() { }  
 
   onAnimate(animationItem: AnimationItem): void {    
-    console.log(animationItem);  
   }
 }

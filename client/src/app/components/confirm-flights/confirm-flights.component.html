@@ -1,0 +1,37 @@
+
+<mat-card class="card" [class.confirmed]="confirmed" >
+    <div  *ngFor="let eachSegment of flights.segments">
+        <mat-card-header class="airport">
+            <div style="justify-content: start; text-align: left;width:100%; ">
+                <mat-card-title>{{eachSegment.departure.iataCode | uppercase }}</mat-card-title>
+                <mat-card-subtitle>{{eachSegment.departure.at | date: "h:mm a"}}</mat-card-subtitle>
+            </div>
+    
+            <div class="hr-line">
+                <hr>   
+                <span class="hr-icon"><mat-icon>airplane_ticket</mat-icon></span>
+            </div>
+    
+            <div style=" text-align: right; width:100%;">
+                <mat-card-title class="mat-title">{{eachSegment.arrival.iataCode | uppercase }}</mat-card-title>
+                <mat-card-subtitle>{{eachSegment.arrival.at | date: "h:mm a"}}</mat-card-subtitle>  
+            </div> 
+    
+        </mat-card-header>
+        
+            <mat-card-content class="date-box">
+                <h3> <mat-icon>date_range</mat-icon> {{eachSegment.departure.at | date: "mediumDate"}}</h3>
+                <h3 class="right"><mat-icon>alarm</mat-icon> {{eachSegment.departure.at | date: "h:mm a"}}</h3> 
+            </mat-card-content>
+
+        <mat-divider></mat-divider>
+    </div>
+    <div class="price-box">
+        <h2 style="font-weight: lighter;">Price</h2>
+        <h2> ${{flights.price}}</h2>
+    </div>
+</mat-card> 
+
+
+
+

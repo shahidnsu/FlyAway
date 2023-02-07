@@ -1,0 +1,55 @@
+<div class="main-container">
+    <!-- <app-back-button class="back-button" prev="last"></app-back-button> -->
+    <mat-card class="example-card">
+        <mat-card-title>Hello Traveller!</mat-card-title>
+        <mat-card-subtitle style="text-align: center;margin-bottom: 1rem;" [ngStyle]="{'color': (isError) ? 'red' : ((!isError) ? 'green' : null) }">{{msg}}</mat-card-subtitle>
+        <mat-card-content>
+            <form [formGroup]="profileForm">
+                <div class="container">
+                    <div class="left">
+                        <app-input-field [control]="profileForm.controls.firstName" label="First Name" type="text"
+                            placeHolder="example: Kazi" icon="contacts">
+                        </app-input-field>
+                    </div>
+                    <div class="right">
+                        <app-input-field [control]="profileForm.controls.lastName" label="Last Name" type="text"
+                            placeHolder="example: Shuhat">
+                        </app-input-field>
+                    </div>
+                </div>
+
+
+                <app-input-field [control]="profileForm.controls.email" icon="email" label="Email" type="email"
+                    placeHolder="Your Email">
+                </app-input-field>
+
+                <app-input-field [control]="profileForm.controls.passport" icon="library_books" label="Passport"
+                    type="text" placeHolder="Passport">
+                </app-input-field>
+
+
+                <mat-form-field appearance="outline" class="field-full-width">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+                    <mat-datepicker-toggle matIconPrefix [for]="picker"
+                        [ngStyle]="{'color':'gray'}"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <app-input-field [control]="profileForm.controls.country" icon="add_location" label="Country"
+                    type="text" placeHolder="Country">
+                </app-input-field>
+
+                <app-input-field [control]="profileForm.controls.phoneNumber" icon="phone" label="Phone Number"
+                    type="text" placeHolder="Phone Number">
+                </app-input-field>
+
+                <button class="button-class" type='submit' (click)="updateProfile()">Confirm</button>
+                <button class="button-class opposite" type='submit' (click)="skip()">Skip</button>
+
+            </form>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>

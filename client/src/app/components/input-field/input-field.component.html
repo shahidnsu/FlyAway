@@ -1,11 +1,11 @@
-<!-- <mat-form-field appearance="outline" class="field-full-width">
-    <mat-label>{{label}}</mat-label>
-    <input type="{{type}}" matInput  placeholder="{{holder}}" [formControl]="formControl">
-</mat-form-field> -->
 
-<form class="form">
+<div>
     <mat-form-field appearance="outline" class="field-full-width">
         <mat-label>{{label}}</mat-label>
-        <input type="{{type}}" matInput  placeholder="{{holder}}" [formControl]="formControl">
+        <input matInput
+         [type]="type" 
+         [formControl]="control" 
+         [placeholder]="placeHolder">
+         <mat-icon *ngIf="icon" matPrefix>{{icon}}</mat-icon>
     </mat-form-field>
-</form>
+</div>

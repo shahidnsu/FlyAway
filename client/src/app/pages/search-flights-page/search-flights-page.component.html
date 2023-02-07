@@ -1,0 +1,37 @@
+
+<div class="main-container">
+  <h3 class="pageHead" *ngIf="!lottieLoading">Search the places you<br> want to visit...</h3>
+<!-- <mat-spinner class="loader" ></mat-spinner> -->
+<ng-lottie *ngIf="lottieLoading else searchbox"
+    class="loading"
+    [options]="options"
+    (animationCreated)="onAnimate($event)"
+  >
+</ng-lottie>
+
+<ng-template #searchbox>
+  <mat-card class="maincard">
+    <mat-card-content *ngFor="let item of travelFormArray" style="margin-bottom: 5%">
+      <app-select-date-and-places [travelFormArray]="travelFormArray"  [addNewLocation]="addNewLocation"
+            [newLeg]="newLeg" [isSuccess]="item.isSuccess" [isFailed]="item.isFailed" [flightNumber]="flightNumber"
+            (formSubmitEvent)="searchFlights($event)" (deleteItemEvent)="deleteLeg($event)"
+            [item]="item"></app-select-date-and-places>
+    </mat-card-content>
+
+
+    <mat-card-header *ngIf="isLoading" style="color: green;margin-left: auto;margin-right: auto; text-align: center;margin-bottom: 1rem;">
+      <div class="loader"></div> Searching for flights ...
+    </mat-card-header>
+
+    <button (click)="addNewLocation()" class="addLocationBtn"  [disabled]="disabled">
+        Add New Location
+    </button>
+    <button
+
+    (click)="travelFormSubmit()" class="viewFlightsBtn" [disabled]="disabled">
+        View Flights
+    </button>
+</mat-card>
+</ng-template>
+
+</div>

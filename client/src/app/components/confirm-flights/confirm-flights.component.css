@@ -1,0 +1,93 @@
+mat-card-title {
+  margin: 0 !important;
+  color: #31305A;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.card {
+  width: 100%;
+}
+
+.airport {
+  display: flex;
+  justify-content: center;
+  justify-items: space-around;
+  text-align: center;
+}
+
+.date-box {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+  color: grey;
+}
+.price-box {
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  color: #31305A;
+  margin-top: 0.5rem;
+}
+
+h3 {
+  font-weight:lighter;
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+  margin-left: 0;
+}
+
+.right {
+  margin-right: 0;
+}
+
+
+
+.hr-line{
+  width: 100%;
+  align-items: center;
+  margin-top: 5%;
+  position: relative;
+}
+.hr-icon {
+  position: absolute;
+  top: -0.7rem;
+  animation: icon-move 5s infinite;
+}
+@keyframes icon-move {
+  0%{left: 0%;}
+  100%{left: 80%;}
+}
+span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+ .container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+  }
+  .left{
+    width:50%;
+    justify-content: start;
+  }
+  .right{
+    margin-left: 0.5rem;
+    width:50%;
+    margin-left: auto;
+    justify-content: end;
+  } 
+
+
+.confirmed {
+  border:  #31305A solid 2px;
+}
