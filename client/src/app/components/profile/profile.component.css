@@ -18,7 +18,7 @@
   .example-card {
     width: 22rem;
     position: absolute;
-    top: 3rem;
+    top: 7%;
     margin-left: auto;
     margin-right: auto;
     z-index: 1;
@@ -35,7 +35,7 @@
     }
 
     .field-full-width {
-        width: 98%;
+      width: 98%;
     }
     
     mat-card-title,
@@ -58,20 +58,6 @@
     .example-container mat-form-field + mat-form-field {
       margin-left: 8px;
     }
-  
-    /* .error {
-      padding: 16px;
-      width: 300px;
-      color: white;
-      background-color: red;
-    }
-    .success {
-      padding: 16px;
-      width: 300px;
-      color: white;
-      background-color: green;
-    } */
-    
   
    
   .button-class {
@@ -108,7 +94,7 @@
 
  .container{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
  }
 .left{
   width:48%;
