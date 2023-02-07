@@ -1,9 +1,15 @@
-<mat-toolbar [ngClass]="[router.isActive('/', true) ? 'colored-nav' : 'non-colored-nav' ]">
+<mat-toolbar
+  [ngClass]="[router.isActive('/', true) ? 'colored-nav' : 'non-colored-nav']"
+>
   <mat-toolbar-row style="display: flex; justify-content: space-between">
-    <img routerLink="/" class="logoDesign"  src="../../../assets/FlyAwayLogo.svg" />
+    <img routerLink="/" src="../../../assets/logo.png" />
 
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon"
-      aria-label="Example icon-button with menu icon">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
       <mat-icon>menu</mat-icon>
     </button>
 
@@ -17,7 +23,7 @@
       <!-- <button routerLink="previous-flights" mat-menu-item>
         <span>Previous Flights</span>
       </button> -->
-      <button *ngIf="user" routerLink="trip-history" mat-menu-item >
+      <button *ngIf="user" routerLink="trip-history" mat-menu-item>
         <span>Trip History</span>
       </button>
       <button *ngIf="user" (click)="logout()" mat-menu-item>
