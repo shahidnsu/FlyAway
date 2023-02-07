@@ -6,9 +6,9 @@
 <mat-card *ngFor="let trips of selectedTrips">
     <div (click)="handleClick(trips)" *ngFor="let trip of trips.trip">
         <mat-card-content  class="date-box">
-          <div class="items">{{trip.segments[0].departure.iataCode | uppercase}} - {{trip.segments[trip.segments.length-1].arrival.iataCode | uppercase}}</div>
+          <div class="items" style="font-weight: bold;">{{trip.segments[0].departure.iataCode | uppercase}} - {{trip.segments[trip.segments.length-1].arrival.iataCode | uppercase}}</div>
           <div class="items"><mat-icon>date_range</mat-icon><span style="flex-shrink: 1; align-self: center;">{{trip.segments[0].departure.at | date: "mediumDate" }}</span></div>
-          <div class="items"><mat-icon>alarm</mat-icon><span style="flex-shrink: 1; align-self: center;">{{trip.segments[0].departure.at | date: "h:mm a" }} </span></div>
+          <!-- <div class="items"><mat-icon>alarm</mat-icon><span style="flex-shrink: 1; align-self: center;">{{trip.segments[0].departure.at | date: "h:mm a" }} </span></div> -->
         </mat-card-content>
     </div>
 </mat-card>
