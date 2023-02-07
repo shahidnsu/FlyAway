@@ -1,6 +1,4 @@
- body {
-    background:#E0F6F7;
- }
+ 
 .main-container {
     position: relative;
     display: flex;
@@ -15,16 +13,11 @@
 }
 
 .bg {
-    /* position: absolute;
-    top: 10%; */
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     width:100%;
     height: auto;
     margin-top: auto;
     margin-bottom: auto;
-
 }
 
 .tagline {

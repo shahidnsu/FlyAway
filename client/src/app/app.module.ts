@@ -58,6 +58,7 @@ import { TripHistoryComponent } from './pages/trip-history/trip-history.componen
 import { SingleTripComponent } from './pages/single-trip/single-trip.component';
 import {NgxStripeModule} from 'ngx-stripe';
 import { SuccessPaymentComponent } from './components/success-payment/success-payment.component';
+import { MatDialogModule } from '@angular/material/dialog';
 //import {HttpClientModule} from '@angular/common/http'
 
 export function playerFactory(): any {
@@ -118,7 +119,9 @@ export function playerFactory(): any {
         MatStepperModule,
         MatAutocompleteModule,
         MatProgressSpinnerModule,
-        HttpClientModule
+        HttpClientModule,
+        MatDialogModule
+
     ],
     providers: [MatDatepickerModule, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }],
     bootstrap: [AppComponent]
