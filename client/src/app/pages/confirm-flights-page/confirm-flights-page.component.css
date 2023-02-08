@@ -1,3 +1,8 @@
+.arrow {
+  width: 30px;
+  height: 30px;
+  margin-left: 1rem;
+}
 
 ::ng-deep .mat-vertical-stepper-content 
 {
@@ -39,22 +44,22 @@
 
 
 .button-class {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 104px;
-    gap: 8px;
-    border: none;
-    background: rgb(49, 48, 90, 0.0);
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    text-align: center;
-    color: #FFFFFF;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding: 12px 104px; */
+  gap: 8px;
+  border: none;
+  background: rgb(49, 48, 90, 0.0);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  /* line-height: 24px; */
+  text-align: center;
+  color: #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
 
   }
   
@@ -63,14 +68,23 @@
     box-shadow: #31305A;
   }
 
+
+.buttontext{
+  align-self: center;
+}
+
   .sticky-bottom {
     width: 100%;
     height: 10vh;
     background-color: #31305A;
-    background: rgb(49, 48, 90, 0.8);
+    /* background: rgb(49, 48, 90, 0.8); */
     position: fixed;
     bottom: 0;
     left:0;
+    margin-right: 0;
     display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
   }
 
