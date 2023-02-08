@@ -62,7 +62,7 @@ export class SignupComponent {
             this.isError = false;
             this.isSubmitted = true;
             this.signupForm.reset();
-
+            
             setTimeout(() => {
               this.router.navigate(['/login']);
             }, 1000)
