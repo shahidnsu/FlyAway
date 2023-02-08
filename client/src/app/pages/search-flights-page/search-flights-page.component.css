@@ -17,8 +17,6 @@
 
 .maincard {
   width: 23rem;
-  /* position: absolute; */
-  /* top: 11%; */
   margin-top: 1%;
   margin-left: auto;
   margin-right: auto;
@@ -62,7 +60,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
+  justify-items: center;
+  margin-top: 10%;
 }
 
 

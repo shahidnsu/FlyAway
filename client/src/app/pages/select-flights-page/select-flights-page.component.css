@@ -92,12 +92,7 @@
   margin-bottom: 10%;
 }
 
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5rem;
-}
+
 .backButton{
   background-color: #41406d;
 }
