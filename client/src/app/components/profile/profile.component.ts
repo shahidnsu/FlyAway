@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { AmadeusService } from 'src/app/service/amadeus.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -18,6 +19,7 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   msg: string ="";
   isError: boolean= true;
+  
 
   profileForm = new FormGroup({
     firstName: new FormControl('', Validators.required),

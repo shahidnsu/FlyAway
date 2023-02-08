@@ -156,6 +156,10 @@ export class SearchFlightsPageComponent implements OnInit {
         }
 
         this.checkDisable();
+         setTimeout(()=>{
+            element.isSuccess = false;
+            element.isFailed = false;
+        },2000)
         console.log('Search results: ', this.searchResults);
       },
       error: (error) => {},

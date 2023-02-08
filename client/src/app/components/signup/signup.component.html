@@ -11,53 +11,92 @@
                     <div class="container">
                         <div class="left">
                             <app-input-field [control]="signupForm.controls.firstName" label="First Name" type="text"
-                                placeHolder="example: Kazi" icon="contacts">
+                                placeHolder="John" icon="contacts">
                             </app-input-field>
                         </div>
                         <div class="right">
                             <app-input-field [control]="signupForm.controls.lastName" label="Last Name" type="text"
-                                placeHolder="example: Shuhat">
+                                placeHolder="Doe">
                             </app-input-field>
                         </div>
                     </div>
 
                     <app-input-field [control]="signupForm.controls.email" label="Email" type="email"
-                        placeHolder="example@gmail.com" icon="email">
+                        placeHolder="johndoe@gmail.com" icon="email">
                     </app-input-field>
 
-                    <app-input-field [control]="signupForm.controls.password" label="Password" type="password"
+                    <!-- <app-input-field [control]="signupForm.controls.password" label="Password" type="password"
                         placeHolder="*********" icon="visibility_off">
-                    </app-input-field>
+                    </app-input-field> -->
 
-                    <app-input-field [control]="signupForm.controls.confirmPassword" label="confirm Password"
+                    <div>
+                        <mat-form-field appearance="outline" class="field-full-width">
+                            <mat-label>Password</mat-label>
+                            <input matInput
+                                [type]="hidePass ? 'password' : 'text'"                             
+                                formControlName = "password" 
+                                placeholder ="*********"
+                            >
+                        <mat-icon matSuffix (click)="hidePass = !hidePass">{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </mat-form-field>
+                    </div>
+
+
+                    <!-- <app-input-field [control]="signupForm.controls.confirmPassword" label="confirm Password"
                         type="password" placeHolder="*********">
-                    </app-input-field>
+                    </app-input-field> -->
+
+                    <div>
+                        <mat-form-field appearance="outline" class="field-full-width">
+                            <mat-label>Confirm Password</mat-label>
+                            <input matInput
+                                [type]="hideConfirmPass ? 'password' : 'text'"                             
+                                formControlName = "confirmPassword" 
+                                placeholder ="*********"
+                            >
+                        <mat-icon matSuffix (click)="hideConfirmPass = !hideConfirmPass">{{hideConfirmPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </mat-form-field>
+                    </div>
 
                     <app-input-field [control]="signupForm.controls.phoneNumber" label="Phone Number" type="text"
-                        placeHolder="Your phone number" icon="phone">
+                        placeHolder="Phone number" icon="phone">
                     </app-input-field>
 
                     <app-input-field [control]="signupForm.controls.passport" label="Passport" type="text"
-                        placeHolder="Passport number" icon="library_books">
+                        placeHolder="Passport No" icon="library_books">
                     </app-input-field>
 
-                    <div class="container">
-                        <div class="left">
-                            <app-input-field [control]="signupForm.controls.country" label="Country" type="text"
-                                placeHolder="Your country name" icon="add_location">
-                            </app-input-field>
-                        </div>
+                    <!-- <div class="container"> -->
+                        
+                        <!-- <div class="left"> -->
 
-                        <div class="right">
-                            <mat-form-field appearance="outline" style="width:100%">
+                            <mat-form-field appearance="outline" style="width: 98%;">
+                                <mat-label>Country</mat-label>
+                                <input formControlName="country" [matAutocomplete]="auto1" matInput placeholder="Country name" />
+                                <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete">
+                                  <mat-option *ngFor="let country of countryList"
+                                    [value]="country.name">
+                                    {{ country.name }}
+                                  </mat-option>
+                                </mat-autocomplete>
+                                <mat-icon matPrefix>room</mat-icon>
+                              </mat-form-field>
+
+                            <!-- <app-input-field [control]="signupForm.controls.country" label="Country" type="text"
+                                placeHolder="Country" icon="add_location">
+                            </app-input-field> -->
+                        <!-- </div> -->
+
+                        <!-- <div class="right"> -->
+                            <mat-form-field appearance="outline" style="width:98%">
                                 <mat-label>Date of birth</mat-label>
                                 <input formControlName="dateOfBirth" matInput [matDatepicker]="picker" [max]="validAge">
                                 <mat-hint>MM/DD/YYYY</mat-hint>
                                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
-                        </div>
-                    </div>
+                        <!-- </div> -->
+                    <!-- </div> -->
 
                     <button class="button-class" (click)="signup()">Sign Up</button>
                     <p>Already have an account? <span style="font-weight: bolder;text-decoration: underline;"
