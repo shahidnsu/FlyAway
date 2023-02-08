@@ -5,9 +5,9 @@
 </mat-dialog-actions> -->
 
 <div mat-dialog-content>
-    {{message}}
+    {{msg}}
   </div>
   <div mat-dialog-actions>
-    <button mat-button mat-dialog-close tabindex="-1">{{cancelButtonText}}</button>
-    <button mat-button mat-dialog-close cdkFocusInitial (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
+    <button mat-button mat-dialog-close tabindex="-1">{{cancelBtn}}</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="onConfirmClick()" tabindex="1">{{okBtn}}</button>
   </div>

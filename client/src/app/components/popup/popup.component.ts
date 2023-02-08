@@ -8,16 +8,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 
 export class PopupComponent {
-  message: string = ''
-  confirmButtonText: string = ''
-  cancelButtonText: string = ''
+  msg: string = ''
+  okBtn: string = ''
+  cancelBtn: string = ''
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: any,private dialogRef: MatDialogRef<PopupComponent>) {
-    if(data){
-      this.message = data.message;
-      if (data.buttonText) {
-        this.confirmButtonText = data.buttonText.ok;
-        this.cancelButtonText = data.buttonText.cancel;
+  constructor(@Inject(MAT_DIALOG_DATA) private result: any,private dialogRef: MatDialogRef<PopupComponent>) {
+    if(result){
+      this.msg = result.message;
+      if (result.buttonText) {
+        this.okBtn = result.buttonText.ok;
+        this.cancelBtn = result.buttonText.cancel;
       }
    }
   }
