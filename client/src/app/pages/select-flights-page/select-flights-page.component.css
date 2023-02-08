@@ -18,9 +18,10 @@
 }
 
 
-.selectFlight{
+.selectFlight {
   margin-bottom: 10vh;
 }
+
 .icon {
   margin-right: 0.5rem;
 }
@@ -42,10 +43,10 @@
 }
 
 ::ng-deep .mat-step-icon {
-	border-radius: 50%;
-	height: 2rem !important;
-	width: 2rem !important;
-	background-color: #31305A;
+  border-radius: 50%;
+  height: 2rem !important;
+  width: 2rem !important;
+  background-color: #31305A;
 }
 
 .button-class {
@@ -66,12 +67,12 @@
     margin-left: auto;
     margin-right: auto;
 
-  }
+}
 
-  button:hover {
-    cursor: pointer;
-    box-shadow: #31305A;
-  }
+button:hover {
+  cursor: pointer;
+  box-shadow: #31305A;
+}
 
 .buttontext{
   align-self: center;
@@ -97,9 +98,40 @@
   margin-right: auto;
   margin-bottom: 1rem;
   padding: 5px 8px;
-  background-color: red;
+  background-color: rgb(243, 131, 131);
   color: white;
   border-radius: 5px;
+}
+
+
+
+@keyframes errorAnimation {
+  0% {
+    /* background-color: rgb(243, 131, 131); */
+    display: inline-block;
+    opacity: 1;
+
+    /* visibility: visible; */
+  }
+
+  50% {
+    /* background-color: rgb(132, 233, 44); */
+    /* display: inline-block; */
+    /* visibility: visible; */
+    display: inline-block;
+    opacity: 0.5;
+  }
+
+  100% {
+    /* visibility: hidden; */
+    /* background-color: rgb(75, 97, 243); */
+
+    display: none;
+    opacity: 0;
+    top: -200%;
+    /* visibility: hidden; */
+
+  }
 }
 
 .stepper {
@@ -107,10 +139,21 @@
 }
 
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+
+
 .backButton{
+
   background-color: #41406d;
 }
 
-.errorContainer{
+.errorContainer {
   text-align: center;
+  position: relative;
 }
