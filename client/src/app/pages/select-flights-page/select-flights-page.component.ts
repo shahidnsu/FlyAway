@@ -83,10 +83,6 @@ export class SelectFlightsPageComponent {
     } else {
       this.isError = true;
       this.msg = 'Select at least one flight from each option!';
-      setTimeout(()=>{
-        this.isError = false;
-      },3000)
-      
     }
   }
 }
