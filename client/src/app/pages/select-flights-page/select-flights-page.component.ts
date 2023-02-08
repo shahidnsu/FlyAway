@@ -67,15 +67,18 @@ export class SelectFlightsPageComponent {
   }
 
   confirm() {
+    console.log("confirm flight clicked")
     if (this.selectedFlight.length === this.searchResults.length) {
-      this.isError = false;
-      this.route.navigate(['confirm-flights']);
+      // this.isError = false;
+      this.route.navigate(['/confirm-flights']);
+      console.log("confirm flight clicked and went to if block")
     } else {
-      this.isError = true;
+      console.log("confirm flight clicked but went to else block")
+      // this.isError = true;
       this.msg = 'Select at least one flight from each option!';
-      setTimeout(()=>{
-        this.isError = false;
-      },3000)
+      // setTimeout(()=>{
+      //   this.isError = false;
+      // },3000)
       
     }
   }
