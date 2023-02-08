@@ -1,6 +1,7 @@
 .arrow {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
+  margin-left: 1rem;
 }
 
 
@@ -88,7 +89,7 @@
     display: flex;
     align-items: center;
     justify-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .error {
