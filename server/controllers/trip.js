@@ -405,9 +405,9 @@ const creatingMailOptions = function(email,id) {
 }
 
 const createTrip = async (req, res) => {
-    console.log()
+    //console.log()
     try {
-        console.log('Inside try')
+        //console.log('Inside try')
         const {email} = req.user
         console.log(email)
         const result = await TripList.create(req.body).then(result => {
