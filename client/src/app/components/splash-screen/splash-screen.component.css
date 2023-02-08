@@ -8,7 +8,6 @@
     height: 94vh;
     background: #222;
     color: black;
-    margin: 0 0;
     background-color: #E0F6F7;
 }
 
@@ -42,13 +41,7 @@ button {
 }
 
 .button-class {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     padding: 1rem 20% 1rem 20%;
-
-    gap: 8px;
     background: #31305A;
     border: 5px solid #31305A;
     border-radius: 8px;
@@ -58,6 +51,7 @@ button {
     line-height: 5%;
     text-align: center;
     color: #FFFFFF;
+    bottom: 12%;
 }
 
 button:hover {

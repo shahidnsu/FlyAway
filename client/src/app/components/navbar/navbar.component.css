@@ -6,6 +6,9 @@
     left: 1px;
     z-index: 1;
 } */
+.navbar{
+    height: 6vh;
+}
 
 .logoDesign{
   width: 16%;
