@@ -26,9 +26,14 @@
     <button (click)="addNewLocation()" class="addLocationBtn"  [disabled]="disabled">
       Add New Flight
     </button>
+
     <button
 
-    (click)="travelFormSubmit()" class="viewFlightsBtn" [disabled]="disabled">
+    (click)="travelFormSubmit()"
+     class="viewFlightsBtn" 
+     [disabled]="disabled"
+     data-cy="viewFlights"
+     >
         View Flights
     </button>
 </mat-card>
