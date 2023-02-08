@@ -95,12 +95,15 @@ export class SearchFlightsPageComponent implements OnInit {
   deleteLeg(item: formValue) {
     // console.log('search result array before deleteing', this.searchResults);
     // console.log('travelform Array before deleteing', this.travelFormArray);
-    this.searchResults.splice(item.index, 1);
-    this.travelFormArray.splice(item.index, 1);
-    this.lastIndex--
-    // console.log('search result array after deleteing', this.searchResults);
-    // console.log('travelform Array after deleteing', this.travelFormArray);
-    this.checkDisable();
+    if(this.travelFormArray>=2){
+      this.searchResults.splice(item.index, 1);
+      this.travelFormArray.splice(item.index, 1);
+      this.lastIndex--
+      // console.log('search result array after deleteing', this.searchResults);
+      // console.log('travelform Array after deleteing', this.travelFormArray);
+      this.checkDisable();
+    }
+    
   }
 
   // deleteLeg(){
