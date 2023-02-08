@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
 
+  hidePass: boolean = true;
+  hideConfirmPass: boolean = true;
+  
   isSubmitted: boolean = false;
   userError: string = '';
   isError: boolean = false;

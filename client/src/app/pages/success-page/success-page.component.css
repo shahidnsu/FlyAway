@@ -3,6 +3,9 @@ body {
   padding: 40px 0;
   /* background: #ebf0f5; */
 }
+.noshadow{
+  box-shadow: none !important;
+}
 h1 {
   color: #88b04b;
   font-weight: 900;
