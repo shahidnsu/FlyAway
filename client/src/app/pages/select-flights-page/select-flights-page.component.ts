@@ -76,9 +76,9 @@ export class SelectFlightsPageComponent {
       console.log("confirm flight clicked but went to else block")
       this.isError = true;
       this.msg = 'Select at least one flight from each option!';
-      setTimeout(()=>{
-        this.isError = false;
-      },3000)
+      // setTimeout(()=>{
+      //   this.isError = false;
+      // },3000)
       
     }
   }
