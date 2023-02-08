@@ -8,7 +8,9 @@
 } */
 
 .logoDesign{
-  width: 180px;
+  width: 16%;
+  min-width: 120px;
+  max-width: 200px;
 }
 
 .colored-nav {

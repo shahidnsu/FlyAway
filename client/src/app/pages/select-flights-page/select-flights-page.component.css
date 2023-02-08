@@ -53,14 +53,14 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 12px 104px;
+    /* padding: 12px 104px; */
     gap: 8px;
     border: none;
     background: rgb(49, 48, 90, 0.0);
     font-style: normal;
     font-weight: 500;
-    font-size: 22px;
-    line-height: 24px;
+    font-size: 18px;
+    /* line-height: 24px; */
     text-align: center;
     color: #FFFFFF;
     margin-left: auto;
@@ -75,7 +75,7 @@
 
 .buttontext{
   align-self: center;
-  margin-top: 5%;
+  /* margin-top: 5%; */
 }
 .sticky-bottom {
     width: 100%;

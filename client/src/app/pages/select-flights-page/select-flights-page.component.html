@@ -1,13 +1,4 @@
 <div class="selectFlight">
-    <!-- <app-back-button prev="search-flights"></app-back-button> -->
-    <!-- <ng-lottie *ngIf="isLoading"
-        class="loading"
-        [options]="options"
-        (animationCreated)="onAnimate($event)"
-    >
-    </ng-lottie> -->
-
-
 
     <h3 class="pageHead">Select the flights you want to book...</h3>
     <div *ngIf="isError" class="errorContainer">
@@ -37,7 +28,7 @@
 
     <div class="sticky-bottom" *ngIf="!isLoading">
         <button class="button-class" type="submit" (click)="confirm()">
-            <p class="buttontext">Confirm Flights</p>
+            <div class="buttontext">Confirm Flights</div>
             <img class="arrow"  src="../../../assets/arrow-pointing-to-right-in-a-circle.png" />
         </button>
     </div>
