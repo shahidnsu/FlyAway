@@ -110,6 +110,7 @@ export class SearchFlightsPageComponent implements OnInit {
     this.lastIndex++;
     console.log('search result array', this.searchResults);
     this.disabled = true;
+    
   }
 
   navigate() {

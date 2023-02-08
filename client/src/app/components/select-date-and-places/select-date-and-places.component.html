@@ -1,7 +1,6 @@
 <form class="selectItem" [formGroup]="travelForm" (submit)="searchFlightFunc()">
   <div class="iconControl">
-    <mat-icon (click)="openDialog()">remove_circle_outline</mat-icon>
-
+    <mat-icon *ngIf="this.travelFormArray.length>1" (click)="openDialog()">remove_circle_outline</mat-icon>
   </div>
 
   <mat-form-field appearance="outline">

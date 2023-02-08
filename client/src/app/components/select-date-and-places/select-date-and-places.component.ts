@@ -138,6 +138,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
     if(this.travelForm.valid){
       console.log(this.travelForm.value)
       this.formSubmitEvent.emit({...this.item, ...this.travelForm.value})
+      
     }
     else{
       this.disable = true

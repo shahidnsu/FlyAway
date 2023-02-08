@@ -8,6 +8,7 @@ import {
 import { ApiClientService } from 'src/app/service/api-client.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { AmadeusService } from 'src/app/service/amadeus.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -30,7 +31,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private apiClient: ApiClientService,
-    private amadeusClient: AmadeusService
+    private router : Router
   ) { }
   
   ngOnInit(): void {
@@ -68,7 +69,7 @@ export class ProfileComponent implements OnInit {
   }
 
   skip() {
-    throw new Error('Method not implemented.');
+    this.router.navigate(['/'])
   }
   
 }

@@ -96,7 +96,7 @@ export function playerFactory(): any {
     imports: [
         ReactiveFormsModule,
         BrowserModule,
-        
+        NgxStripeModule.forRoot('pk_test_51MWLP4CtRfbKEF0FQNdWE4BiKjKOekTvMmkR4WBsBQdOFpKftVrcXRsTArFdXHuH4c6M2qcYx1CY4Ur3Cs4PzUYQ00ntT6NrTJ'),
         MatToolbarModule,
         AppRoutingModule,
         BrowserAnimationsModule,
