@@ -3,7 +3,7 @@
   <h3 class="pageHead" *ngIf="!lottieLoading">Search the places you want to visit...</h3>
 <!-- <mat-spinner class="loader" ></mat-spinner> -->
 <ng-lottie *ngIf="lottieLoading else searchbox"
-    class="loading"
+    class="lottie-loader"
     [options]="options"
     (animationCreated)="onAnimate($event)"
   >
