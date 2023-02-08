@@ -68,6 +68,7 @@
 }
 
 
+
 .viewFlightsBtn:disabled,
 .addLocationBtn:disabled {
   background-color: rgba(211, 211, 211, 0.51);
