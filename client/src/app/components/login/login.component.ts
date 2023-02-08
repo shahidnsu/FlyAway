@@ -13,6 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  hide: boolean = true;
+
   isSubmitted: boolean = false;
   userError: string = '';
   isError: boolean = false;
