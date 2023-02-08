@@ -1,7 +1,7 @@
 <div class="main-container">
         <mat-card class="example-card">
             <mat-card-title>Hi, Welcome Back! 👋</mat-card-title>
-            <div class="error" *ngIf="isError">{{userError}}</div>
+            <div data-cy="error" class="error" *ngIf="isError">{{userError}}</div>
             <div class="error success" *ngIf="isSubmitted">Login Successfull</div>
             <mat-card-content>
                 <form [formGroup]="loginForm" >
@@ -9,7 +9,10 @@
                     [control]="loginForm.controls.email" 
                     label="Email" 
                     type="email"
-                    placeHolder="example@gmail.com">
+                    placeHolder="example@gmail.com"
+                    id="login-email"
+                    >
+                    
                     </app-input-field>
                     
                     
@@ -17,10 +20,12 @@
                     [control]="loginForm.controls.password" 
                      label="Password" 
                      type="password"
-                     placeHolder="enter your password">
+                     placeHolder="enter your password"
+                     id="login-password">
+                     
                     </app-input-field>
         
-                    <button class="button-class" type='submit' (click)="login()">Sign In</button>
+                    <button class="button-class" type='submit' (click)="login()" data-cy="login" >Sign In</button>
                     <p>Don’t have an account?  <a routerLink="/signup" style="font-weight: bolder;text-decoration: underline;">Sign Up</a></p>
                     
                 </form>

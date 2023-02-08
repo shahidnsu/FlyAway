@@ -15,7 +15,9 @@
         </mat-step>
     </mat-stepper>
     <div class="sticky-bottom">
-        <button class="button-class" type='submit' (click)="checkout()" > 
+        <button class="button-class" type='submit' (click)="checkout()" 
+        data-cy="confirm"
+        > 
             <div class="buttontext">Total Price ${{totalPrice}}</div>
             <img class="arrow"  src="../../../assets/arrow-pointing-to-right-in-a-circle.png" />
         </button>
