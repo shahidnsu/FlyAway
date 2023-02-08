@@ -1,7 +1,7 @@
 <div class="selectFlight">
     <h3 class="pageHead">Select the flights you want to book...</h3>
-    <div *ngIf="isError" class="errorContainer">
-        <span class="error">{{msg}}</span>
+    <div *ngIf="isError" class="errorContainer error">
+        <span>{{msg}}</span>
     </div>
 
     <mat-stepper orientation="vertical" class="stepper">
@@ -24,8 +24,9 @@
         </mat-step>
     </mat-stepper>
 
+
     <div class="sticky-bottom" *ngIf="!isLoading">
-        <button class="button-class" type="submit" (click)="confirm()">
+        <button class="button-class" (click)="confirm()">
             <div class="buttontext">Confirm Flights</div>
             <img class="arrow"  src="../../../assets/arrow-pointing-to-right-in-a-circle.png" />
         </button>
