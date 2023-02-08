@@ -7,9 +7,11 @@
     z-index: 1;
 } */
 
-/* .logoDesign{
-  width: 160px;
-} */
+.logoDesign{
+  width: 16%;
+  min-width: 120px;
+  max-width: 200px;
+}
 
 .colored-nav {
     background-color: #E0F6F7;
