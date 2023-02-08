@@ -24,11 +24,16 @@
     </mat-card-header>
 
     <button (click)="addNewLocation()" class="addLocationBtn"  [disabled]="disabled">
-      Add New Flight <mat-icon>add_circle</mat-icon> 
+      Add New Flight
     </button>
+
     <button
 
-    (click)="travelFormSubmit()" class="viewFlightsBtn" [disabled]="disabled">
+    (click)="travelFormSubmit()"
+     class="viewFlightsBtn" 
+     [disabled]="disabled"
+     data-cy="viewFlights"
+     >
         View Flights
     </button>
 </mat-card>

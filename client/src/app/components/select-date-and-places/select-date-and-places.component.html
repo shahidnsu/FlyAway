@@ -5,10 +5,15 @@
 
   <mat-form-field appearance="outline">
     <mat-label>From</mat-label>
-    <input formControlName="from" [matAutocomplete]="auto1" matInput placeholder="Enter a city" />
+    <input formControlName="from" [matAutocomplete]="auto1" matInput placeholder="Enter a city"
+    id="input-from"
+     />
     <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete">
       <mat-option *ngFor="let option of locationArray" (onSelectionChange)="getAirportRoutes(option)"
-        [value]="option.city + ' - ' + option.iata">
+        [value]="option.city + ' - ' + option.iata 
+        "
+        
+        >
         {{ option.city }} - {{ option.iata }}
       </mat-option>
     </mat-autocomplete>
@@ -17,7 +22,7 @@
 
   <mat-form-field appearance="outline">
     <mat-label>To</mat-label>
-    <input formControlName="to" [matAutocomplete]="auto2" matInput placeholder="Enter a city" (keyup)="toFilter($event)" />
+    <input data-cy="to" formControlName="to" [matAutocomplete]="auto2" matInput placeholder="Enter a city" (keyup)="toFilter($event)" />
     <mat-autocomplete autoActiveFirstOption #auto2="matAutocomplete">
       <mat-option  *ngFor="let option of matchedCity"
         [value]="option.city + ' - ' + option.iata">
@@ -30,7 +35,7 @@
 
   <mat-form-field appearance="fill" class="example-form-field">
     <mat-label>MM/DD/YYYY</mat-label>
-    <input formControlName="date" [min]="minDate" matInput [matDatepicker]="datepicker" />
+    <input data-cy="date" formControlName="date" [min]="minDate" matInput [matDatepicker]="datepicker" />
     <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
     <mat-datepicker #datepicker>
       <mat-datepicker-actions>
@@ -41,8 +46,8 @@
       </mat-datepicker-actions>
     </mat-datepicker>
   </mat-form-field>
-<button class="SearchFlightBtn" type="submit" [disabled]="disable">Search Flights</button>
-  <div *ngIf="item.isSuccess" class="msg">{{flightNumber}}<span>Flights Found!</span></div>
-  <div *ngIf="item.isFailed" class="msg failed"> <span>No Flights Found!</span></div>
+<button class="SearchFlightBtn" type="submit" [disabled]="disable" data-cy="searchFlight">Search Flights</button>
+  <div data-cy="flightFound" *ngIf="item.isSuccess" class="msg">{{flightNumber}}<span>Flights Found!</span></div>
+  <div data-cy="notFound" *ngIf="item.isFailed" class="msg failed"> <span>No Flights Found!</span></div>
 </form>
 

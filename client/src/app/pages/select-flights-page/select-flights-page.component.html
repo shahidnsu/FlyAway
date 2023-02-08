@@ -5,7 +5,7 @@
     </div>
 
     <mat-stepper orientation="vertical" class="stepper">
-        <mat-step *ngFor="let flightOption of searchResults">
+        <mat-step  *ngFor="let flightOption of searchResults">
             <ng-template class="step-label" matStepLabel>
                 <mat-icon class="icon">flight_takeoff</mat-icon>{{
                 flightOption.availableFlights[0].segments[0].departure.iataCode | uppercase }}
