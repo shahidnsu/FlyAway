@@ -56,12 +56,12 @@
   }
 }
 
-.loading {
+.lottie-loader {
   display: flex;
   justify-content: center;
   align-items: center;
   justify-items: center;
-  margin-top: 10%;
+  margin-top: 55%;
 }
 
 
