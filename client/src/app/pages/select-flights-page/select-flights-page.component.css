@@ -82,7 +82,10 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1rem;
-  color: red;
+  padding: 5px 8px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
 }
 
 .stepper {
@@ -97,4 +100,8 @@
 }
 .backButton{
   background-color: #41406d;
+}
+
+.errorContainer{
+  text-align: center;
 }

@@ -14,6 +14,8 @@ import { AnimationOptions } from 'ngx-lottie';
 })
 export class SelectFlightsPageComponent {
   msg: string = '';
+  isError: boolean = false;
+
   flights!: Flight[];
 
   totalPrice: number = 0;
@@ -49,15 +51,16 @@ export class SelectFlightsPageComponent {
     private route: Router,
     public _FlightService: FlightService,
     private flightService: ApiClientService
-  ) {}
+  ) { }
 
   handleSelect(flight: Flight) {
+    this.isError = false;
     const newFlightList = this.selectedFlight.filter((fl) => {
       if (
         flight.segments[0].departure.iataCode ==
-          fl.segments[0].departure.iataCode &&
+        fl.segments[0].departure.iataCode &&
         flight.segments[flight.segments.length - 1].arrival.iataCode ==
-          fl.segments[fl.segments.length - 1].arrival.iataCode
+        fl.segments[fl.segments.length - 1].arrival.iataCode
       ) {
         return false;
       } else return true;
@@ -75,9 +78,15 @@ export class SelectFlightsPageComponent {
 
   confirm() {
     if (this.selectedFlight.length === this.searchResults.length) {
+      this.isError = false;
       this.route.navigate(['confirm-flights']);
     } else {
-      this.msg = 'Confirm at least one flight for booking from each option!';
+      this.isError = true;
+      this.msg = 'Select at least one flight from each option!';
+      setTimeout(()=>{
+        this.isError = false;
+      },3000)
+      
     }
   }
 }

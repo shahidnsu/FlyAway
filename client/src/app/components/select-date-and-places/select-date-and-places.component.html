@@ -1,6 +1,7 @@
 <form class="selectItem" [formGroup]="travelForm" (submit)="searchFlightFunc()">
   <div class="iconControl">
-    <mat-icon (click)="removeItem()">remove_circle_outline</mat-icon>
+    <mat-icon (click)="openDialog()">remove_circle_outline</mat-icon>
+
   </div>
 
   <mat-form-field appearance="outline">
@@ -42,7 +43,7 @@
     </mat-datepicker>
   </mat-form-field>
 <button class="SearchFlightBtn" type="submit" [disabled]="disable">Search Flights</button>
-  <p *ngIf="item.isSuccess" class="msg">{{flightNumber}}Flights Found!</p>
-  <p *ngIf="item.isFailed" class="msg failed">No Flights Found!</p>
+  <div *ngIf="item.isSuccess" class="msg">{{flightNumber}}<span>Flights Found!</span></div>
+  <div *ngIf="item.isFailed" class="msg failed"> <span>No Flights Found!</span></div>
 </form>
 
