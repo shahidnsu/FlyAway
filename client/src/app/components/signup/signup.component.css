@@ -3,6 +3,9 @@ input.example-right-align::-webkit-inner-spin-button {
   display: none;
 }
 
+mat-icon{
+  color: gray;
+}
 
 .main-container {
   position: relative;
