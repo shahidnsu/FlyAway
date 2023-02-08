@@ -16,7 +16,8 @@
   }
   
   .example-card {
-    width: 22rem;
+    width: 85%;
+    max-width: 600px;
     position: absolute;
     top: 7%;
     margin-left: auto;
@@ -27,7 +28,7 @@
   form {
      
       /* width: -webkit-fill-available; */
-      min-width: 150px;
+      
       max-width: 500px;
       width: 98%;
       margin-left: auto;
@@ -63,21 +64,20 @@
   .button-class {
     background: #31305A;
     color: #FFFFFF;
-    width: 19.5rem;
+    width: 98%;
     height: 48px;
-    left: 2.5rem;
-    top: 5rem;
+    /* top: 5rem; */
     margin-top: 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 104px;
-    gap: 8px;
+    /* display: flex;
+    flex-direction: row; */
+    /* justify-content: center;
+    align-items: center; */
+    /* padding: 12px 104px; */
+    /* gap: 8px; */
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    line-height: 24px;
+    /* line-height: 24px; */
     text-align: center;
     border: 1px solid #31305A;
     border-radius: 8px;

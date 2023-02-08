@@ -93,21 +93,15 @@ export class SearchFlightsPageComponent implements OnInit {
   }
 
   deleteLeg(item: formValue) {
-    // console.log('search result array before deleteing', this.searchResults);
-    // console.log('travelform Array before deleteing', this.travelFormArray);
-    this.searchResults.splice(item.index, 1);
-    this.travelFormArray.splice(item.index, 1);
-    this.lastIndex--
-    // console.log('search result array after deleteing', this.searchResults);
-    // console.log('travelform Array after deleteing', this.travelFormArray);
-    this.checkDisable();
+    if(this.travelFormArray.length>=2){
+      this.searchResults.splice(item.index, 1);
+      this.travelFormArray.splice(item.index, 1);
+      this.lastIndex--
+      this.checkDisable();
+    }
+    
   }
 
-  // deleteLeg(){
-  //   this.searchResults.pop();
-  //   this.travelFormArray.pop();
-  //   this.lastIndex--
-  // }
 
   addNewLocation() {
     const newElement = this.searchResults[this.searchResults.length - 1];
@@ -116,18 +110,12 @@ export class SearchFlightsPageComponent implements OnInit {
     this.lastIndex++;
     console.log('search result array', this.searchResults);
     this.disabled = true;
+    
   }
 
   navigate() {
     if (this.nav) this.router.navigate(['/select-flights']);
   }
-
-  // loaderCheck() {
-  //   this._FlightService.getSearchedFlights().subscribe((flights) => {
-  //     this.searchResults = flights;
-  //     if (!this.searchResults.length) this.isLoading = true;
-  //   })
-  // }
 
   checkDisable() {
     this.disabled = this.travelFormArray.reduce(
