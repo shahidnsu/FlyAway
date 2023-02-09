@@ -15,7 +15,7 @@ import { AnimationOptions } from 'ngx-lottie';
 export class SelectFlightsPageComponent {
   msg: string = '';
   isError: boolean = false;
-
+  
   flights!: Flight[];
 
   totalPrice: number = 0;
