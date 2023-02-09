@@ -183,7 +183,5 @@ export class SelectDateAndPlacesComponent implements OnInit {
       }
     });
   }
-  
-
 
 }

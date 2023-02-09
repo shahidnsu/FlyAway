@@ -18,6 +18,7 @@ export class AmadeusService {
   airportSearch(city: string): Observable<Airport[]> {
     return this.apiClient.get<Airport[]>(`${this.apiUrl}/airports/${city}`);
   }
+  
   airportRoute(iataCode: string): Observable<Airport[]> {
     return this.apiClient.get<Airport[]>(`${this.apiUrl}/search-airports-routes/${iataCode}`)
   }
@@ -33,9 +34,7 @@ export class AmadeusService {
       this.day = `0${this.day}`
     }
     let date = `${year}-${this.month}-${this.day}`;
-
     console.log(newLeg);
-   
    return this.apiClient.get<Flight[]>(`${this.apiUrl}/flight-search?originCode=${newLeg.originCode}&destinationCode=${newLeg.destinationCode}&dateOfDeparture=${date}`)
   }
 }

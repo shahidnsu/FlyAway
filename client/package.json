@@ -23,6 +23,7 @@
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
+    "jest-html-reporter": "^3.7.0",
     "lottie-web": "^5.10.2",
     "ngx-lottie": "^10.0.0",
     "ngx-stripe": "^15.4.4",
@@ -45,7 +46,6 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.9.4",
-    "cypress": "latest"
+    "typescript": "~4.9.4"
   }
 }
