@@ -5,18 +5,7 @@ import { FlightOption } from '../interfaces/flightOption';
 @Injectable({
   providedIn: 'root'
 })
-// export class FlightService {
 
-//   constructor() { }
-
-//   public flightsData = [];
-
-
-//   getSearchedFlights () {
-//     return this.flightsData;
-//   }
-
-// }
 
 export class FlightService {
 
