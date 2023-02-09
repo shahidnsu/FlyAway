@@ -1,3 +1,22 @@
+mat-card-subtitle {
+  margin-left: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-items: space-evenly;
+  justify-content: center;
+}
+.left {
+  width: 20%;
+  text-align: center;
+  align-items: center;
+}
+.right {
+  width: 80%;
+}
+
 .headText {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -12,10 +31,6 @@
   word-spacing: normal;
 }
 .date-box {
-    /* display:flex;
-    flex-direction:row;
-    justify-content: space-between;
-    margin-top: 0.5rem; */
     font-weight:lighter;
     display:flex;
     flex-direction:row;
