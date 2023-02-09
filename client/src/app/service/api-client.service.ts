@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Flight } from '../interfaces/flight';
+import { Trip } from '../interfaces/trip';
 import { User } from '../interfaces/User';
 import { AuthService } from './auth.service';
 
@@ -52,7 +53,7 @@ export class ApiClientService {
   }
 
 
-  createTripList(tripObject: any): Observable<any> {
+  createTripList(tripObject: any): Observable<Trip> {
     let user=this.auth.getUser();
     let tripList={
       trip:tripObject,
@@ -66,16 +67,16 @@ export class ApiClientService {
     //   }
     // };
     
-    return this.httpClient.post<any>(`${this.rootUrl}/tripList`, tripList)
+    return this.httpClient.post<Trip>(`${this.rootUrl}/tripList`, tripList)
   }
 
-  getTripList(): Observable<any[]> {
+  getTripList(): Observable<Trip[]> {
     // const httpOptions = {
     //   headers: {
     //     'Content-Type': 'application/json',
     //     'Authorization': `${this.token}`
     //   }
     // };
-    return this.httpClient.get<any[]>(`${this.rootUrl}/tripList`);
+    return this.httpClient.get<Trip[]>(`${this.rootUrl}/tripList`);
   }
 }

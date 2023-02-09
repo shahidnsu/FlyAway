@@ -1,9 +1,28 @@
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #31305a;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+
 .selectItem{
     display: flex;
     flex-direction: column ;
 }
-
-
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
     background-color: white !important;

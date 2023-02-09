@@ -147,6 +147,9 @@ export class SearchFlightsPageComponent implements OnInit {
         if (res.length) {
           this.isLoading = false;
           element.isSuccess = true;
+          setTimeout(()=>{
+            element.isSuccess = false;
+          },2000);
           element.isFailed = false;
           this.searchResults[index] = { ...values, availableFlights: res };
           this.searchFlightsLoading = false;

@@ -1,17 +1,14 @@
-const transport =require('./nodeMailer')
-const TripList = require('../models/tripList');
+const transport = require("./nodeMailer");
+const TripList = require("../models/tripList");
 
+//creating email options for the
 
-//creating email options for the 
-
-const creatingMailOptions = function(email,id) {
-   
-    
-    let mailOptions = {
-      from: "hello.hr.portal@gmail.com",
-      to:email ,
-      subject: "Your trip is  booked",
-      html: `
+const creatingMailOptions = function(email, id, firstName) {
+  let mailOptions = {
+    from: "flyawaytickebooking@gmail.com",
+    to: email,
+    subject: "Your trip is  booked",
+    html: `
       <!doctype html>
 <html>
   <head>
@@ -363,8 +360,8 @@ const creatingMailOptions = function(email,id) {
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td>
-                        <p>Hi there,</p>
-                        <h1>Your Trip is confirmed.Your booking id is <strong>${id}</strong> </h1>
+                        <p>Hi ${firstName}</p>
+                        <h1>Your Trip is confirmed.Your booking ID is <strong>${id}</strong> </h1>
                         
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                           <tbody>
@@ -400,47 +397,42 @@ const creatingMailOptions = function(email,id) {
   </body>
 </html>
 `,
-    };
-    return mailOptions;
-}
+  };
+  return mailOptions;
+};
 
 const createTrip = async (req, res) => {
-    //console.log()
-    try {
-        //console.log('Inside try')
-        const {email} = req.user
-        console.log(email)
-        const result = await TripList.create(req.body).then(result => {
-            console.log("inside then block")
-            return creatingMailOptions(email,result._id)
-        }).then(mailOptions => {
-            console.log("inside next then ")
-            transport(mailOptions)
-        })
-        
-        
-        res.status(200).send(result);
+  const { email } = req.user;
+  const { firstName } = req.user;
+  try {
+    const result = await TripList.create(req.body)
+      .then((result) => {
+        return creatingMailOptions(email, result._id, firstName);
+      })
+      .then((mailOptions) => {
+        console.log("inside next then ");
+        transport(mailOptions);
+      });
 
-    }
-    catch (error) {
-        res.status(400);
-        res.json({ "error": "Failed to create trip" });
-    }
-}
+    res.status(200).send(result);
+  } catch (error) {
+    res.status(400);
+    res.json({ error: "Failed to create trip" });
+  }
+};
 
 const getTrip = async (req, res) => {
-    try {
-        const { email } = req.user;
-        console.log('email', email);
-        const result = await TripList.find({user:email});
-        res.send(result);
-        res.status(200);
-    }
-    catch (error) {
-        console.log(error);
-        res.status(500);
-        res.send(error);
-    }
-}
+  try {
+    const { email } = req.user;
+    console.log("email", email);
+    const result = await TripList.find({ user: email });
+    res.send(result);
+    res.status(200);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+    res.send(error);
+  }
+};
 
-module.exports = { createTrip, getTrip }
+module.exports = { createTrip, getTrip };

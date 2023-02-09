@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
 import { Airport } from 'src/app/interfaces/airport';
 import { FlightOption } from 'src/app/interfaces/flightOption';
 import { AmadeusService } from 'src/app/service/amadeus.service';
@@ -18,7 +17,8 @@ export class SelectDateAndPlacesComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  disable = true
+  isLoading: boolean = false;
+  disable: boolean = true
 
   constructor(private amadeusClient: AmadeusService, public dialog: MatDialog) { }
 
@@ -71,9 +71,7 @@ export class SelectDateAndPlacesComponent implements OnInit {
 
     this.travelForm.valueChanges.subscribe((value) => {
       this.getAirports(value.from);
-
       Object.assign(this.newLeg, value);
-
       this.checkDisable()
     });
 
@@ -110,10 +108,10 @@ export class SelectDateAndPlacesComponent implements OnInit {
   toFilter(event: any): any {
     this.matchedCity = [...this.toLocationArray]
     this.matchedCity = this.matchedCity.filter((obj: any) => {
-      //console.log(obj)
       return obj.city.includes(this.toField.toUpperCase())
     })
     //console.log(this.matchedCity)
+    
 
   }
 
@@ -155,12 +153,13 @@ export class SelectDateAndPlacesComponent implements OnInit {
   }
 
   getAirportRoutes(airportRoutes: any) {
+    this.isLoading = true;
     const { iata } = airportRoutes;
     this.amadeusClient.airportRoute(iata).subscribe((res) => {
       this.toLocationArray = res;
-
-      //console.log('data is coming from iata', res);
-    });
+      this.isLoading = false;      
+    })
+     error: ((error: any) => console.log("Location not found"));
   }
 
   openDialog() {
@@ -181,7 +180,5 @@ export class SelectDateAndPlacesComponent implements OnInit {
       }
     });
   }
-  
-
 
 }
