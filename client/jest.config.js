@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const { pathsToModuleNameMapper } = require('ts-jest');
 const { compilerOptions } = require('./tsconfig');
 
@@ -19,3 +20,9 @@ module.exports = {
     }]
   ]
 };
+
+module.exports = {
+  preset: 'jest-preset-angular',
+  globalSetup: 'jest-preset-angular/global-setup',
+};
+

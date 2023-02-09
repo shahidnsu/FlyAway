@@ -8,23 +8,23 @@
                 <div class="container">
                     <div class="left">
                         <app-input-field [control]="profileForm.controls.firstName" label="First Name" type="text"
-                            placeHolder="example: Kazi" icon="contacts">
+                            placeHolder="example: Kazi" icon="contacts" >
                         </app-input-field>
                     </div>
                     <div class="right">
                         <app-input-field [control]="profileForm.controls.lastName" label="Last Name" type="text"
-                            placeHolder="example: Shuhat">
+                            placeHolder="example: Shuhat" >
                         </app-input-field>
                     </div>
                 </div>
 
 
                 <app-input-field [control]="profileForm.controls.email" icon="email" label="Email" type="email"
-                    placeHolder="Your Email">
+                    placeHolder="Your Email" readonly="true">
                 </app-input-field>
 
                 <app-input-field [control]="profileForm.controls.passport" icon="library_books" label="Passport"
-                    type="text" placeHolder="Passport">
+                    type="text" placeHolder="Passport" >
                 </app-input-field>
 
 
@@ -37,11 +37,11 @@
                 </mat-form-field>
 
                 <app-input-field [control]="profileForm.controls.country" icon="add_location" label="Country"
-                    type="text" placeHolder="Country">
+                    type="text" placeHolder="Country" >
                 </app-input-field>
 
                 <app-input-field [control]="profileForm.controls.phoneNumber" icon="phone" label="Phone Number"
-                    type="text" placeHolder="Phone Number">
+                    type="text" placeHolder="Phone Number" >
                 </app-input-field>
 
                 <button class="button-class" type='submit' (click)="updateProfile()">Confirm</button>
