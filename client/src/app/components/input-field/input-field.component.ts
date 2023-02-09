@@ -15,7 +15,6 @@ export class InputFieldComponent {
   @Input() id='';
   @Input() readonly='false';
   
-
  ngOnInit(){
  
  }

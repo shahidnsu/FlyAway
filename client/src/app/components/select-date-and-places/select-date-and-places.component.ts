@@ -24,10 +24,8 @@ export class SelectDateAndPlacesComponent implements OnInit {
 
   @Input() isSuccess!: Boolean
   @Input() isFailed!: Boolean
-  @Input()
-  addNewLocation!: () => void;
-  @Input()
-  travelFormArray: any;
+  @Input() addNewLocation!: () => void;
+  @Input() travelFormArray: any;
   travelForm!: FormGroup;
   @Input() flightNumber!: number;
   @Input() newLeg!: Object;
@@ -53,7 +51,6 @@ export class SelectDateAndPlacesComponent implements OnInit {
       from: new FormControl('', Validators.required),
       to: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required),
-
     });
 
     if (this.travelFormArray.length > 1) {
