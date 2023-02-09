@@ -57,7 +57,8 @@ h3 {
 }
 .hr-icon {
   position: absolute;
-  top: -0.7rem;
+  /* top: -0.7rem; */
+  top: -1.2rem;
   animation: icon-move 5s infinite;
 }
 @keyframes icon-move {

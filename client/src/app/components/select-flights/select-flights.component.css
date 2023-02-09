@@ -3,6 +3,10 @@ mat-card-title {
   margin-bottom: 0;
 }
 
+mat-icon {
+  color: gray;
+}
+
 ::ng-deep example-card { 
   margin-top: 0 !important; 
   margin-left: 0 !important; 
@@ -11,13 +15,6 @@ mat-card-title {
 
 .date-iata {
   font-size: 10px;
-  /* display: inline-block;
-  width: 180px; */
-  /* display:flex;
-  flex-direction:row; */
-  /* justify-content: space-around; */
-  /* margin-top: 1.5rem; */
-  /* color: #31305A;*/
 }
 
 .logo {
@@ -50,10 +47,6 @@ mat-card-title {
   0%{left: 0%;}
   100%{left: 80%;}
 }
-/* span {
-  display: inline-block;
-  vertical-align: middle;
-} */
 
 .priceBox {
   display:flex;

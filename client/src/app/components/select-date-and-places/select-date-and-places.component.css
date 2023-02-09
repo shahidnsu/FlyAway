@@ -23,7 +23,7 @@ form {
     margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(9, 190, 9);
+    background-color:#77DD77;
     color:white;
     padding: 5px 8px;
     border-radius: 8px;
@@ -31,7 +31,7 @@ form {
 .failed {
     padding: 5px 8px;
     border-radius: 8px;
-    background-color: red;
+    background-color: #ff6961;
     color:white;
     border-radius: 8px;
 }
