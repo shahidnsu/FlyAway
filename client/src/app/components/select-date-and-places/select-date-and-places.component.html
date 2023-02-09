@@ -1,4 +1,7 @@
 <form class="selectItem" [formGroup]="travelForm" (submit)="searchFlightFunc()">
+  <mat-card-header *ngIf="isLoading" style="color: green;margin-left: auto;margin-right: auto; text-align: center;margin-bottom: 1rem;">
+    <div class="loader"></div> Searching for available locations ...
+  </mat-card-header>
   <div class="iconControl">
     <mat-icon *ngIf="this.travelFormArray.length>1" (click)="openDialog()">remove_circle_outline</mat-icon>
   </div>

@@ -1,12 +1,25 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "jasmine"
-    ]
+<<<<<<< HEAD
+      "jest"
+    ],
+    "esModuleInterop": true, // 2
+    "emitDecoratorMetadata": true // 3
+=======
+      "jest",
+      "jest"
+    ],
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true
+>>>>>>> b4ed4300b0003f593616bdf5bbefb82e4fdb6b29
   },
+  "files": [
+    "src/test.ts",
+    "src/polyfills.ts"
+  ],
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"

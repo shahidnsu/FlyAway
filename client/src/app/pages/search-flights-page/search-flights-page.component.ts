@@ -147,19 +147,29 @@ export class SearchFlightsPageComponent implements OnInit {
         if (res.length) {
           this.isLoading = false;
           element.isSuccess = true;
+          setTimeout(()=>{
+            element.isSuccess = false;
+          },2000);
           element.isFailed = false;
           this.searchResults[index] = { ...values, availableFlights: res };
           this.searchFlightsLoading = false;
         } else {
           element.isSuccess = false;
-          element.isFailed = true;
+          setTimeout(()=>{
+            element.isFailed = true;
+          },2000);
         }
 
         this.checkDisable();
          setTimeout(()=>{
-            element.isSuccess = false;
-            element.isFailed = false;
-        },2000)
+            this.isLoading = false;
+        },2000);
+
+        setTimeout(()=>{
+          element.isSuccess = false;
+          element.isFailed = false;
+        },4000);
+
         console.log('Search results: ', this.searchResults);
       },
       error: (error) => {},
