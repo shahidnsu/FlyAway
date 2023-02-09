@@ -14,6 +14,10 @@
   display: none !important; 
 } 
 
+.confirmFlight {
+  margin-bottom: 10vh;
+}
+
 
 .pageHead{
   margin-left: 2rem;
