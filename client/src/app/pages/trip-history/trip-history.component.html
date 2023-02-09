@@ -3,12 +3,15 @@
 
 <div class="headText"> See your trips ...</div>
   <mat-card class="container" *ngFor="let trips of selectedTrips;let i = index" (click)="handleClick(trips)">
-      <mat-card-subtitle class="left"><mat-icon>flight</mat-icon><span style="flex-shrink: 1; align-self: center;"></span>Trip No {{i+1}}</mat-card-subtitle>
-      <mat-card-content class="right"  class="date-box"  *ngFor="let trip of trips.trip">
-        <div class="items" style="font-size:large; font-weight:400;">{{trip.segments[0].departure.iataCode | uppercase}} - {{trip.segments[trip.segments.length-1].arrival.iataCode | uppercase}}</div>
-        <div class="items" style="color:#31305a"><mat-icon>date_range</mat-icon><span style="flex-shrink: 1; align-self: center;">{{trip.segments[0].departure.at | date: "mediumDate" }}</span></div>
-        <!-- <div class="items"><mat-icon>alarm</mat-icon><span style="flex-shrink: 1; align-self: center;">{{trip.segments[0].departure.at | date: "h:mm a" }} </span></div> -->
-      </mat-card-content>
+      <mat-card-subtitle class="left"><span style="flex-shrink: 1; align-self: center;font-size:smaller"></span>{{i+1}}</mat-card-subtitle>
+      <div style="display: flex; flex-direction: column; flex-basis: 70%;">
+        <mat-card-content class="right"  class="date-box"  *ngFor="let trip of trips.trip">
+          <div class="items" style="font-size:medium; font-weight:400;">{{trip.segments[0].departure.iataCode | uppercase}} - {{trip.segments[trip.segments.length-1].arrival.iataCode | uppercase}}</div>
+          <div class="items" style="color:#31305a"><mat-icon>date_range</mat-icon><span style="flex-shrink: 1; align-self: center;">{{trip.segments[0].departure.at | date: "mediumDate" }}</span></div>
+          <!-- <div class="items"><mat-icon>alarm</mat-icon><span style="flex-shrink: 1; align-self: center;">{{trip.segments[0].departure.at | date: "h:mm a" }} </span></div> -->
+        </mat-card-content>
+      </div>
+      
 </mat-card>
 
 
