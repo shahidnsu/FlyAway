@@ -20,3 +20,4 @@ export class SuccessPageComponent {
       .subscribe((res) => console.log(res));
   }
 }
+
