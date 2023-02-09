@@ -72,7 +72,7 @@
 .viewFlightsBtn:disabled,
 .addLocationBtn:disabled {
   background-color: rgba(211, 211, 211, 0.51);
-  color: #31305a;
+  color: lightgray;
   border-color: rgba(211, 211, 211, 0.51);
 }
 
