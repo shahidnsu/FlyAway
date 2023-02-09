@@ -1,3 +1,20 @@
+
+::ng-deep mat-stepper {
+  margin: 0 !important;
+}
+
+::ng-deep .mat-step-icon {
+  border-radius: 50%;
+  height: 2rem !important;
+  width: 2rem !important;
+  background-color: #31305A;
+}
+
+::ng-deep .mat-step-icon-content { 
+  display: none !important; 
+} 
+
+
 .pageHead{
   margin-left: 2rem;
   /* margin-top: 1rem; */
@@ -16,7 +33,7 @@
   margin-left: 1rem;
 }
 
-::ng-deep .mat-vertical-stepper-content 
+/* ::ng-deep .mat-vertical-stepper-content 
 {
     visibility: visible !important;
     height: 100% !important;
@@ -31,7 +48,7 @@
 	height: 2rem !important;
 	width: 2rem !important;
 	background-color: #31305A;
-}
+} */
 
 
 
