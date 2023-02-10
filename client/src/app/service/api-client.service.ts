@@ -7,11 +7,10 @@ import { User } from '../interfaces/User';
 import { AuthService } from './auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiClientService {
-
-  rootUrl = "http://localhost:3000"
+  rootUrl = 'https://flyaway.fly.dev/';
   // token = this.auth.getToken();
   selectedFlights: Flight[] = [];
   totalPrice!: number;
@@ -26,17 +25,33 @@ export class ApiClientService {
     //     'Authorization': `${this.token}`
     //   }
     // };
-    return this.httpClient.get<User>(`${this.rootUrl}/profile`)
+    return this.httpClient.get<User>(`${this.rootUrl}/profile`);
   }
 
-  updateProfile(firstName: string, lastName: string, email: string, passport: string, dob: string, country: string, phoneNumber: string): Observable<User> {
+  updateProfile(
+    firstName: string,
+    lastName: string,
+    email: string,
+    passport: string,
+    dob: string,
+    country: string,
+    phoneNumber: string
+  ): Observable<User> {
     // const httpOptions = {
     //   headers: {
     //     'Content-Type': 'application/json',
     //     'Authorization': `${this.token}`
     //   }
     // };
-    return this.httpClient.put<User>(`${this.rootUrl}/profile`, { firstName, lastName, email, passport, dob, country, phoneNumber })
+    return this.httpClient.put<User>(`${this.rootUrl}/profile`, {
+      firstName,
+      lastName,
+      email,
+      passport,
+      dob,
+      country,
+      phoneNumber,
+    });
   }
 
   setSelectedFlights(selectedFlights: Flight[], totalPrice: number) {
@@ -52,13 +67,12 @@ export class ApiClientService {
     return this.totalPrice;
   }
 
-
   createTripList(tripObject: any): Observable<Trip> {
-    let user=this.auth.getUser();
-    let tripList={
-      trip:tripObject,
-      user:user
-    }
+    let user = this.auth.getUser();
+    let tripList = {
+      trip: tripObject,
+      user: user,
+    };
 
     // const httpOptions = {
     //   headers: {
@@ -66,8 +80,8 @@ export class ApiClientService {
     //     'Authorization': `${this.token}`
     //   }
     // };
-    
-    return this.httpClient.post<Trip>(`${this.rootUrl}/tripList`, tripList)
+
+    return this.httpClient.post<Trip>(`${this.rootUrl}/tripList`, tripList);
   }
 
   getTripList(): Observable<Trip[]> {

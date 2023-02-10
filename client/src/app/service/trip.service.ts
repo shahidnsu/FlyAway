@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { Trip } from '../interfaces/trip';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TripService {
-
   selectedTrip: Trip | undefined;
 
   constructor() { }
