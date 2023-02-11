@@ -13,8 +13,8 @@ fs.readFile(filePath, "utf8", function(err, data) {
 });
 //console.log(db)
 const amadeus = new Amadeus({
-    clientId: "Xk3oqx7VCr344IidedqmU3UK9Nr7yVRa",
-    clientSecret: "zBh2azNRJADQVa3W",
+    clientId: "iPZlOwgEBa3AuON4sqmrhUHA6CMbhP5m",
+    clientSecret: "755o5nczOdyP17eK",
 });
 
 const searchAirport = async (req, res) => {
